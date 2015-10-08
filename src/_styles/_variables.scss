@@ -1,0 +1,48 @@
+// Allows the use of rem-calc() or lower-bound()
+@import "../../components/foundation/scss/foundation/functions";
+
+// colors
+$white: #FFFFFF;
+$blue-darker: #0E1C40;
+$blue-dark: #18347B;
+$blue-medium: #3354A8;
+$blue-light: #4683E8;
+$gray-darkest: #2C3E50;
+$gray-darker: #565966;
+$gray-dark: #7A7D8C;
+$gray-medium: #748598;
+$gray-light: #DEDFE1;
+$gray-xlight: #F4F6F9;
+
+//override foundation variables
+$primary-color: $blue-light;
+
+$include-xl-html-grid-classes: true;
+$include-xl-html-block-grid-classes: true;
+
+$row-width: rem-calc(1100);
+
+$small-range: (0, 25em); // 0 – 400px
+$medium-range: (25.063em, 45em); // 401 – 720px
+$large-range: (45.063em, 60em); // 721 – 960px
+$xlarge-range: (60.063em, 90em); // 961 - 1440px
+$xxlarge-range: (90.063em, 99999999em); // 1441px +
+
+$column-gutter: rem-calc(60);
+$block-grid-default-spacing: rem-calc(30);
+$side-nav-link-padding: rem-calc(2 10);
+
+// typography
+
+$body-font-color: $gray-dark;
+$font-family-sans-serif: "Karla", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$font-family-monospace: Menlo, Consolas, "Liberation Mono", Courier, monospace;
+$header-font-family: $font-family-sans-serif;
+$header-font-color: $gray-darkest;
+$h1-font-size: rem-calc(36);
+$h2-font-size: rem-calc(32);
+$small-font-size: 80%;
+$subheader-top-margin: 2.5rem;
+$subheader-bottom-margin: 1rem;
+
+$side-nav-divider-color: transparent;

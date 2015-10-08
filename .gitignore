@@ -1,0 +1,7 @@
+node_modules
+dist
+html
+.DS_Store
+.idea
+*.log
+.publish

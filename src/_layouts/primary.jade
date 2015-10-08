@@ -1,0 +1,74 @@
+include ../_mixins/jademin
+
+-var bodyClass = '';
+block vars
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    block title
+      title Bitcore – Bitcoin Platform and API
+
+    block meta
+      meta(name='description', content='Build your bitcoin application on Bitcore.')
+
+      // Twitter Card data
+      meta(name='twitter:card', content='summary')
+      meta(name='twitter:site', content='@BitPay')
+      meta(name='twitter:title', content='Bitcore – Bitcoin Platform and API')
+      meta(name='twitter:description', content='Build your bitcoin application on Bitcore.')
+      meta(name='twitter:image', content='https://copay.io/images/social/card.jpg')
+
+      // Open Graph data (Facebook and Reddit)
+      meta(property='og:title', content='Bitcore – Bitcoin Platform and API')
+      meta(property='og:type', content='article')
+      meta(property='og:url', content='https://bitcore.io/')
+      meta(property='og:image', content='https://bitcore.io/images/social/avatar.png')
+      meta(property='og:description', content='Build your bitcoin application on Bitcore.')
+      meta(property='og:site_name', content='Bitcore.io')
+
+    // Add to homescreen for Chrome on Android
+    meta(name='mobile-web-app-capable', content='yes')
+    link(rel='icon', sizes='192x192', href='/images/touch/chrome-touch-icon-192x192.png')
+
+    // Add to homescreen for Safari on iOS
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style', content='black')
+    meta(name='apple-mobile-web-app-title', content='Bitcore' s18n-attrs="content")
+    link(rel='apple-touch-icon-precomposed', href='apple-touch-icon-precomposed.png')
+
+    // Tile icon for Win8 (144x144 + tile color)
+    meta(name='msapplication-TileImage', content='/images/touch/ms-touch-icon-144x144-precomposed.png')
+    meta(name='msapplication-TileColor', content='#1D3E92')
+    
+    // Favicon
+    link(rel="shortcut icon", href="/favicon.ico")
+    
+    link(rel='stylesheet', href='/styles/main.css' data-instant-track)
+    link(rel='stylesheet', type='text/css', href='//fonts.googleapis.com/css?family=Karla:400,400italic,700')
+    include ../_includes/head.html
+
+  body
+    .off-canvas-wrap.container(class='#{bodyClass}' data-offcanvas)
+      .inner-wrap
+        block content
+
+        block footer
+          include ../_includes/footer
+      
+        a.exit-off-canvas
+    
+    block scripts
+      +jademin('/scripts/main.min.js')
+        script(src='/foundation/js/vendor/jquery.js')
+        script(src='/foundation/js/vendor/modernizr.js')
+        script(src='/foundation/js/foundation/foundation.js')
+        script(src='/foundation/js/foundation/foundation.offcanvas.js')
+        script(src='/foundation/js/foundation/foundation.tooltip.js')
+        script(src='/instantclick/instantclick.js')
+        script(src='/wow/dist/wow.js')
+        script(src='/_scripts/init.js')
