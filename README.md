@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bitpay/bitcore-website.svg)](https://travis-ci.org/bitpay/bitcore-website) [![devDependency Status](https://david-dm.org/bitpay/bitcore-website/dev-status.svg)](https://david-dm.org/bitpay/bitcore-website#info=devDependencies) [![Stories in Ready](https://badge.waffle.io/bitpay/bitcore-website.png?label=ready&title=Ready)](https://waffle.io/bitpay/bitcore-website)
+[![Build Status](https://travis-ci.org/bitpay/bitcore-website.svg)](https://travis-ci.org/bitpay/bitcore-website) [![Dependency Status](https://david-dm.org/bitpay/bitcore-website.svg)](https://david-dm.org/bitpay/bitcore-website) [![devDependency Status](https://david-dm.org/bitpay/bitcore-website/dev-status.svg)](https://david-dm.org/bitpay/bitcore-website#info=devDependencies) [![Stories in Ready](https://badge.waffle.io/bitpay/bitcore-website.png?label=ready&title=Ready)](https://waffle.io/bitpay/bitcore-website)
 
 # Developing
 
