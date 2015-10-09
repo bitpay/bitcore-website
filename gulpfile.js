@@ -19,7 +19,8 @@ gulp.task('default', function(cb) {
 
 gulp.task('build', ['delete'], function(cb) {
   runSequence(
-    ['sass', 'jade', 'images', 'copy'], ['styles', 'jademin-uglify'],
+    ['sass', 'jade', 'images', 'copy', 'jscs-jshint'],
+    ['styles', 'jademin-uglify'],
     'hash',
     cb);
 });
@@ -28,7 +29,8 @@ gulp.task('build:dev', ['delete'], function(cb) {
   env.development = true;
   loadBrowserSync();
   runSequence(
-    ['sass', 'jade:dev', 'images', 'copy'], ['styles', 'jademin-uglify'],
+    ['sass', 'jade:dev', 'images', 'copy', 'jscs-jshint'],
+    ['styles', 'jademin-uglify'],
     cb);
 });
 
@@ -55,11 +57,16 @@ gulp.task('serve', ['build:dev'], function() {
     }
   });
 
-  gulp.watch(['src/_**/*.jade'], ['uncached-rebuild-jade', devDeps.reload]);
-  gulp.watch(['src/**/*.jade', '!src/_**/*.jade', 'src/**/*.html'], ['rebuild-jade', devDeps.reload]);
-  gulp.watch(['src/{_styles,styles}/**/*.{scss,css}'], ['rebuild-styles', devDeps.reload]);
-  gulp.watch(['*.js', 'tasks/*.js', 'src/**/*.js'], ['jshint']);
-  gulp.watch(['src/images/**/*'], ['images', devDeps.reload]);
+  gulp.watch(['src/_**/*.jade'],
+    ['uncached-rebuild-jade', devDeps.reload]);
+  gulp.watch(['src/**/*.jade', '!src/_**/*.jade', 'src/**/*.html'],
+    ['rebuild-jade', devDeps.reload]);
+  gulp.watch(['src/{_styles,styles}/**/*.{scss,css}'],
+    ['rebuild-styles', devDeps.reload]);
+  gulp.watch(['*.js', 'tasks/*.js', 'src/**/*.js'],
+    ['jscs-jshint', devDeps.reload]);
+  gulp.watch(['src/images/**/*'],
+    ['images', devDeps.reload]);
 });
 
 // Build and serve the output from the dist build
@@ -87,7 +94,9 @@ gulp.task('rebuild-styles', function(cb) {
 });
 
 // delete dist
-gulp.task('delete', del.bind(null, ['dist', 'html']));
+gulp.task('delete', function() {
+  return del(['dist', 'html']);
+});
 
 // Compile & autoprefix styles
 gulp.task('sass', function() {
@@ -151,7 +160,11 @@ gulp.task('hash', function() {
     dontRenameFile: [/^\/favicon.ico$/g, '.html'],
     fileNameVersion: 'version.json'
   });
-  return gulp.src(['dist/**/*.html', 'dist/**/*.css', 'dist/**/*.js', 'dist/images/**/*'], {
+  return gulp.src(
+    ['dist/**/*.html',
+     'dist/**/*.css',
+     'dist/**/*.js',
+     'dist/images/**/*'], {
       base: path.join(process.cwd(), 'dist')
     })
     .pipe($.revAllInstance.revision())
@@ -160,16 +173,25 @@ gulp.task('hash', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('jshint', function() {
-  return gulp.src(['*.js', 'tasks/*.js', 'src/**/*.js'])
-    .pipe($.cached('jshint'))
-    .pipe(devDeps.reload({
-      stream: true,
-      once: true
+gulp.task('jscs-jshint', function() {
+  return gulp.src(
+      ['./*.js',
+       './tasks/*.js',
+       './src/**/*.js'],
+      {base: './'})
+    .pipe($.cached('jscs-jshint'))
+    .pipe($.jscs({
+      fix: true
     }))
+    .pipe($.jscs.reporter())
+    .pipe($.if(!(devDeps.browserSync && devDeps.browserSync.active),
+      $.jscs.reporter('fail')))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.if(!(devDeps.browserSync && devDeps.browserSync.active), $.jshint.reporter('fail')));
+    .pipe($.if(!(devDeps.browserSync && devDeps.browserSync.active),
+      $.jshint.reporter('fail')))
+    // save jscs fixes
+    .pipe(gulp.dest('.'));
 });
 
 // Load custom tasks from the `tasks` directory
