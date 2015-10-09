@@ -13,19 +13,11 @@ function loadBrowserSync() {
   devDeps.reload = devDeps.browserSync.reload;
 }
 
-gulp.task('default', function(cb) {
-  runSequence('build', cb);
+gulp.task('default', ['build'], function(cb) {
+  runSequence('hash', cb);
 });
 
 gulp.task('build', ['delete'], function(cb) {
-  runSequence(
-    ['sass', 'jade', 'images', 'copy', 'jscs-jshint'],
-    ['styles', 'jademin-uglify'],
-    'hash',
-    cb);
-});
-
-gulp.task('build:dev', ['delete'], function(cb) {
   env.development = true;
   loadBrowserSync();
   runSequence(
@@ -35,7 +27,7 @@ gulp.task('build:dev', ['delete'], function(cb) {
 });
 
 // Watch for changes & reload
-gulp.task('serve', ['build:dev'], function() {
+gulp.task('serve', ['build'], function() {
   devDeps.browserSync({
     notify: false,
     logPrefix: 'serve',
@@ -93,9 +85,8 @@ gulp.task('rebuild-styles', function(cb) {
   runSequence('sass', 'styles', cb);
 });
 
-// delete dist
 gulp.task('delete', function() {
-  return del(['dist', 'html']);
+  return del(['dist']);
 });
 
 // Compile & autoprefix styles
