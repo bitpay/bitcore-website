@@ -1,36 +1,3 @@
-// Font colors
-
-.blue-light {
-  color: $blue-light;
-}
-
-.blue-medium {
-  color: $blue-medium;
-}
-
-.blue-dark {
-  color: $blue-dark;
-}
-
-.gray-dark {
-  color: $gray-dark;
-}
-
-.gray-medium {
-  color: $gray-medium;
-}
-
-.white {
-  color: #FFFFFF;
-  -webkit-font-smoothing: antialiased;
-  &:hover {
-    color: #FFFFFF;
-  }
-}
-
 ::selection {
-  background: #EBEBFF;
-}
-::-moz-selection {
-  background: #EBEBFF;
+  background: $selection-color;
 }

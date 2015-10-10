@@ -12,26 +12,22 @@ var uglifyJS = require('uglify-js');
 var jademinSrcs = {};
 
 gulp.task('jade', function() {
-  return jade();
-});
-
-gulp.task('jade:dev', function() {
-  return jade(true);
-});
-
-function jade(dev) {
   return gulp.src(['src/**/*.jade', '!src/_**/*.jade'])
     .pipe($.cached('jade'))
     .pipe($.plumber())
     .pipe($.jade({
-      pretty: dev,
+      pretty: (gulp.environment.development === true),
       locals: {
         getObjectFromJson: getObjectFromJson,
         jademin: jademinMixin
       }
     }))
     .pipe(gulp.dest('dist'));
-}
+});
+
+gulp.task('rebuild-jade', function(cb) {
+  runSequence('jade', 'jademin-uglify', cb);
+});
 
 gulp.task('uncached-rebuild-jade', function(cb) {
   delete $.cached.caches.jade;
@@ -54,7 +50,8 @@ gulp.task('jademin-uglify', function(cb) {
     var srcMapName = name + '.map';
     var contents = uglifyJS.minify(scriptPaths, {
       outSourceMap: srcMapName,
-      sourceRoot: '../'
+      sourceRoot: '../',
+      // warnings: true
     });
     async.parallel([
       function(cb3) {
