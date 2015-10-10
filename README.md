@@ -31,3 +31,9 @@ $ gulp deploy
 ```
 
 This builds for production, then deploys the dist folder to gh-pages.
+
+## Rebuild `generated` Markdown
+
+```sh
+$ gulp generate-markdown
+```
