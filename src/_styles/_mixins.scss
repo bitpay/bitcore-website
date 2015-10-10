@@ -1,7 +1,0 @@
-// generic mixins
-
-@mixin elementToClass($elem) {
-  .#{$elem}{
-      @extend #{$elem};
-  }
-}

@@ -1,35 +1,6 @@
-// Whenever possible, avoid adding to this file.
-// Styles should be abstracted from here into re-usable utilities.
-
-.background-element {
-  position: absolute;
-  width: 100%;
-  max-width: 1400px;
-  margin: auto;
-  display: block;
-  left: 0;
-  right: 0;
-}
-
-.home-logo {
-  display: inline-block;
-  margin: 0.25rem 1rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  vertical-align: middle;
-}
-
-html {
-  min-height: 100%;
-  height: inherit;
-}
+// extend all the things
 
 .section {
-  @extend .padding-vertical;
-  @extend .large-padding-vertical-most;
-}
-
-#instantclick-bar {
-  background: $blue-light;
+  // @extend .padding-vertical;
+  // @extend .large-padding-vertical-most;
 }
