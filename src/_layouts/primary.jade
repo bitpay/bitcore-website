@@ -50,7 +50,7 @@ html(lang='en')
     
     link(rel='stylesheet', href='/styles/main.css' data-instant-track)
     link(rel='stylesheet', type='text/css', href='//fonts.googleapis.com/css?family=Karla:400,400italic,700')
-    include ../_includes/head.html
+    include ../_includes/scripts.html
 
   body
     .off-canvas-wrap.container(class='#{bodyClass}' data-offcanvas)
@@ -64,11 +64,7 @@ html(lang='en')
     
     block scripts
       +jademin('/scripts/main.min.js')
-        script(src='/foundation/js/vendor/jquery.js')
-        script(src='/foundation/js/vendor/modernizr.js')
-        script(src='/foundation/js/foundation/foundation.js')
-        script(src='/foundation/js/foundation/foundation.offcanvas.js')
-        script(src='/foundation/js/foundation/foundation.tooltip.js')
+        script(src='/jquery/dist/jquery.js')
         script(src='/instantclick/instantclick.js')
-        script(src='/wow/dist/wow.js')
+        script(src='/bootstrap/dist/js/bootstrap.js')
         script(src='/_scripts/init.js')

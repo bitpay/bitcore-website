@@ -51,7 +51,7 @@ gulp.task('jademin-uglify', function(cb) {
     var contents = uglifyJS.minify(scriptPaths, {
       outSourceMap: srcMapName,
       sourceRoot: '../',
-      warnings: true
+      // warnings: true
     });
     async.parallel([
       function(cb3) {

@@ -1,20 +1,10 @@
 (function() {
   'use strict';
   InstantClick.on('change', function() {
-    jQuery(document).foundation();
     initSmoothScroll();
     window.analytics.page();
   });
   InstantClick.init();
-
-  var wow = new window.WOW({
-    'animateClass': 'animated',
-    'offset': 100,
-    // 'callback': function(box) {
-    //   console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
-    // }
-  });
-  wow.init();
 
   function initSmoothScroll() {
     //smooth scrolling on clicks
