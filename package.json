@@ -44,6 +44,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev-all": "^0.8.21",
     "gulp-sass": "^2.0.4",
+    "gulp-sass-lint": "^1.0.1",
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "jshint-stylish": "^2.0.1",
