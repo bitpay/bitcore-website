@@ -53,14 +53,13 @@ html(lang='en')
     include ../_includes/scripts.html
 
   body
-    .off-canvas-wrap.container(class='#{bodyClass}' data-offcanvas)
-      .inner-wrap
-        block content
+    
+    block content
 
-        block footer
-          include ../_includes/footer
-      
-        a.exit-off-canvas
+    block footer
+      include ../_includes/footer
+  
+    a.exit-off-canvas
     
     block scripts
       +jademin('/scripts/main.min.js')
