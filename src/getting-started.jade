@@ -3,14 +3,86 @@ extends _layouts/primary
 block content
   include _includes/main-menu.jade
   .section
-    .row
-      .column.large-8.large-offset-2.text-center
-        h1.white.fade-in.text-shadow Getting Started
-    .row
-      .column.large-8.large-offset-2.text-center
-        h3.white.medium-margin-top-less.fade-in.delay-4.text-shadow  An open source stack for building bitcoin and blockchain applications
-        .margin-top-less.fade-in.delay-4
-          a(href="#").uppercase.bold.white.btn.btn-orange.btn-margin.margin-top Get Started
-          a(href="#").uppercase.bold.white.btn.btn-green.btn-margin.margin-top Documentation
+    .container
+      .row
+        .col-sm-6
+          h1 Getting Started
+          h4 Spin up a node on the bitcoin network.
+          p Bitcore is kind of like express but for bitcoin servers. Each bitcoin node will be full capable of monitoring the network, making transactions, and storing the blockchain..
+        .col-sm-6
+          p Image goes here
+
+      .row
+        .col-sm-6
+          h4 Install Bitcore
+          p First install bitcore and then do some stuff
+        .col-sm-6
+          pre npm install -g bitcore
+
+      .row
+        .col-sm-6
+          h4 Create a node
+          p We are going to create a bitcore node here and call it <kbd>mynode</kbd>
+        .col-sm-6
+          pre bitcore create mynode <br />cd mynode
           
-          
+      .row
+        .col-sm-6
+          h4 Add a service
+          p Install both the insight UI and the insight API full featured block exploreres.
+        .col-sm-6
+          pre bitcore add insight-api insight-ui
+
+      .row
+        .col-sm-6
+          h4 Start your node
+          p First install bitcore and the do some stuff.
+        .col-sm-6
+          pre bitcore start
+
+  .section
+    .container
+      .row
+        h2.text-center Tutorials & Next Steps
+        p.text-center We’ve provided a few example projects for you depending on the direction your heading in. 
+      .row
+        .col-sm-4
+          .card
+            .card-img-top
+              .card-block
+                h4.card-title Satoshi Fire Alarm
+                p.card-text Learn how to interact with hardware functionallity 
+
+        .col-sm-4
+          .card
+            .card-img-top
+              .card-block
+                h4.card-title Lemonade Stand
+                p.card-text Learn how to build an online vendor that sells lemonade.
+
+        .col-sm-4
+          .card
+            .card-img-top
+              .card-block
+                h4.card-title I made this
+                p.card-text Learn how to tie specific information and embed it in the blockchain.
+
+
+  .section
+    .container
+      .row
+        .col-sm-6
+          h4 Documentation
+          p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+        .col-sm-6
+          h4 API Reference
+          p Go deep with the full API documentation. You should have this pulled up.
+
+    
+    
+    
+    
+    
+    
+    
+    
