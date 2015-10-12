@@ -20,7 +20,8 @@
   },
   "scripts": {
     "test": "gulp",
-    "start": "gulp serve"
+    "start": "node index.js",
+    "install": "gulp"
   },
   "engines": {
     "node": ">=0.12"
@@ -28,7 +29,9 @@
   "private": true,
   "dependencies": {
     "async": "1.4.2",
+    "compression": "^1.6.0",
     "del": "^2.0.2",
+    "express": "^4.13.3",
     "globby": "^3.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",

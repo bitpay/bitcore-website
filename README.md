@@ -1,20 +1,26 @@
 [![Build Status](https://travis-ci.org/bitpay/bitcore-website.svg)](https://travis-ci.org/bitpay/bitcore-website) [![Dependency Status](https://david-dm.org/bitpay/bitcore-website.svg)](https://david-dm.org/bitpay/bitcore-website) [![devDependency Status](https://david-dm.org/bitpay/bitcore-website/dev-status.svg)](https://david-dm.org/bitpay/bitcore-website#info=devDependencies) [![Stories in Ready](https://badge.waffle.io/bitpay/bitcore-website.png?label=ready&title=Ready)](https://waffle.io/bitpay/bitcore-website)
 
+# Run
+
+```sh
+$ npm install
+$ npm start
+```
+
 # Developing
 
 ```sh
 $ npm install -g gulp
-$ npm install
 $ gulp serve
 ```
 
-## Build
+## Production Build
 
 ```sh
 $ gulp
 ```
 
-Build and optimize the site, ready for deployment. This includes linting as well as image, script, stylesheet and HTML optimization and minification.
+Build and optimize the site, ready for deployment. This includes linting as well as image, script, stylesheet, and HTML optimization and minification.
 
 ## Serve Production Build
 
@@ -37,3 +43,5 @@ This builds for production, then deploys the dist folder to gh-pages.
 ```sh
 $ gulp generate-markdown
 ```
+
+This rebuilds all markdown in the `generated` directory.
