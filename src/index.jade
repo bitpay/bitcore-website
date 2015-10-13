@@ -2,54 +2,79 @@ extends _layouts/primary
 
 block content
 
-  .hero(role="navigation" style="background: #ffffff url('/images/iso-grid.png');")
-    .container
+  .hero.background-center(role="navigation" style="background: #ffffff url('/images/iso-grid.jpg'); background-position: center; background-repeat: no-repeat;")
+    .container.hero-container
       .row
-        .col-lg-4
-        .col-lg-4
-          .row
-            ul.nav.navbar-nav
-              li.nav-item
-                a.nav-link(href="/getting-started") Getting Started
-              li.nav-item
-                a.nav-link(href="/services") Services
-              li.nav-item
-                a.nav-link(href="/docs") Docs
-              li.nav-item
-                a.nav-link(href="/api") Api
-          .row
-            img(src="/images/bitcore-logo-dark.svg")
-            img(src="/images/bitcore-wordmark-dark.svg")
-            h5 An open source stack for building bitcoin and blockchain applications
-            p An open source stack for building bitcoin and blockchain applications
-          .row
-            button(href="/getting-started" type="button").btn.btn-primary Getting Started
-            button(href="/docs" type="button").btn.btn-secondary Documentation
-        .col-lg-4
-          
-  .section.grey-bg
+        .col-sm-12
+          ul.nav.navbar-nav.space-between
+            li.nav-item
+              a.nav-link(href="/getting-started") Getting Started
+            li.nav-item
+              a.nav-link(href="/services") Forum
+            li.nav-item
+              a.nav-link(href="/docs") API
+            li.nav-item
+              a.nav-link(href="/api") Documentation
+          img(src="/images/bitcore-logo-vertical-dark.svg").m-y-lg
+          h5.m-b-lg An open source stack that funs a full node for your bitcoin and blockchain app
+          button(href="/getting-started" type="button").btn.btn-primary Getting Started
+          button(href="/docs" type="button").btn.btn-secondary Documentation
+
+
+  .black-bg.p-y-md
     .container
-      .row
-        .col-sm-4
-        .col-sm-4
-          h2 Features
-          
-        .col-sm-4
-  
-  .section
+      h4.text-center Features
+
+
+  .section.white-bg
     .container
-      .row
-        .col-sm-4
-        .col-sm-4
-          h2 Services
-        .col-sm-4
+      h4.text-center Features
+      .row.p-y-lg.vertical-align
+        .col-lg-4.col-lg-offset-2
+          .test
+            h5 Open source
+            p This code is completely open source code, which means that you can go through.
+        .col-lg-4.text-center
+          img(src="/images/hex-placeholder.svg")
+      .row.p-y.vertical-align
+        .col-lg-4.col-lg-offset-2.text-center 
+          img(src="/images/hex-placeholder.svg")
+        .col-lg-4
+          h5 Full-Featured & Extensible
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper quam risus, sit amet
+      .row.p-y.vertical-align
+        .col-lg-4.col-lg-offset-2 
+          h5 Built on bitcoin core
+          p This code is completely open source code, which means that you can go through.
+        .col-lg-4.text-center
+          img(src="/images/hex-placeholder.svg")
+
+
     
-  .p-y-lg.grey-bg
+  .grey-bg.p-y-lg
     .container
-      
-        .col-sm-6
-          h4 Getting Started
+        .col-sm-6.p-r-lg.border-right-grey
+          h5.m-b Getting Started
           p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
-        .col-sm-6
-          h4 Documentation
+        .col-sm-6.p-l-lg
+          h5.m-b Documentation
           p Go deep with the full API documentation. You should have this pulled up.
+  
+  .section.white-bg
+    .container
+      h5.text-center.opacity-70.m-b-lg Projects Using Bitcore
+      .col-sm-8.col-lg-offset-2.text-center
+        a(href="")
+          img(src='/images/projects/counterparty.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/datt.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/pheeva.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/streamium.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/bitpay.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/blocktrail.svg', alt='').project-logo
+        a(href="")
+          img(src='/images/projects/copay.svg', alt='').project-logo

@@ -3,10 +3,7 @@
 .section {
   padding-top: $spacer-y * 1.5;
   padding-bottom: $spacer-y * 1.5;
-}
-
-@include media-breakpoint-up(md) {
-  .section {
+  @include media-breakpoint-up(md) {
     padding-top: $spacer-y * 6;
     padding-bottom: $spacer-y * 6;
   }
@@ -16,13 +13,39 @@
 .hero {
   text-align: center;
   height: 100%;
-  // this min-height should be the height of the isometric grid
-  min-height: 694px;
-  padding: 4em 0;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  .hero-container {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  @include media-breakpoint-down(md) {
+    min-height: 500px;
+  }
 }
 
+// Header
 
+.logo {
+  width: 161px;
+  height: 40px;
+  display: inline-block;
+  background-image: url("../images/bitcore-logo-horizontal-dark.svg");
+  background-repeat: no-repeat;
+  z-index: 2;
+  position: relative;
+}
 
+// Index
+.project-logo {
+  opacity: .5;
+  position: relative;
+  margin: 15px 30px;
+  &:hover {
+    opacity: .9;
+  }
+}
 
 // Getting Started
 .steps {
