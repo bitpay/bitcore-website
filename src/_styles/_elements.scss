@@ -13,15 +13,22 @@
 }
 
 
+.hero {
+  text-align: center;
+  height: 100%;
+  // this min-height should be the height of the isometric grid
+  min-height: 694px;
+  padding: 4em 0;
+}
+
+
+
 
 // Getting Started
 .steps {
   padding-top: $spacer-y;
   padding-bottom: $spacer-y;
 }
-
-
-
 
 .card {
   background: #FFFFFF;

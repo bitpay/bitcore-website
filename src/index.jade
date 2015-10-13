@@ -2,11 +2,11 @@ extends _layouts/primary
 
 block content
 
-  section
+  .hero(role="navigation" style="background: #ffffff url('/images/iso-grid.png');")
     .container
       .row
-        .col-sm-4
-        .col-sm-4
+        .col-lg-4
+        .col-lg-4
           .row
             ul.nav.navbar-nav
               li.nav-item
@@ -18,37 +18,38 @@ block content
               li.nav-item
                 a.nav-link(href="/api") Api
           .row
-            p.text-center logo
-            h3.white.medium-margin-top-less.fade-in.delay-4.text-shadow  An open source stack for building bitcoin and blockchain applications
+            img(src="/images/bitcore-logo-dark.svg")
+            img(src="/images/bitcore-wordmark-dark.svg")
+            h5 An open source stack for building bitcoin and blockchain applications
             p An open source stack for building bitcoin and blockchain applications
           .row
             button(href="/getting-started" type="button").btn.btn-primary Getting Started
             button(href="/docs" type="button").btn.btn-secondary Documentation
-        .col-sm-4
+        .col-lg-4
           
-    section.grey-bg
-      .container
-        .row
-          .col-sm-4
-          .col-sm-4
-            h2 Features
-            
-          .col-sm-4
+  .section.grey-bg
+    .container
+      .row
+        .col-sm-4
+        .col-sm-4
+          h2 Features
+          
+        .col-sm-4
+  
+  .section
+    .container
+      .row
+        .col-sm-4
+        .col-sm-4
+          h2 Services
+        .col-sm-4
     
-    section
-      .container
-        .row
-          .col-sm-4
-          .col-sm-4
-            h2 Services
-          .col-sm-4
+  .p-y-lg.grey-bg
+    .container
       
-    .p-y-lg.grey-bg
-      .container
-        
-          .col-sm-6
-            h4 Getting Started
-            p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
-          .col-sm-6
-            h4 Documentation
-            p Go deep with the full API documentation. You should have this pulled up.
+        .col-sm-6
+          h4 Getting Started
+          p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+        .col-sm-6
+          h4 Documentation
+          p Go deep with the full API documentation. You should have this pulled up.
