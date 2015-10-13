@@ -25,10 +25,11 @@
   }
 }
 
+// Header
+
 .logo {
   width: 161px;
   height: 40px;
-  // margin-top: .3rem;
   display: inline-block;
   background-image: url("../images/bitcore-logo-horizontal-dark.svg");
   background-repeat: no-repeat;
@@ -36,6 +37,15 @@
   position: relative;
 }
 
+// Index
+.project-logo {
+  opacity: .5;
+  position: relative;
+  margin: 15px 30px;
+  &:hover {
+    opacity: .9;
+  }
+}
 
 // Getting Started
 .steps {
