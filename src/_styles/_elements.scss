@@ -3,10 +3,7 @@
 .section {
   padding-top: $spacer-y * 1.5;
   padding-bottom: $spacer-y * 1.5;
-}
-
-@include media-breakpoint-up(md) {
-  .section {
+  @include media-breakpoint-up(md) {
     padding-top: $spacer-y * 6;
     padding-bottom: $spacer-y * 6;
   }
@@ -16,12 +13,21 @@
 .hero {
   text-align: center;
   height: 100%;
-  // this min-height should be the height of the isometric grid
-  min-height: 694px;
-  padding: 4em 0;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  .hero-container {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .logo {
+    display: block;
+    margin: 0 auto;
+  }
+  @include media-breakpoint-down(md) {
+    min-height: 500px;
+  }
 }
-
-
 
 
 // Getting Started

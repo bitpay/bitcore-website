@@ -2,30 +2,24 @@ extends _layouts/primary
 
 block content
 
-  .hero(role="navigation" style="background: #ffffff url('/images/iso-grid.png');")
-    .container
+  .hero.background-center(role="navigation" style="background: #ffffff url('/images/iso-grid.jpg'); background-position: center; background-repeat: no-repeat;")
+    .container.hero-container
       .row
-        .col-lg-4
-        .col-lg-4
-          .row
-            ul.nav.navbar-nav
-              li.nav-item
-                a.nav-link(href="/getting-started") Getting Started
-              li.nav-item
-                a.nav-link(href="/services") Services
-              li.nav-item
-                a.nav-link(href="/docs") Docs
-              li.nav-item
-                a.nav-link(href="/api") Api
-          .row
-            img(src="/images/bitcore-logo-dark.svg")
-            img(src="/images/bitcore-wordmark-dark.svg")
-            h5 An open source stack for building bitcoin and blockchain applications
-            p An open source stack for building bitcoin and blockchain applications
-          .row
-            button(href="/getting-started" type="button").btn.btn-primary Getting Started
-            button(href="/docs" type="button").btn.btn-secondary Documentation
-        .col-lg-4
+        .col-sm-12
+          ul.nav.navbar-nav.space-between
+            li.nav-item
+              a.nav-link(href="/getting-started") Getting Started
+            li.nav-item
+              a.nav-link(href="/services") Forum
+            li.nav-item
+              a.nav-link(href="/docs") API
+            li.nav-item
+              a.nav-link(href="/api") Documentation
+          img(src="/images/bitcore-logo-vertical-dark.svg").logo.m-y-lg
+          h5.m-y-lg An open source stack that funs a full node for your bitcoin and blockchain app
+          button(href="/getting-started" type="button").btn.btn-primary Getting Started
+          button(href="/docs" type="button").btn.btn-secondary Documentation
+
           
   .section.grey-bg
     .container
