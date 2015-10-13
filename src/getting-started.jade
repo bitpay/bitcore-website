@@ -2,44 +2,45 @@ extends _layouts/primary
 
 block content
   include _includes/main-menu.jade
-  .section.black-bg
+  .section.black-bg.p-b-0
     .container
       .row
-        .col-sm-6
-          h1.white Getting Started
-          h4.white.opacity-70 Spin up a node on the bitcoin network.
+        .col-lg-6
+          .m-b-lg
+            h1.white Getting Started
+            h4.white.opacity-70.m-y Spin up a node on the bitcoin network.
           p.white Bitcore is kind of like express but for bitcoin servers. Each bitcoin node will be full capable of monitoring the network, making transactions, and storing the blockchain..
-        .col-sm-6
-          p Image goes here
+        .col-lg-6
+          img.width-100(src="/images/icosahedron-spheres.png")
   
   .section
     .container
       .row.steps
-        .col-sm-6
+        .col-lg-6
           h4 Install Bitcore
           p First install bitcore and then do some stuff
-        .col-sm-6
+        .col-lg-6
           pre npm install -g bitcore
 
       .row.steps
-        .col-sm-6
+        .col-lg-6
           h4 Create a node
           p We are going to create a bitcore node here and call it mynode
-        .col-sm-6
+        .col-lg-6
           pre bitcore create mynode <br />cd mynode
           
       .row.steps
-        .col-sm-6
+        .col-lg-6
           h4 Add a service
           p Install both the insight UI and the insight API full featured block exploreres.
-        .col-sm-6
+        .col-lg-6
           pre bitcore add insight-api insight-ui
 
       .row.steps
-        .col-sm-6
+        .col-lg-6
           h4 Start your node
           p First install bitcore and the do some stuff.
-        .col-sm-6
+        .col-lg-6
           pre bitcore start
 
 
@@ -50,21 +51,21 @@ block content
         h2.text-center Tutorials & Next Steps
         p.text-center We’ve provided a few example projects for you depending on the direction your heading in. 
       .row
-        .col-sm-4
+        .col-lg-4
           .card
             img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
             .card-block
               h4.card-title Satoshi Fire Alarm
               p.card-text Learn how to interact with hardware functionallity 
 
-        .col-sm-4
+        .col-lg-4
           .card
             img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
             .card-block
               h4.card-title Lemonade Stand
               p.card-text Learn how to build an online vendor that sells lemonade.
 
-        .col-sm-4
+        .col-lg-4
           .card
             img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
             .card-block
