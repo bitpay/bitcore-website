@@ -1,9 +1,9 @@
 extends _layouts/primary
 
 block content
-  //- include _includes/main-menu.jade
-  .container
-    section
+
+  section
+    .container
       .row
         .col-sm-4
         .col-sm-4
@@ -25,25 +25,30 @@ block content
             button(href="/getting-started" type="button").btn.btn-primary Getting Started
             button(href="/docs" type="button").btn.btn-secondary Documentation
         .col-sm-4
+          
+    section.grey-bg
+      .container
+        .row
+          .col-sm-4
+          .col-sm-4
+            h2 Features
+            
+          .col-sm-4
+    
     section
       .container
         .row
           .col-sm-4
           .col-sm-4
+            h2 Services
           .col-sm-4
-        
       
-  
-  
-  //- .section
-  //-   .row
-  //-     .column.large-8.large-offset-2.text-center
-  //-       h1.white.fade-in.text-shadow Build your application on bitcore
-  //-   .row
-  //-     .column.large-8.large-offset-2.text-center
-  //-       h3.white.medium-margin-top-less.fade-in.delay-4.text-shadow  An open source stack for building bitcoin and blockchain applications
-  //-       .margin-top-less.fade-in.delay-4
-  //-         a(href="#").uppercase.bold.white.btn.btn-orange.btn-margin.margin-top Get Started
-  //-         a(href="#").uppercase.bold.white.btn.btn-green.btn-margin.margin-top Documentation
-  //-         
-          
+    .p-y-lg.grey-bg
+      .container
+        
+          .col-sm-6
+            h4 Getting Started
+            p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+          .col-sm-6
+            h4 Documentation
+            p Go deep with the full API documentation. You should have this pulled up.
