@@ -1,10 +1,15 @@
 (function() {
   'use strict';
   InstantClick.on('change', function() {
-    initSmoothScroll();
-    window.analytics.page();
+    pageInitialize(window);
   });
   InstantClick.init();
+
+  function pageInitialize(window) {
+    initSmoothScroll();
+    window.hljs.initHighlighting();
+    window.analytics.page();
+  }
 
   function initSmoothScroll() {
     //smooth scrolling on clicks

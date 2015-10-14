@@ -16,7 +16,7 @@ var repos = [
   'bitcore-payment-protocol'
 ];
 
-gulp.task('generate-markdown', ['delete-generated'], function(cb) {
+gulp.task('rebuild-generated-markdown', ['delete-generated'], function(cb) {
   runSequence(['copy-docs', 'extract-jsdocs'], cb);
 });
 

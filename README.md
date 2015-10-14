@@ -41,7 +41,13 @@ This builds for production, then deploys the dist folder to gh-pages.
 ## Rebuild `generated` Markdown
 
 ```sh
-$ gulp generate-markdown
+$ gulp rebuild-generated-markdown
 ```
 
 This rebuilds all markdown in the `generated` directory.
+
+## Rebuild Highlight.js Component
+
+```sh
+$ npm run rebuild-highlight-js
+```
