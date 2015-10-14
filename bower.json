@@ -6,6 +6,7 @@
   "dependencies": {
     "angular": "~1.4.7",
     "bootstrap": "git@github.com:twbs/bootstrap.git#v4-dev",
-    "instantclick": "~3.1.0"
+    "instantclick": "~3.1.0",
+    "highlight": "~8.8.0"
   }
 }
