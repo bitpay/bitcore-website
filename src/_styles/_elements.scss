@@ -29,13 +29,20 @@
 // Header
 
 .logo {
-  background-image: url('../images/bitcore-logo-horizontal-dark.svg');
   background-repeat: no-repeat;
   display: inline-block;
   height: 40px;
   position: relative;
   width: 161px;
   z-index: 2;
+}
+
+.logo-dark {
+  background-image: url('../images/bitcore-logo-horizontal-dark.svg');
+}
+
+.logo-light {
+  background-image: url('../images/bitcore-logo-horizontal-light.svg');
 }
 
 // Index
