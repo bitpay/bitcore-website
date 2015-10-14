@@ -1,6 +1,9 @@
 extends ../_layouts/api
 
 block content
-  h1 API Documentation
-  p.lead This is the description.
-  include:marked ../../generated/bitcore/docs/examples.md
+  .api-content
+    .docs.bg-white
+      .container
+        h1 API Documentation
+        p.lead This is the description.
+        include:marked ../../generated/bitcore/docs/examples.md

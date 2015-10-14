@@ -10,37 +10,40 @@
 }
 
 .hero {
-  text-align: center;
-  height: 100%;
-  min-height: 700px;
-  display: flex;
-  align-items: center;
-  .hero-container {
-    max-width: 420px;
-    margin: 0 auto;
-  }
   @include media-breakpoint-down(md) {
     min-height: 500px;
+  }
+
+  align-items: center;
+  display: flex;
+  height: 100%;
+  min-height: 700px;
+  text-align: center;
+
+  .hero-container {
+    margin: 0 auto;
+    max-width: 420px;
   }
 }
 
 // Header
 
 .logo {
-  width: 161px;
-  height: 40px;
-  display: inline-block;
-  background-image: url("../images/bitcore-logo-horizontal-dark.svg");
+  background-image: url('../images/bitcore-logo-horizontal-dark.svg');
   background-repeat: no-repeat;
-  z-index: 2;
+  display: inline-block;
+  height: 40px;
   position: relative;
+  width: 161px;
+  z-index: 2;
 }
 
 // Index
 .project-logo {
+  margin: 15px 30px;
   opacity: .5;
   position: relative;
-  margin: 15px 30px;
+
   &:hover {
     opacity: .9;
   }
@@ -48,17 +51,33 @@
 
 // Getting Started
 .steps {
-  padding-top: $spacer-y;
   padding-bottom: $spacer-y;
+  padding-top: $spacer-y;
 }
 
 .card {
-  background: #FFFFFF;
-  border: 1px solid #DCDCDC;
-  box-shadow: 0px 2px 0px 0px #D1D1D1;
+  background: $white;
+  border: 1px solid $card-border-color;
   border-radius: 10px;
+  box-shadow: 0 2px 0 0 $card-box-shadow-color;
 
   .card-block {
-    border-top: 1px solid #DCDCDC;
+    border-top: 1px solid $card-border-color;
   }
+}
+
+
+// API
+
+.fixed-sidebar {
+  height: 100%;
+  left: 0;
+  padding-top: 60px;
+  position: fixed;
+  width: 250px;
+}
+
+.scroll-content {
+  padding-left: 250px;
+  padding-top: 60px;
 }

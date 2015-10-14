@@ -2,17 +2,22 @@
 
 // colors
 
-$white:       #ffffff;
-$border:      #E6E6E6;
+$white:       #fff;
+$border:      #e6e6e6;
 
-$bc-black:    #4A4A4A;
-$bc-orange:   #F9B544;
-$bc-grey:     #F9F9F9;
+$bc-black:    #4a4a4a;
+$bc-orange:   #f9b544;
+$bc-grey:     #f9f9f9;
 
 
 $selection-color: #ebebff;
 $instantclick-bar-color: $bc-orange;
 
+$card-border-color: #dcdcdc;
+$card-box-shadow-color: #d1d1d1;
+
+$pre-background-color: #f9f9f9;
+$pre-box-shadow-color: #eae9e9;
 
 // Bootstrap Overrides
 $body-bg:                   $bc-black;

@@ -1,15 +1,24 @@
 extends ../_layouts/primary
 
 append vars
-  -bodyClass = 'white-bg';
+  //- -bodyClass = 'bg-white';
 
 block footer
 
-block page
-  .container-fluid
-    .row
-      .col-md-2.grey-bg.fixed-sidebar
-        block menu
-              
-      .col-md-9.col-md-offset-3.p-x-0
-        block content
+//- block page
+//-   .container-fluid
+//-     .row
+//-       .col-md-2.bg-gray.fixed-sidebar
+//-         block menu
+//-               
+//-       .col-md-9.col-md-offset-3.p-x-0
+//-         block content
+
+block body
+  include ../_includes/top-nav-fluid
+  
+  .fixed-sidebar.bg-gray
+    block menu
+  
+  .scroll-content
+      block content
