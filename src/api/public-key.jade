@@ -1,0 +1,11 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Public Key';
+  -var description = 'A simple interface for handling private keys.';
+
+block docs
+  include:marked ../../generated/bitcore/docs/publickey.md
+
+block lib
+  include:marked ../../generated/bitcore/lib/publickey.md
