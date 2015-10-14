@@ -5,10 +5,13 @@
 $white:       #fff;
 $border:      #e6e6e6;
 
-$bc-dark:    #5b5b5b;
-$bc-darker:  #4a4a4a;
-$bc-orange:   #f9b544;
-$bc-grey:     #f9f9f9;
+
+$bc-orange:       #f9b544;
+$bc-dark:         #5b5b5b;
+$bc-darker:       #4a4a4a;
+
+$bc-dark-grey:    #7e7e7e;
+$bc-grey:         #f9f9f9;
 
 
 $selection-color: #ebebff;
@@ -26,4 +29,8 @@ $brand-primary:             $bc-orange;
 $body-color:                $bc-darker;
 
 
-$input-bg:                  #fff;
+$input-bg:                  $bc-dark;
+$input-color:               $white;
+$input-border:              $bc-dark-grey;
+$input-border-focus:        $white;
+$input-box-shadow-focus:    $white;
