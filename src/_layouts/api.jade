@@ -1,0 +1,30 @@
+extends ../_layouts/two-column
+
+block menu
+  h3 Bitcore
+  mixin item(name, slug)
+    li.nav-item
+      a(href="/api/#{slug}").nav-link #{name}
+  ul.nav.nav-pills.nav-stacked
+    +item('Address', 'address')
+    +item('Block', 'block')
+    +item('Browser', 'browser')
+    +item('Crypto', 'crypto')
+    +item('Encoding', 'encoding')
+    +item('HD Keys', 'hd-keys')
+    +item('Networks', 'networks')
+    +item('Private Key', 'private-key')
+    +item('Public Key', 'public-key')
+    +item('Script', 'script')
+    +item('Transaction', 'transaction')
+    +item('Unit', 'unit')
+    +item('Unspent Output', 'unspent-output')
+    +item('URI', 'uri')
+
+block content
+  .api-content
+    .docs
+      block docs
+    .lib
+      h1 API Specification
+      block lib

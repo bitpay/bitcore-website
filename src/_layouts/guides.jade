@@ -1,0 +1,11 @@
+extends ../_layouts/two-column
+
+block menu
+  h3 Bitcore
+  mixin item(name, slug)
+    li.nav-item
+      a(href="/guides/#{slug}").nav-link #{name}
+  ul.nav.nav-pills.nav-stacked
+    +item('Guide 1', '#')
+    +item('Guide 2', '#')
+    +item('Guide 3', '#')

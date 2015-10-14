@@ -1,0 +1,16 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Block';
+  -var description = 'A simple interface to parse and validate a bitcoin blocks.';
+
+block docs
+  include:marked ../../generated/bitcore/docs/block.md
+  
+block lib
+  .section
+    include:marked ../../generated/bitcore/lib/block/block.md
+  .section
+    include:marked ../../generated/bitcore/lib/block/blockheader.md
+  .section
+    include:marked ../../generated/bitcore/lib/block/merkleblock.md

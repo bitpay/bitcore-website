@@ -1,7 +1,19 @@
 include ../_mixins/jademin
 
--var bodyClass = '';
 block vars
+  //- defaults – `append vars` to modify
+  -var title = 'Bitcoin Platform and API';
+  -var description = 'Build your bitcoin application on Bitcore.';
+  -var twitterCard = 'https://copay.io/images/social/card.jpg';
+  -var ogSiteUrl = 'Bitcore.io';
+  -var ogSiteName = 'Bitcore.io';
+  -var ogImage = 'https://bitcore.io/images/social/avatar.png';
+  -var appleTouchTitle = 'Bitcore';
+  -var appleTouchIcon = 'apple-touch-icon-precomposed.png';
+  -var androidIcon = '/images/touch/chrome-touch-icon-192x192.png';
+  -var wintileIcon = '/images/touch/ms-touch-icon-144x144-precomposed.png';
+  -var wintileColor = '#1D3E92';
+  -var bodyClass = '';
 
 doctype html
 html(lang='en')
@@ -11,39 +23,39 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
     block title
-      title Bitcore – Bitcoin Platform and API
+      title #{title} | Bitcore
 
     block meta
-      meta(name='description', content='Build your bitcoin application on Bitcore.')
+      meta(name='description', content='#{description}')
 
       // Twitter Card data
       meta(name='twitter:card', content='summary')
       meta(name='twitter:site', content='@BitPay')
-      meta(name='twitter:title', content='Bitcore – Bitcoin Platform and API')
-      meta(name='twitter:description', content='Build your bitcoin application on Bitcore.')
-      meta(name='twitter:image', content='https://copay.io/images/social/card.jpg')
+      meta(name='twitter:title', content='#{title}')
+      meta(name='twitter:description', content='#{description}')
+      meta(name='twitter:image', content='#{twitterCard}')
 
       // Open Graph data (Facebook and Reddit)
-      meta(property='og:title', content='Bitcore – Bitcoin Platform and API')
+      meta(property='og:title', content='#{title}')
       meta(property='og:type', content='article')
       meta(property='og:url', content='https://bitcore.io/')
-      meta(property='og:image', content='https://bitcore.io/images/social/avatar.png')
-      meta(property='og:description', content='Build your bitcoin application on Bitcore.')
-      meta(property='og:site_name', content='Bitcore.io')
+      meta(property='og:image', content='#{ogImage}')
+      meta(property='og:description', content='#{description}')
+      meta(property='og:site_name', content='#{ogSiteName}')
 
     // Add to homescreen for Chrome on Android
     meta(name='mobile-web-app-capable', content='yes')
-    link(rel='icon', sizes='192x192', href='/images/touch/chrome-touch-icon-192x192.png')
+    link(rel='icon', sizes='192x192', href='#{androidIcon}')
 
     // Add to homescreen for Safari on iOS
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
-    meta(name='apple-mobile-web-app-title', content='Bitcore' s18n-attrs="content")
-    link(rel='apple-touch-icon-precomposed', href='apple-touch-icon-precomposed.png')
+    meta(name='apple-mobile-web-app-title', content='#{appleTouchTitle}')
+    link(rel='apple-touch-icon-precomposed', href='#{appleTouchIcon}')
 
     // Tile icon for Win8 (144x144 + tile color)
-    meta(name='msapplication-TileImage', content='/images/touch/ms-touch-icon-144x144-precomposed.png')
-    meta(name='msapplication-TileColor', content='#1D3E92')
+    meta(name='msapplication-TileImage', content='#{wintileIcon}')
+    meta(name='msapplication-TileColor', content='#{wintileColor}')
     
     // Favicon
     link(rel="shortcut icon", href="/favicon.ico")
@@ -52,9 +64,11 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='//fonts.googleapis.com/css?family=Karla:400,400italic,700')
     include ../_includes/scripts.html
 
-  body
+  body(class="#{bodyClass}")
     
-    block content
+    block body
+      include ../_includes/top-nav
+      block page
 
     block footer
       include ../_includes/footer
