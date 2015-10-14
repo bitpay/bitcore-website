@@ -1,0 +1,88 @@
+.docs {
+  h2 {
+    @extend .m-t-lg
+  }
+
+
+}
+
+
+
+
+
+
+.lib {
+  color: $white;
+
+  // title of section
+  h2{
+
+  }
+
+  // function name
+  h3 {
+    margin-top: 3em;
+    font-family: monospace;
+    color: $bc-orange;
+    font-size: 1.25em;
+  }
+
+  // body text
+  p{
+    opacity: 0.9;
+  }
+
+
+  // The table of contents
+  ul {
+    display: table;
+    background-color: $bc-grey;
+    color: $bc-dark;
+    list-style: none;
+    border-left: 1px solid $border;
+    padding: 1.2em;
+    border-radius: 7px;
+    li{
+
+    }
+  }
+
+  // inline code
+  code {
+    background-color: $bc-darker;
+    color: $bc-grey;
+  }
+
+  // table for params
+  table {
+    margin: 2em;
+    th, td {
+       border: 1px solid black;
+       padding: 1em;
+    }
+    thead {
+      background-color: $bc-darker;
+    }
+    tbody {
+
+    }
+  }
+
+  // Code Examples?
+  pre {
+    color: $white;
+    background-color: $bc-darker;
+    &:before {
+        content: "Example";
+        display: block;
+        background-color: $bc-orange;
+        margin-bottom: 1em;
+    }
+    code {
+      margin-left: 1em;
+    }
+  }
+
+
+
+}
