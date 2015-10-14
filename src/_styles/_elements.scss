@@ -74,6 +74,25 @@
 }
 
 
+// Layout
+
+.menu-header {
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-top: 2em;
+  margin-left: 2em;
+  text-transform: uppercase;
+}
+
+
+// This overrides the default spacing for bootstrap nav-pills
+.nav-pills .nav-link {
+  color: $bc-dark;
+  padding: 0.1em 1em;
+  margin-left: 2em;
+}
+
+
 // API
 
 .fixed-sidebar {
@@ -83,6 +102,7 @@
   position: fixed;
   width: 250px;
 }
+
 
 .scroll-content {
   padding-left: 250px;
