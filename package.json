@@ -16,14 +16,12 @@
     "gulp-gh-pages": "^0.5.2",
     "gulp-jsdoc-to-markdown": "^1.1.1",
     "gulp-prefix": "0.0.14",
-    "gulp-replace": "^0.5.4",
-    "highlight.js": "isagalaev/highlight.js"
+    "gulp-replace": "^0.5.4"
   },
   "scripts": {
     "test": "gulp",
     "start": "node index.js",
-    "install": "gulp",
-    "rebuild-highlight-js": "cd node_modules/highlight.js; npm install; node tools/build.js -n javascript css xml bash; gulp copy-highlight-js"
+    "install": "gulp"
   },
   "engines": {
     "node": ">=0.12"
