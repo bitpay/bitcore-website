@@ -24,6 +24,15 @@
     margin: 0 auto;
     max-width: 420px;
   }
+
+  a {
+    font-size: 12px;
+    color: $bc-darker;
+    letter-spacing: 0.77px;
+    line-height: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
 
 // Header
