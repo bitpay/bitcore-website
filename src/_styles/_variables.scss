@@ -5,7 +5,8 @@
 $white:       #fff;
 $border:      #e6e6e6;
 
-$bc-black:    #4a4a4a;
+$bc-dark:    #5b5b5b;
+$bc-darker:  #4a4a4a;
 $bc-orange:   #f9b544;
 $bc-grey:     #f9f9f9;
 
@@ -20,6 +21,9 @@ $pre-background-color: #f9f9f9;
 $pre-box-shadow-color: #eae9e9;
 
 // Bootstrap Overrides
-$body-bg:                   $bc-black;
+$body-bg:                   $bc-darker;
 $brand-primary:             $bc-orange;
-$body-color:                $bc-black;
+$body-color:                $bc-darker;
+
+
+$input-bg:                  #fff;
