@@ -1,0 +1,11 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Private Key';
+  -var description = 'A simple interface to generate, import, and handle private keys.';
+
+block docs
+  include:marked ../../generated/bitcore/docs/privatekey.md
+
+block lib
+  include:marked ../../generated/bitcore/lib/privatekey.md

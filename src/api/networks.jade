@@ -1,0 +1,11 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Networks';
+  -var description = 'A simple interface to handle livenet and testnet bitcoin networks.';
+
+block docs
+  include:marked ../../generated/bitcore/docs/networks.md
+
+block lib
+  include:marked ../../generated/bitcore/lib/networks.md
