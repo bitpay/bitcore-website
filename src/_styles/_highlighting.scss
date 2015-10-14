@@ -1,0 +1,120 @@
+$highlighting-white: #f8f8f2;
+$highlighting-gray: #708090;
+$highlighting-black: #272822;
+$highlighting-red: #f92672;
+$highlighting-purple: #ae81ff;
+$highlighting-yellow: #a6e22e;
+$highlighting-lightyellow: #e6db74;
+$highlighting-turquoise: #66d9ef;
+$highlighting-orange: #fd971f;
+
+$highlighting-text-shadow: rgba(0, 0, 0, .3);
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: $highlighting-white;
+  direction: ltr;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 4;
+  text-align: left;
+  text-shadow: 0 1px $highlighting-text-shadow;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+// Code blocks
+pre[class*='language-'] {
+  border-radius: .3em;
+  margin: .5em 0;
+  overflow: auto;
+  padding: 1em;
+}
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: $highlighting-black;
+}
+
+// Inline code
+:not(pre) > code[class*='language-'] {
+  border-radius: .3em;
+  padding: .1em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: $highlighting-gray;
+}
+
+.token.punctuation {
+  color: $highlighting-white;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: $highlighting-red;
+}
+
+.token.boolean,
+.token.number {
+  color: $highlighting-purple;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: $highlighting-yellow;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: $highlighting-white;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: $highlighting-lightyellow;
+}
+
+.token.keyword {
+  color: $highlighting-turquoise;
+}
+
+.token.regex,
+.token.important {
+  color: $highlighting-orange;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

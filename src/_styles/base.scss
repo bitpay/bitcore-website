@@ -1,6 +1,6 @@
 @import 'variables', '../../components/bootstrap/scss/bootstrap';
 
-@import 'typography', 'colors', 'borders', 'backgrounds';
+@import 'typography', 'colors', 'borders', 'backgrounds', 'highlighting';
 
 @import 'elements';
 
@@ -11,5 +11,3 @@
 @import 'api';
 
 @import 'shame';
-
-@import '../../components/prism/themes/prism-okaidia';
