@@ -1,39 +1,20 @@
 .docs {
   h2 {
-    @extend .m-t-lg
+    @extend.m-t-lg
   }
-
-
 }
-
-
-
-
-
 
 .lib {
   color: $white;
-
-  // title of section
-  h2{
-
-  }
-
-  // function name
   h3 {
-    margin-top: 3em;
-    font-family: monospace;
     color: $bc-orange;
+    font-family: monospace;
     font-size: 1.25em;
+    margin-top: 3em;
   }
-
-  // body text
-  p{
+  p {
     opacity: 0.9;
   }
-
-
-  // The table of contents
   ul {
     display: table;
     background-color: $bc-grey;
@@ -41,19 +22,11 @@
     list-style: none;
     border-left: 1px solid $border;
     padding: 1.2em;
-    // border-radius: 7px;
-    li{
-
-    }
   }
-
-  // inline code
   code {
     background-color: $bc-darker;
     color: $bc-grey;
   }
-
-  // table for params
   table {
     margin: 2em;
     th, td {
@@ -63,12 +36,7 @@
     thead {
       background-color: $bc-darker;
     }
-    tbody {
-
-    }
   }
-
-  // Code Examples?
   pre {
     color: $white;
     background-color: $bc-darker;
