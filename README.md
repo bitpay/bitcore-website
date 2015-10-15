@@ -45,9 +45,3 @@ $ gulp rebuild-generated-markdown
 ```
 
 This rebuilds all markdown in the `generated` directory.
-
-## Rebuild Highlight.js Component
-
-```sh
-$ npm run rebuild-highlight-js
-```

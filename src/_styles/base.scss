@@ -1,6 +1,8 @@
 @import 'variables', '../../components/bootstrap/scss/bootstrap';
 
-@import 'typography', 'colors', 'borders', 'backgrounds', 'buttons';
+
+@import 'typography', 'colors', 'borders', 'backgrounds', 'buttons', 'highlighting';
+
 
 @import 'elements';
 
@@ -11,5 +13,3 @@
 @import 'api';
 
 @import 'shame';
-
-@import '../../components/highlight.js/styles/obsidian';

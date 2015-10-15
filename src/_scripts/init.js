@@ -7,7 +7,7 @@
 
   function pageInitialize(window) {
     initSmoothScroll();
-    window.hljs.initHighlighting();
+    window.Prism.highlightAll();
     window.analytics.page();
   }
 
