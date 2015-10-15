@@ -40,12 +40,6 @@
   pre {
     color: $white;
     background-color: $bc-darker;
-    &:before {
-        content: "Example";
-        display: block;
-        background-color: $bc-orange;
-        margin-bottom: 1em;
-    }
     code {
       margin-left: 1em;
     }
