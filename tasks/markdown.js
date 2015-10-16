@@ -23,7 +23,15 @@ gulp.task('update-generated-markdown', function(cb) {
 });
 
 gulp.task('update-repo-sources', ['delete-downloads'], function(cb) {
-  runSequence(['mkdir-downloads'], ['download-repos'], ['extract-repo-contents'], ['delete-tgzs'], cb);
+  runSequence([
+    'mkdir-downloads'
+  ], [
+    'download-repos'
+  ], [
+    'extract-repo-contents'
+  ], [
+    'delete-tgzs'
+  ], cb);
 });
 
 gulp.task('rebuild-generated-markdown', ['delete-generated'], function(cb) {
@@ -35,7 +43,10 @@ var downloadCmds = repos.map(function(repo) {
   return 'cd downloads/tgzs; npm pack ' + repo;
 });
 
-gulp.task('mkdir-downloads', $.shell.task('mkdir downloads; mkdir downloads/tgzs;'));
+gulp.task('mkdir-downloads', $.shell.task(
+  'mkdir downloads; mkdir downloads/tgzs;'
+));
+
 gulp.task('download-repos', $.shell.task(downloadCmds));
 
 gulp.task('extract-repo-contents', function() {

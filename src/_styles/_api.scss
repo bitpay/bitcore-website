@@ -6,40 +6,50 @@
 
 .lib {
   color: $white;
+
   h3 {
     color: $bc-orange;
     font-family: monospace;
     font-size: 1.25em;
     margin-top: 3.5em;
   }
+
   p {
-    opacity: 0.9;
+    opacity: .9;
   }
+
   ul {
-    display: table;
     background-color: $bc-grey;
-    color: $bc-dark;
-    list-style: none;
     border-left: 1px solid $border;
+    color: $bc-dark;
+    display: table;
+    list-style: none;
     padding: 1.2em;
   }
+
   code {
     background-color: $bc-darker;
     color: $bc-grey;
   }
+
   table {
     margin: 2em;
-    th, td {
-       border: 1px solid black;
-       padding: 1em;
+
+    th,
+    td {
+      border: 1px solid $black;
+      padding: 1em;
     }
+
     thead {
       background-color: $bc-darker;
     }
   }
+
   pre {
-    color: $white;
     background-color: $bc-darker;
+    color: $white;
+
     code {
       margin-left: 1em;
     }

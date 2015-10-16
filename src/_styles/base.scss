@@ -1,12 +1,14 @@
 @import 'variables', '../../components/bootstrap/scss/bootstrap';
+@import 'variables', '../../components/bootstrap/scss/bootstrap';
+
+@import '../../components/animatewithsass/properties';
+@import '../../components/animatewithsass/_fading-entrances/fading-entrances';
 
 
 @import 'typography', 'colors', 'borders', 'backgrounds', 'buttons', 'highlighting';
 
 
 @import 'elements';
-
-@import 'animations/general';
 
 @import 'utils';
 

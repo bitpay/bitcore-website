@@ -7,6 +7,7 @@
     "angular": "~1.4.7",
     "bootstrap": "git@github.com:twbs/bootstrap.git#v4-dev",
     "instantclick": "~3.1.0",
-    "prism": "~1.2.0"
+    "prism": "~1.2.0",
+    "animatewithsass": "geoffgraham/animate.scss#~3.2.1"
   }
 }
