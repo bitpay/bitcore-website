@@ -3,7 +3,7 @@
 # Run
 
 ```sh
-$ npm install --production
+$ npm install
 $ npm start
 ```
 

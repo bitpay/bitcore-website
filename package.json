@@ -19,7 +19,7 @@
     "install": "gulp"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": "^0.12.7"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +38,7 @@
     "gulp-jade": "^1.1.0",
     "gulp-jscs": "^3.0.1",
     "gulp-jshint": "^1.11.2",
-    "gulp-load-plugins": "^0.10.0",
+    "gulp-load-plugins": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-rev-all": "^0.8.21",

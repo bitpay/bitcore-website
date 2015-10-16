@@ -24,6 +24,7 @@ gulp.task('build', ['delete'], function(cb) {
       'jade',
       'images',
       'copy',
+      'playground'
     ], [
       'styles',
       'jademin-uglify'
