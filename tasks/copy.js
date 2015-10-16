@@ -11,3 +11,9 @@ gulp.task('copy', function() {
     .pipe($.cached('copy'))
     .pipe(gulp.dest('dist'));
 });
+
+// Copy files at root level of 'src' to dist
+gulp.task('playground', function() {
+  return gulp.src(['node_modules/bitcore-playground/app/**'])
+    .pipe(gulp.dest('dist/playground'));
+});
