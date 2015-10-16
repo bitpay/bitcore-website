@@ -24,6 +24,16 @@
     margin: 0 auto;
     max-width: 420px;
   }
+
+}
+
+.hero-links a {
+  font-size: 12px;
+  color: $bc-darker;
+  letter-spacing: 0.77px;
+  line-height: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 // Header
@@ -74,6 +84,25 @@
 }
 
 
+// Layout
+
+.menu-header {
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-top: 2em;
+  margin-left: 2em;
+  text-transform: uppercase;
+}
+
+
+// This overrides the default spacing for bootstrap nav-pills
+.nav-pills .nav-link {
+  color: $bc-dark;
+  padding: 0.1em 1em;
+  margin-left: 2em;
+}
+
+
 // API
 
 .fixed-sidebar {
@@ -84,6 +113,7 @@
   position: fixed;
   width: 250px;
 }
+
 
 .scroll-content {
   padding-left: 250px;

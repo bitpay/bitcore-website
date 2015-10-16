@@ -1,6 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600,700|Roboto+Mono:400,500);
+
 pre {
   background: $pre-background-color;
   border-radius: 6px;
   box-shadow: 0 2px 0 0 $pre-box-shadow-color;
   padding: 1em;
 }
+
+
+h1,h2,h3,h4,h5 {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+
+
+$font-family-sans-serif:     "Roboto", Helvetica, Arial, sans-serif;
+$font-family-monospace:      "Roboto Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
