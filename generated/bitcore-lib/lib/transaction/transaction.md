@@ -28,8 +28,10 @@
     * [._getInputAmount()](#Transaction+_getInputAmount) ⇒ <code>Number</code>
     * [.getFee()](#Transaction+getFee) ⇒ <code>Number</code>
     * [._estimateFee()](#Transaction+_estimateFee)
+    * [.sort()](#Transaction+sort) ⇒ <code>[Transaction](#Transaction)</code>
     * [.shuffleOutputs()](#Transaction+shuffleOutputs) ⇒ <code>[Transaction](#Transaction)</code>
     * [.sortOutputs(sortingFunction)](#Transaction+sortOutputs) ⇒ <code>[Transaction](#Transaction)</code>
+    * [.sortInputs(sortingFunction)](#Transaction+sortInputs) ⇒ <code>[Transaction](#Transaction)</code>
     * [.sign(privateKey, sigtype)](#Transaction+sign) ⇒ <code>[Transaction](#Transaction)</code>
     * [.applySignature(signature)](#Transaction+applySignature) ⇒ <code>[Transaction](#Transaction)</code>
     * [.verifySignature()](#Transaction+verifySignature) ⇒ <code>bool</code>
@@ -37,6 +39,9 @@
     * [.isCoinbase()](#Transaction+isCoinbase)
   * _static_
     * [.shallowCopy(transaction)](#Transaction.shallowCopy) ⇒ <code>[Transaction](#Transaction)</code>
+  * _inner_
+    * [~fromObject](#Transaction..fromObject) : <code>Object</code>
+    * [~toObject](#Transaction..toObject) : <code>Object</code>
 
 <a name="new_Transaction_new"></a>
 ### new Transaction(serialized)
@@ -144,7 +149,7 @@ SIGHASH_SINGLE or SIGHASH_NONE signatures will not be reset).
 
 | Param | Type |
 | --- | --- |
-| utxo | <code>Object</code> | 
+| utxo | <code>[Array.&lt;fromObject&gt;](#Transaction..fromObject)</code> &#124; <code>[fromObject](#Transaction..fromObject)</code> | 
 | [pubkeys] | <code>Array</code> | 
 | [threshold] | <code>number</code> | 
 
@@ -250,7 +255,7 @@ SIGHASH_SINGLE or SIGHASH_NONE signatures will not be reset).
 
 | Param | Type | Description |
 | --- | --- | --- |
-| address | <code>string</code> &#124; <code>Address</code> |  |
+| address | <code>string</code> &#124; <code>Address</code> &#124; <code>[Array.&lt;toObject&gt;](#Transaction..toObject)</code> |  |
 | amount | <code>number</code> | in satoshis |
 
 <a name="Transaction+addData"></a>
@@ -320,6 +325,13 @@ estimate the fee based on size.
 Estimates fee from serialized transaction size in bytes.
 
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
+<a name="Transaction+sort"></a>
+### transaction.sort() ⇒ <code>[Transaction](#Transaction)</code>
+Sort a transaction's inputs and outputs according to BIP69
+
+**Kind**: instance method of <code>[Transaction](#Transaction)</code>  
+**Returns**: <code>[Transaction](#Transaction)</code> - this  
+**See**: {https://github.com/bitcoin/bips/blob/master/bip-0069.mediawiki}  
 <a name="Transaction+shuffleOutputs"></a>
 ### transaction.shuffleOutputs() ⇒ <code>[Transaction](#Transaction)</code>
 Randomize this transaction's outputs ordering. The shuffling algorithm is a
@@ -333,6 +345,19 @@ Sort this transaction's outputs, according to a given sorting function that
 takes an array as argument and returns a new array, with the same elements
 but with a different order. The argument function MUST NOT modify the order
 of the original array
+
+**Kind**: instance method of <code>[Transaction](#Transaction)</code>  
+**Returns**: <code>[Transaction](#Transaction)</code> - this  
+
+| Param | Type |
+| --- | --- |
+| sortingFunction | <code>function</code> | 
+
+<a name="Transaction+sortInputs"></a>
+### transaction.sortInputs(sortingFunction) ⇒ <code>[Transaction](#Transaction)</code>
+Sort this transaction's inputs, according to a given sorting function that
+takes an array as argument and returns a new array, with the same elements
+but with a different order.
 
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 **Returns**: <code>[Transaction](#Transaction)</code> - this  
@@ -397,4 +422,26 @@ it dropping any additional information that inputs and outputs may have hold
 | Param | Type |
 | --- | --- |
 | transaction | <code>[Transaction](#Transaction)</code> | 
+
+<a name="Transaction..fromObject"></a>
+### Transaction~fromObject : <code>Object</code>
+**Kind**: inner typedef of <code>[Transaction](#Transaction)</code>  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| prevTxId | <code>string</code> | 
+| outputIndex | <code>number</code> | 
+| script | <code>Buffer</code> &#124; <code>string</code> &#124; <code>Script</code> | 
+| satoshis | <code>number</code> | 
+
+<a name="Transaction..toObject"></a>
+### Transaction~toObject : <code>Object</code>
+**Kind**: inner typedef of <code>[Transaction](#Transaction)</code>  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| address | <code>string</code> &#124; <code>Address</code> | 
+| satoshis | <code>number</code> | 
 
