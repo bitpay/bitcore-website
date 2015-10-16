@@ -88,16 +88,25 @@
   margin-left: 2em;
   margin-top: 2em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 // This overrides the default spacing for bootstrap nav-pills
 .nav-pills {
+  margin-top: 1em;
   .nav-link {
     color: $bc-dark;
     margin-left: 2em;
     padding: .1em 1em;
-  }  
+  }
+  .nav-link.active {
+    border-radius: 1em;
+    display: inline-block;
+    // margin-left: 2.75em;
+    transition: 1ms;
+  }
 }
+
 
 // API
 .fixed-sidebar {
