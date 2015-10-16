@@ -6,38 +6,65 @@ var runSequence = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
 var repos = [
-  'bitcore',
-  'bitcore-channel',
-  'bitcore-ecies',
-  'bitcore-explorers',
-  'bitcore-message',
-  'bitcore-mnemonic',
-  'bitcore-p2p',
-  'bitcore-payment-protocol'
+  'bitpay/bitcore-channel',
+  'bitpay/bitcore-ecies',
+  'bitpay/bitcore-explorers',
+  'bitjson/bitcore-lib',
+  'bitpay/bitcore-message',
+  'bitpay/bitcore-mnemonic',
+  'bitpay/bitcore-node',
+  'bitpay/bitcore-p2p',
+  'bitpay/bitcore-payment-protocol'
 ];
 
-gulp.task('rebuild-generated-markdown', ['delete-generated'], function(cb) {
-  runSequence(['copy-docs', 'extract-jsdocs'], cb);
+gulp.task('update-generated-markdown', function(cb) {
+  runSequence(['update-repo-sources'], ['rebuild-generated-markdown'],
+    cb);
 });
 
-var docsPaths = repos.map(function(repo) {
-  return 'node_modules/' + repo + '/**/*.md';
+gulp.task('update-repo-sources', ['delete-downloads'], function(cb) {
+  runSequence(['mkdir-downloads'], ['download-repos'], ['extract-repo-contents'], ['delete-tgzs'], cb);
+});
+
+gulp.task('rebuild-generated-markdown', ['delete-generated'], function(cb) {
+  runSequence(['copy-docs'], ['extract-jsdocs'],
+    cb);
+});
+
+var downloadCmds = repos.map(function(repo) {
+  return 'cd downloads/tgzs; npm pack ' + repo;
+});
+
+gulp.task('mkdir-downloads', $.shell.task('mkdir downloads; mkdir downloads/tgzs;'));
+gulp.task('download-repos', $.shell.task(downloadCmds));
+
+gulp.task('extract-repo-contents', function() {
+  return gulp.src('downloads/tgzs/*.tgz', {
+      base: './'
+    })
+    .pipe($.debug())
+    .pipe($.rename(function(path) {
+      path.dirname = path.basename.slice(0, path.basename.lastIndexOf('-'));
+    }))
+    .pipe($.gunzip())
+    .pipe($.untar())
+    .pipe($.rename(function(path) {
+      path.dirname = path.dirname.replace('/package', '');
+    }))
+    .pipe(gulp.dest('downloads/extracted'));
 });
 
 gulp.task('copy-docs', function() {
-  return gulp.src(docsPaths.concat('!node_modules/**/node_modules/**'), {
-      base: 'node_modules/'
+  return gulp.src('downloads/extracted/**/*.md', {
+      base: './downloads/extracted'
     })
     .pipe(gulp.dest('generated'));
 });
 
-var jsdocPaths = repos.map(function(repo) {
-  return 'node_modules/' + repo + '/lib/**/*.js';
-});
-
 gulp.task('extract-jsdocs', function() {
-  return gulp.src(jsdocPaths, {
-      base: 'node_modules/'
+  console.log('generating markdown from jsdocs, this may take a minute...');
+  return gulp.src('downloads/extracted/*/lib/**/*.js', {
+      base: './downloads/extracted'
     })
     .pipe($.jsdocToMarkdown())
     .pipe($.rename(function(path) {
@@ -48,4 +75,10 @@ gulp.task('extract-jsdocs', function() {
 
 gulp.task('delete-generated', function() {
   return del(['generated']);
+});
+gulp.task('delete-tgzs', function() {
+  return del(['downloads/tgzs']);
+});
+gulp.task('delete-downloads', function() {
+  return del(['downloads']);
 });

@@ -3,7 +3,7 @@
 # Run
 
 ```sh
-$ npm install
+$ npm install --production
 $ npm start
 ```
 
@@ -11,6 +11,7 @@ $ npm start
 
 ```sh
 $ npm install -g gulp
+$ npm install
 $ gulp serve
 ```
 
@@ -41,7 +42,7 @@ This builds for production, then deploys the dist folder to gh-pages.
 ## Rebuild `generated` Markdown
 
 ```sh
-$ gulp rebuild-generated-markdown
+$ gulp update-generated-markdown
 ```
 
 This rebuilds all markdown in the `generated` directory.
