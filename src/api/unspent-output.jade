@@ -1,12 +1,11 @@
 extends ../_layouts/api
 
 append vars
-  -var title = 'UnspentOutput';
+  -var title = 'Unspent Outputs';
   -var description = 'A stateless model to represent an unspent output and associated information.';
 
 block docs
-  .section
-    include:marked ../../generated/bitcore/docs/unspentoutput.md
+  include:marked ../../generated/bitcore-lib/docs/unspentoutput.md
 
 block lib
-  include:marked ../../generated/bitcore/lib/transaction/unspentoutput.md
+  include:marked ../../generated/bitcore-lib/lib/transaction/unspentoutput.md
