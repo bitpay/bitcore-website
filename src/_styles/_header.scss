@@ -42,3 +42,16 @@
 .logo-light {
   background-image: url('../images/bitcore-logo-horizontal-light.svg');
 }
+
+
+//navbar
+.navbar {
+  .nav-item {
+    a {
+      color: $bc-dark;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}
