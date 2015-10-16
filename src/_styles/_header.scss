@@ -1,0 +1,44 @@
+.hero {
+  @include media-breakpoint-down(md) {
+    min-height: 500px;
+  }
+  align-items: center;
+  display: flex;
+  height: 100%;
+  min-height: 700px;
+  text-align: center;
+
+  .hero-container {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+}
+
+.hero-links {
+  a {
+    color: $bc-darker;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .77px;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+}
+
+// Header
+.logo {
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 40px;
+  position: relative;
+  width: 161px;
+  z-index: 2;
+}
+
+.logo-dark {
+  background-image: url('../images/bitcore-logo-horizontal-dark.svg');
+}
+
+.logo-light {
+  background-image: url('../images/bitcore-logo-horizontal-light.svg');
+}
