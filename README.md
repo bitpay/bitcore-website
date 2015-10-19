@@ -46,3 +46,11 @@ $ gulp update-generated-markdown
 ```
 
 This rebuilds all markdown in the `generated` directory.
+
+## Compress all images
+
+```sh
+$ gulp images
+```
+
+This command pipes all files in `src/images` through `imagemin`.
