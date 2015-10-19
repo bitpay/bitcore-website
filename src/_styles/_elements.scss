@@ -55,6 +55,10 @@
     display: inline-block;
     margin-left: 2em;
     padding: .3em 1em;
+
+    &.active {
+      margin-left: 2.75em;
+    }
   }
 }
 
