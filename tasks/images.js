@@ -3,6 +3,12 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
+gulp.task('copy-images', function() {
+  return gulp.src('src/images/**/*')
+    .pipe($.cached('images'))
+    .pipe(gulp.dest('dist/images'));
+});
+
 gulp.task('images', function() {
   return gulp.src('src/images/**/*')
     .pipe($.cached('images'))
