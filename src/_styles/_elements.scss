@@ -45,9 +45,10 @@
     color: $bc-dark;
     display: inline-block;
     padding: .2em 1em;
-    
+
     &.active {
       margin-left: 1em;
+      letter-spacing: 1px;
     }
   }
 }
