@@ -31,6 +31,7 @@
     "globby": "^3.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
+    "gulp-bower": "0.0.10",
     "gulp-cached": "^1.1.0",
     "gulp-csso": "^1.0.0",
     "gulp-if": "^2.0.0",
