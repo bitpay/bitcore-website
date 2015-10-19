@@ -1,3 +1,8 @@
+$font-family-sans-serif: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$font-family-monospace: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-headers: 'Titillium Web';
+
+
 pre {
   background: $pre-background-color;
   border-radius: 6px;
@@ -10,11 +15,12 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: $font-family-headers, sans-serif;
 }
 
-$font-family-sans-serif: 'Roboto', Helvetica, Arial, sans-serif;
-$font-family-monospace: 'Roboto Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+p {
+  font-family: $font-family-sans-serif;
+}
 
 
 .menu-header {

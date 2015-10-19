@@ -42,7 +42,7 @@ $navbar-height:       62px;
 
   h3 {
     color: $bc-orange;
-    font-family: monospace;
+    font-family: 'Roboto Mono', monospace;
     font-size: 1.25em;
     margin-top: 3.5em;
   }
@@ -52,12 +52,10 @@ $navbar-height:       62px;
   }
 
   ul {
-    background-color: $bc-grey;
     border-left: 1px solid $border;
-    color: $bc-dark;
+    color: $white;
     display: table;
     list-style: none;
-    padding: 1.2em;
   }
 
   code {
