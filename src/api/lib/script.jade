@@ -1,0 +1,15 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Script';
+  -var description = 'A powerful interface to create, parse, and validate bitcoin scripts.';
+
+block docs
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/docs/script.md
+
+block lib
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/script/interpreter.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/script/script.md

@@ -1,0 +1,9 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Development & Testing';
+  -var description = 'Notes for developing and debugging Bitcore.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/docs/testing.md

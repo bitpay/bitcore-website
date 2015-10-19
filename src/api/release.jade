@@ -1,0 +1,9 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Release Process';
+  -var description = 'Explaination of Bitcore release and signature verification process.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/docs/release.md

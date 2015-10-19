@@ -1,0 +1,12 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Web Service';
+  -var description = 'Overview of the Web Service for Bitcore.';
+
+block docs
+  include:marked ../../../generated/bitcore-node/docs/services/web.md
+  
+block lib
+  .section
+    include:marked ../../../generated/bitcore-node/lib/services/web.md

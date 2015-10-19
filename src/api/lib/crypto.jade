@@ -1,0 +1,23 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Crypto';
+  -var description = 'Primitives and tools to deal with bitcoin cryptography.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../../generated/bitcore-lib/docs/crypto.md
+  
+block lib
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/bn.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/ecdsa.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/hash.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/point.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/random.md
+    .section.p-t-md
+      include:marked ../../../generated/bitcore-lib/lib/crypto/signature.md

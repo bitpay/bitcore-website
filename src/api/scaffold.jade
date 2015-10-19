@@ -1,0 +1,25 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Scaffold';
+  -var description = 'A collection of functions for creating, managing, starting, stopping and interacting with a Bitcore node.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/docs/scaffold.md
+  
+block lib
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/add.md
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/create.md
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/start.md
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/find-config.md
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/default-config.md
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/remove.md  
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/lib/scaffold/call-method.md

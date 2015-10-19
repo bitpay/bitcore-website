@@ -1,0 +1,14 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Address Service';
+  -var description = 'Overview of the Address Service for Bitcore.';
+
+block docs
+  include:marked ../../../generated/bitcore-node/docs/services/address.md
+  
+block lib
+  .section
+    include:marked ../../../generated/bitcore-node/lib/services/address/index.md
+  .section
+    include:marked ../../../generated/bitcore-node/lib/services/address/history.md

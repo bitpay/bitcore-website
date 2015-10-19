@@ -1,0 +1,13 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Address';
+  -var description = 'A simple interface to generate and validate a bitcoin address.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../../generated/bitcore-lib/docs/address.md
+  
+block lib
+  .section.p-t-md
+    include:marked ../../../generated/bitcore-lib/lib/address.md
