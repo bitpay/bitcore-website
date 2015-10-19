@@ -50,16 +50,11 @@
   margin-top: 1em;
 
   .nav-link {
+    border-radius: 2em;
     color: $bc-dark;
-    margin-left: 2em;
-    padding: .1em 1em;
-  }
-
-  &:active {
-    border-radius: 1em;
     display: inline-block;
-    // margin-left: 2.75em;
-    transition: 1ms;
+    margin-left: 2em;
+    padding: .3em 1em;
   }
 }
 
