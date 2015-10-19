@@ -1,20 +1,19 @@
 extends ../_layouts/two-column-fluid
 
 block menu
-  h3.menu-header Bitcore
   
   mixin item(name, slug)
     li.nav-item
       a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
       
-  h3 Services
+  h3.menu-header.m-t-lg Services
   ul.nav.nav-pills.nav-stacked
     +item('Bitcoind Service', 'service/bitcoind')
     +item('Database Service', 'service/database')
     +item('Address Service', 'service/address')
     +item('Web Service', 'service/web')
 
-  h3 Library
+  h3.menu-header.m-t-md Library
   ul.nav.nav-pills.nav-stacked
     +item('Address', 'address')
     +item('Block', 'block')

@@ -1,12 +1,15 @@
 extends ../_layouts/two-column
 
 block menu
-  h3.menu-header Bitcore
   mixin item(name, slug)
     li.nav-item
       a(href="/guides/#{slug}").nav-link #{name}
+  h3.menu-header Guides
   ul.nav.nav-pills.nav-stacked
-    +item('Guide 1', '#')
-    +item('Guide 2', '#')
-    +item('Guide 3', '#')
     +item('Browser Builds', 'browser')
+
+  h3.menu-header.m-t-md Tutorials
+  ul.nav.nav-pills.nav-stacked
+    +item('Satoshi Fire Alarm', '#')
+    +item('Lemonade Stand', '#')
+    +item('I made this', '#')

@@ -1,3 +1,30 @@
 .border-right-grey {
   border-right: 1px solid $border;
 }
+
+.border-grey {
+  border: 1px solid $border;
+}
+
+// for the bottom centered border
+.header__bottom-border,
+.header__bottom-border-left {
+  position: relative;
+  margin-bottom: 3rem;
+  &:after {
+    content: "";
+    height: 3px;
+    width: 4rem;
+    background: $bc-orange;
+    position: absolute;
+    bottom: -1rem;
+  }
+}
+
+.header__bottom-border:after {
+  left: calc(50% - 2rem);
+}
+
+.header__bottom-border-left:after {
+  left: 0;
+}
