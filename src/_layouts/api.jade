@@ -6,28 +6,40 @@ block menu
     li.nav-item
       a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
       
-  h3.menu-header.m-t-lg Services
+  ul.nav.nav-pills.nav-stacked.m-t-lg
+    +item('Get Started', '')
+    +item('Build & Install', 'build')
+    +item('Node Constructor', 'node')
+    +item('Scaffold', 'scaffold')
+    +item('Event Bus', 'bus')
+    +item('Error Handling', 'errors')
+    +item('Bitcoind Patch', 'patch')
+    +item('Release Process', 'release')
+    +item('Development & Testing', 'testing')
+
+  h3.menu-header.m-t-md Services
   ul.nav.nav-pills.nav-stacked
-    +item('Bitcoind Service', 'service/bitcoind')
+    +item('Overview', 'service')
+    +item('Bitcoin Service', 'service/bitcoin')
     +item('Database Service', 'service/database')
     +item('Address Service', 'service/address')
     +item('Web Service', 'service/web')
 
   h3.menu-header.m-t-md Library
   ul.nav.nav-pills.nav-stacked
-    +item('Address', 'address')
-    +item('Block', 'block')
-    +item('Crypto', 'crypto')
-    +item('Encoding', 'encoding')
-    +item('HD Keys', 'hd-keys')
-    +item('Networks', 'networks')
-    +item('Private Key', 'private-key')
-    +item('Public Key', 'public-key')
-    +item('Script', 'script')
-    +item('Transaction', 'transaction')
-    +item('Bitcoin Units', 'unit')
-    +item('Unspent Outputs', 'unspent-output')
-    +item('Bitcoin URIs', 'uri')
+    +item('Address', 'lib/address')
+    +item('Block', 'lib/block')
+    +item('Crypto', 'lib/crypto')
+    +item('Encoding', 'lib/encoding')
+    +item('HD Keys', 'lib/hd-keys')
+    +item('Networks', 'lib/networks')
+    +item('Private Key', 'lib/private-key')
+    +item('Public Key', 'lib/public-key')
+    +item('Script', 'lib/script')
+    +item('Transaction', 'lib/transaction')
+    +item('Bitcoin Units', 'lib/unit')
+    +item('Unspent Outputs', 'lib/unspent-output')
+    +item('Bitcoin URIs', 'lib/uri')
 
 block content
   .api-content

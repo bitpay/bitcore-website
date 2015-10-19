@@ -12,7 +12,7 @@ var repos = [
   'bitjson/bitcore-lib',
   'bitpay/bitcore-message',
   'bitpay/bitcore-mnemonic',
-  'bitpay/bitcore-node',
+  'bitjson/bitcore-node',
   'bitpay/bitcore-p2p',
   'bitpay/bitcore-payment-protocol'
 ];

@@ -1,0 +1,9 @@
+extends ../_layouts/api
+
+append vars
+  -var title = 'Bitcoind Patch';
+  -var description = 'Description of the patch applied to Bitcoin Core to compile as a static library.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../generated/bitcore-node/docs/patch.md

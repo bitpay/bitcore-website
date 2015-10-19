@@ -1,16 +1,18 @@
 extends ../../_layouts/api
 
 append vars
-  -var title = 'Bitcoind Service';
-  -var description = 'Overview of the Bitcoin Service for Bitcore.';
+  -var title = 'Block';
+  -var description = 'A simple interface to parse and validate a bitcoin blocks.';
 
 block docs
-  include:marked ../../../generated/bitcore-node-0.2.0/docs/services/bitcoind.md
+  .section.p-t-md
+    include:marked ../../../generated/bitcore-lib/docs/block.md
+
   
 block lib
-  .section
+  .section.p-t-md
     include:marked ../../../generated/bitcore-lib/lib/block/block.md
-  .section
+  .section.p-t-md
     include:marked ../../../generated/bitcore-lib/lib/block/blockheader.md
-  .section
+  .section.p-t-md
     include:marked ../../../generated/bitcore-lib/lib/block/merkleblock.md

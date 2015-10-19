@@ -1,0 +1,9 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Overview';
+  -var description = 'Overview of Bitcore\'s services architecture.';
+
+block docs
+  .section.p-t-md
+    include:marked ../../../generated/bitcore-node/docs/services.md
