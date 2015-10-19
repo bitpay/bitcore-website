@@ -13,6 +13,7 @@
   margin: 15px 30px;
   opacity: .5;
   position: relative;
+
   &:hover {
     opacity: .9;
   }
@@ -38,21 +39,23 @@
 // Layout
 .menu-header {
   font-size: 1em;
+  font-weight: 700;
   letter-spacing: 1px;
   margin-left: 2em;
   text-transform: uppercase;
-  font-weight: 700;
 }
 
 // This overrides the default spacing for bootstrap nav-pills
 .nav-pills {
   margin-top: 1em;
+
   .nav-link {
     color: $bc-dark;
     margin-left: 2em;
     padding: .1em 1em;
   }
-  .nav-link.active {
+
+  &:active {
     border-radius: 1em;
     display: inline-block;
     // margin-left: 2.75em;

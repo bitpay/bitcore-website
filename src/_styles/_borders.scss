@@ -9,22 +9,25 @@
 // for the bottom centered border
 .header__bottom-border,
 .header__bottom-border-left {
-  position: relative;
   margin-bottom: 3rem;
-  &:after {
-    content: "";
-    height: 3px;
-    width: 4rem;
+  position: relative;&:after {
     background: $bc-orange;
-    position: absolute;
     bottom: -1rem;
+    content: '';
+    height: 3px;
+    position: absolute;
+    width: 4rem;
   }
 }
 
-.header__bottom-border:after {
-  left: calc(50% - 2rem);
+.header__bottom-border {
+  &:after {
+    left: calc(50% - 2rem);
+  }
 }
 
-.header__bottom-border-left:after {
-  left: 0;
+.header__bottom-border-left {
+  &:after {
+    left: 0;
+  }
 }
