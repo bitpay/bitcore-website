@@ -2,8 +2,11 @@
 $sidebar-width:       280px;
 $navbar-height:       62px;
 
-
+// Layout
 .fixed-sidebar {
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
   bottom: 0;
   left: 0;
   overflow: scroll;
@@ -14,6 +17,9 @@ $navbar-height:       62px;
 }
 
 .scroll-content {
+  @include media-breakpoint-down(lg) {
+    left: 0;
+  }
   bottom: 0;
   left: $sidebar-width;
   overflow-x: hidden;
@@ -26,11 +32,7 @@ $navbar-height:       62px;
 }
 
 
-
-
-
-
-
+// Docs Section
 .docs {
   a {
     font-weight: 600;
@@ -59,10 +61,7 @@ $navbar-height:       62px;
 }
 
 
-
-
-
-
+// API Reference
 .lib {
   color: $white;
 
