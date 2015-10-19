@@ -1,3 +1,36 @@
+// Variables
+$sidebar-width:       280px;
+$navbar-height:       62px;
+
+
+.fixed-sidebar {
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  position: absolute;
+  right: 0;
+  top: $navbar-height;
+  width: $sidebar-width;
+}
+
+.scroll-content {
+  bottom: 0;
+  left: $sidebar-width;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: $navbar-height;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+
+
+
+
+
+
 .docs {
   h2 {
     @extend.m-t-lg

@@ -36,44 +36,18 @@
   }
 }
 
-// Layout
-.menu-header {
-  font-size: 1em;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-left: 2em;
-  text-transform: uppercase;
-}
+
 
 // This overrides the default spacing for bootstrap nav-pills
 .nav-pills {
-  margin-top: 1em;
-
   .nav-link {
     border-radius: 2em;
     color: $bc-dark;
     display: inline-block;
-    margin-left: 2em;
-    padding: .3em 1em;
-
+    padding: .2em 1em;
+    
     &.active {
-      margin-left: 2.75em;
+      margin-left: 1em;
     }
   }
-}
-
-
-// API
-.fixed-sidebar {
-  height: 100%;
-  left: 0;
-  overflow: auto;
-  padding-top: 60px;
-  position: fixed;
-  width: 250px;
-}
-
-.scroll-content {
-  padding-left: 250px;
-  padding-top: 60px;
 }
