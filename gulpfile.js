@@ -22,7 +22,6 @@ gulp.task('build', ['delete'], function(cb) {
     ], [
       'sass',
       'jade',
-      'images',
       'copy',
       'playground'
     ], [

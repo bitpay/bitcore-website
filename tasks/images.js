@@ -10,7 +10,7 @@ gulp.task('images', function() {
       progressive: true,
       interlaced: true
     }))
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('src/images'))
     .pipe($.size({
       title: 'images'
     }));
