@@ -4,15 +4,22 @@ append vars
   -var section = 'guides';
 
 block menu
+
   mixin item(name, slug)
     li.nav-item
-      a(href="/guides/#{slug}").nav-link #{name}
+      - if (typeof(pageSlug) !== 'undefined') {
+        a(href="/guides/#{slug}" class= pageSlug === slug ? "active" : undefined).nav-link #{name}
+      - } else {
+        a(href="/guides/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
+      - }  
+
   h3.menu-header Guides
   ul.nav.nav-pills.nav-stacked
+    +item('Run a Full Node', 'full-node')
+    +item('Run a Wallet Service', 'wallet-service')
     +item('Browser Builds', 'browser')
 
   h3.menu-header.m-t-md Tutorials
   ul.nav.nav-pills.nav-stacked
-    +item('Satoshi Fire Alarm', '#')
-    +item('Lemonade Stand', '#')
-    +item('I made this', '#')
+    +item('Lemonade Stand', 'lemonade-stand')
+    +item('I Made This', 'i-made-this')
