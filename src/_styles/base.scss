@@ -3,6 +3,7 @@
 @import '../../components/animatewithsass/properties';
 @import '../../components/animatewithsass/_fading-entrances/fading-entrances';
 
+@import 'shame';
 
 @import 'typography', 'colors', 'header', 'borders', 'backgrounds', 'buttons', 'highlighting';
 
@@ -14,5 +15,3 @@
 @import 'utils';
 
 @import 'api';
-
-@import 'shame';

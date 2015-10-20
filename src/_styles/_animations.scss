@@ -1,3 +1,20 @@
 .fade-in-down {
-    @include fadeInDown();
+  @include fade-in-down(
+    $duration: 1s,
+    $delay: .2s
+  );
+}
+
+.fade-in-delayed {
+  @include fade-in(
+    $duration: 1s,
+    $delay: 1.25s
+  );
+}
+
+.fade-in-up {
+  @include fade-in-up(
+    $duration: 1s,
+    $delay: .2s
+  );
 }
