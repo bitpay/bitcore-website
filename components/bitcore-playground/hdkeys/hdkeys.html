@@ -11,11 +11,11 @@
   </div>
 </div>
 
-<!--White box starts--> 
-<div class="row collapse bg-color-white white-box radius p20">
+<!--White box starts-->
+<div class="row collapse bg-color-white white-box radius p20 mb20">
     <div class="row collapse">
       <div class="small-12 columns">
-        <h2 class="text-center">Master Keys</h2>
+        <h2 class="">Master Keys</h2>
       </div>
     </div>
     <div class="row collapse">
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div>
     <div class="row collapse">
       <div class="small-12 large-3 columns input-title">
         <span class="prefix prefix-clean fnt1"><span class="icon-public-key fnt14 center-text"></span> Root HD Public Key</span>
@@ -44,15 +44,15 @@
 
 
 
- 
-</div>
-<!--White box ends--> 
 
-<!--White box starts--> 
-<div class="row collapse bg-color-white white-box radius p20">
+</div>
+<!--White box ends-->
+
+<!--White box starts-->
+<div class="row collapse bg-color-white white-box radius p20 mt10">
   <div class="row collapse">
       <div class="small-12 columns">
-        <h2 class="text-center">Derived Keys</h2>
+        <h2>Derived Keys</h2>
       </div>
   </div>
   <div class="row collapse">
@@ -70,7 +70,7 @@
 
       <div class="row" ng-repeat="node in keys">
 
-        <div class="row capsule-inside radius p5 mt5"> <!-- Repeat key -->
+        <div class="row cursor-pointer capsule-inside radius p5 mt5"> <!-- Repeat key -->
           <div ng-click="node.visible = !node.visible">
             <div class="small-7 columns">
               <span class="fnt09"><b>Path:</b> <span class="fnt09 fntgrey1"><b>{{node.path}}</b></span>
@@ -93,16 +93,16 @@
               </div>
               <div class="small-12 large-10 columns">
                 <input type="text" value="{{node.xpriv.toString()}}" readonly auto-select/>
-              </div>  
+              </div>
             </div>
             <div class="row collapse pt10" ng-show="node.xpriv">
               <div class="small-12 large-2 columns">
-                <div class="data-more-info prefix-clean prefix"><span class="icon-private-key fnt13 center-text"></span>  Private Key</div> 
+                <div class="data-more-info prefix-clean prefix"><span class="icon-private-key fnt13 center-text"></span>  Private Key</div>
               </div>
               <div class="small-12 large-10 columns">
                 <input type="text" value="{{node.xpriv.privateKey.toString()}}" readonly auto-select/>
               </div>
-            </div> 
+            </div>
             <div class="row collapse pt10">
               <div class="small-12 large-2 columns">
                 <div class="data-more-info prefix-clean prefix"><span class="icon-public-key fnt13 center-text"></span> HD Public Key</div>
@@ -110,22 +110,22 @@
               <div class="small-12 large-10 columns">
                 <input type="text" value="{{node.xpub.toString()}}" readonly auto-select/>
               </div>
-            </div> 
-            <div class="row collapse pt10">            
-              <div class="small-12 large-2 columns"> 
+            </div>
+            <div class="row collapse pt10">
+              <div class="small-12 large-2 columns">
                 <div class="prefix-clean prefix data-more-info"><span class="icon-public-key fnt13 center-text"></span> Public Key</div>
-              </div> 
+              </div>
               <div class="small-12 large-10 columns">
                 <input type="text" value="{{node.xpub.publicKey.toString()}}" readonly auto-select/>
-              </div> 
-            </div> 
-            <div class="row collapse pt10">  
-              <div class="small-12 large-2 columns"> 
+              </div>
+            </div>
+            <div class="row collapse pt10">
+              <div class="small-12 large-2 columns">
                 <div class="data-more-info prefix-clean prefix">Address</div>
-              </div>     
+              </div>
               <div class="small-12 large-10 columns">
                 <input type="text" value="{{node.xpub.publicKey.toAddress().toString()}}" readonly auto-select/>
-              </div>  
+              </div>
             </div>
           </div>
         </div>

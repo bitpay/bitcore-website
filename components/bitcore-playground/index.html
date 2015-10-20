@@ -32,6 +32,9 @@
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="bower_components/foundation-icon-fonts/foundation-icons.css" />
 
+  <!-- Load in fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"/>
+
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 
   <script src="bower_components/highlightjs/highlight.pack.js"></script>
@@ -63,18 +66,18 @@
       <div class="medium-4 columns">
         <a href="/">
           <div class="playground-logo">
-            <span class="fnt13"><img src="img/bitcore-logo-hd.svg" width="90" alt="bitcore" class="">
-             playground</span>
+            <img src="img/bitcore-logo-horizontal-light.svg" width="150" alt="bitcore" class="">
            </div>
 
         </a>
       </div>
       <div class="medium-8 columns text-right">
         <ul id="nav-hd" class="show-for-large-up">
-          <li class=""><a href="http://bitcore.io/guide/" target="_blank"><span class="icon-docs"></span> Docs</a></li>
-          <li class=""><a href="http://bitcore.io/api/" target="_blank"><span class="icon-api"></span> API</a></li>
-          <li class=""><a href="http://labs.bitpay.com/c/bitcore" target="_blank"><span class="icon-forum"></span> Forum</a></li>
-          <li class=""><a href="https://github.com/bitpay/bitcore" target="_blank"><span class="icon-github"></span> Github</a></li>
+          <li class=""><a href="/start"><span></span>Getting Started</a></li>
+          <li class=""><a href="/guides"><span></span>Guides</a></li>
+          <li class=""><a href=""><span></span>Forum</a></li>
+          <li class=""><a href=""><span></span>Playground</a></li>
+          <li class=""><a href="/api"><span></span>API</a></li>
         </ul>
       </div>
     </div>
@@ -128,9 +131,18 @@
 <div ng-controller='Network'>
   <div class="main-content show-for-large-up">
       <!--Content starts-->
-      <div class="no-p small-12 columns">
-        <div ng-view class="bg-color-gray1 p4060"></div>
+      <div class="no-p medium-8 columns">
+        <div ng-view class="bg-color-white p4060 max-width-large "></div>
       </div>
+      <div class="no-p medium-4 columns">
+        <div id="terminal-content" class="bg-color-black2 p30 fntwhite">
+          <ng-include src="'components/console/console.html'"/>
+        </div>
+      </div>
+
+
+
+
       <!--Content ends-->
   </div>
 
@@ -149,11 +161,11 @@
 <section id="footer" class="bg-color-black2 ng-cloak" ng-show="showFooter">
 
   <div id="terminal" class="bg-color-gray1 show-for-large-up">
-    <div id="terminaltab" class="bg-color-black2 rdt3 goto-repl"></div>
-    <div id="terminaltab-sticky" class="bg-color-black2 rdt3 goto-repl"></div>
-    <div id="terminal-content" class="bg-color-black2 p30 fntwhite">
+    <!-- <div id="terminaltab" class="bg-color-black2 rdt3 goto-repl"></div> -->
+    <!-- <div id="terminaltab-sticky" class="bg-color-black2 rdt3 goto-repl"></div> -->
+    <!-- <div id="terminal-content" class="bg-color-black2 p30 fntwhite">
       <ng-include src="'components/console/console.html'"/>
-    </div>
+    </div> -->
   </div>
 
   <div class="row p10t footer">
