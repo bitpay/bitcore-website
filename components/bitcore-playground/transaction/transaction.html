@@ -13,7 +13,8 @@
 
 <div class="row collapse bg-color-white white-box radius p20">
   <div class="small-12 columns">
-    <h2 class="text-center">Input Selection</h2>    
+    <h2 class=""><strong>Step 1:</strong> Input Selection</h2>
+    <p>Enter a bitcoin transaction input</p>
 
     <!-- Fetch unspent form -->
     <div class="row collapse">
@@ -35,7 +36,10 @@
     </div>
     <div class="row collapse" ng-show="currentAddress">
       <div class="columns small-12 content-title small-centered">
-        <div class="fnt09 mt2 pt20 pb20"><span class="item-title">Outputs for Address:</span> <span class="item-data fntgrey1">{{currentAddress}}</span></div>
+        <div class="fnt09 mt2 pt20 pb20"><span class="item-title">
+          <p><strong>Step 2:</strong> Outputs for Address:</span></p>
+          <p class="item-data fntgrey1">Outputs for Address: {{currentAddress}}</p>
+        </div>
       </div>
     </div>
 
@@ -47,38 +51,38 @@
 
     <div class="row collapse mt5 mb5">
       <div class="small-12 large-4 columns {{$last ? 'end' : ''}}" ng-repeat="utxo in utxos">
-        <div class="capsule-inside rad2 p5 m2 ml20" ng-click="addUTXO(utxo)" ng-hide="utxo.used">
-          <div class="coin-in-box">
+        <div class="capsule-inside rad2 p5 m2 ml20 cursor-pointer" ng-click="addUTXO(utxo)" ng-hide="utxo.used">
+          <!-- <div class="coin-in-box">
             <div class="icon-coin v-align fnt20 pr5"></div>
-          </div>
+          </div> -->
           <div class="row collapse">
             <div class="columns small-9 pl20 pt6">
               <h1 class="amount fnt09">{{utxo.satoshis|btc}}<span class="btc"> BTC</span></h1>
             </div>
-            <div class="columns small-3">
+            <!-- <div class="columns small-3">
               <div class="row collapse">
                 <button type="button" class="button expand tiny radius button3">USE</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <!--Capsule USED starts--> 
-        <div class="capsule-inside-blue rad2 p5 m2 ml20" ng-click="removeUtxo(utxo)" ng-show="utxo.used">
-          <div class="coin-in-box blue-elements">
+        <!--Capsule USED starts-->
+        <div class="capsule-inside-blue rad2 p5 m2 ml20 cursor-pointer" ng-click="removeUtxo(utxo)" ng-show="utxo.used">
+          <!-- <div class="coin-in-box blue-elements">
             <div class="icon-coin v-align fnt20 pr5"></div>
-          </div>
+          </div> -->
           <div class="row collapse">
             <div class="columns small-9 pl20 pt6">
               <h1 class="amount fnt09 blue-elements">{{utxo.satoshis|btc}}<span class="btc"> BTC</span></h1>
             </div>
-            <div class="columns small-3">
+            <!-- <div class="columns small-3">
               <div class="row collapse">
                 <button type="button" class="button expand tiny radius button1-blue">USING</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <!--Capsule USED ENDS--> 
+        <!--Capsule USED ENDS-->
       </div>
     </div>
     <!-- End fetch -->
@@ -88,7 +92,7 @@
 
 <div class="row mt20">
   <div class="small-12 columns bg-color-white white-box radius p20">
-    <h2 class="text-center">Transaction</h2>
+    <h2 class="">Transaction</h2>
     <div class="row collapse border-bottom">
       <div class="fnt09 mt2 row collapse">
         <span class="item-title large-1 small-3 columns center">TX ID:</span>
@@ -138,7 +142,7 @@
                   <div class="row collapse">
                     <div class="small-7 columns">
                       <h1 class="amount fnt09">{{input.output.satoshis|btc}}<span class="btc"> BTC</span></h1>
-                    </div> 
+                    </div>
                     <div class="small-3 columns">
                       <div class="row collapse">
                         <div class="fnt06 text-center more-info">
@@ -153,10 +157,10 @@
                     </div>
                     <div class="small-1 text-left columns text-center" ng-show="input.isFullySigned()">
                       <i class="fi-check check"></i>
-                    </div> 
+                    </div>
                     <div class="small-1 columns text-right close">
                       <a ng-click="removeInput(input)"><i class="fi-x"></i></a>
-                    </div> 
+                    </div>
                   </div>
                 </div>
                 <div class="row collapse" ng-show="input.visible">
@@ -195,14 +199,14 @@
                           <button type="button" data-reveal-id="addAddressModal" class="expand button tiny radius button1"><i class="fi-plus"></i> Add Address</button>
                         </div>
                       </div>
-                    </div> 
+                    </div>
                     <div class="small-6 columns">
                       <div class="row collapse">
                         <div class="small-11 small-offset-1 columns">
                           <button type="button" data-reveal-id="addDataModal" class="expand button tiny radius button1"><i class="fi-plus"></i> Add Data</button>
                         </div>
-                      </div>   
-                    </div>    
+                      </div>
+                    </div>
                 </div>
                 <div class="mt27">
                     <div class="row collapse capsule-inside p10 mb5 radius" ng-repeat="output in transaction.outputs">
@@ -218,7 +222,7 @@
                             <span ng-hide="output.script.isScriptHashOut() || output.script.isPayToPublicKeyHash() || output.script.isDataOut">
                               {{output.satoshis|btc}} BTC to an unrecognized script
                             </span>
-                          </div> 
+                          </div>
                           <div class="small-3 columns">
                             <div class="row collapse">
                               <div class="fnt06 text-center more-info">
@@ -233,7 +237,7 @@
                           </div>
                           <div class="small-1 columns text-right close">
                             <a ng-click="removeOutput($index)"><i class="fi-x"></i></a>
-                          </div> 
+                          </div>
                         </div>
                       </div>
                       <div class="row collapse" ng-show="output.visible">
@@ -266,7 +270,7 @@
     <div class="row collapse">
       <div class="small-12 columns">
         <textarea rows="8" readonly class="radius">{{transaction.serialize(true)}}</textarea>
-      </div>        
+      </div>
     </div>
     <div class="row collapse">
       <div class="large-12 columns mt5">
@@ -276,7 +280,7 @@
             <ng-include src="'components/loader.html'"></ng-include>
           </span>
         </button>
-      </div>        
+      </div>
     </div>
   </div>
   <div>
@@ -285,7 +289,7 @@
 
 <ng-include src="'components/explanation.html'"></ng-include>
 
-<!--MODAL starts--> 
+<!--MODAL starts-->
 <div id="addAddressModal" class="reveal-modal fixed-position white-box" data-reveal>
   <h2>Add a Pay to Address</h2>
   <form name="formAddress">
@@ -298,7 +302,7 @@
           <div class="small-12 large-11 large-offset-1">
             <input type="number" ng-min="0.00000001" ng-max="2100000000000000" ng-model="amount" placeholder="enter an amount in BTC" auto-select required>
           </div>
-        </div>     
+        </div>
       </div>
       <div class="small-12 large-4 columns">
         <div class="row collapse">
@@ -313,9 +317,9 @@
     <i class="fi-x center-text link1 fnt04"></i>
   </a>
 </div>
-<!--MODAL ends--> 
+<!--MODAL ends-->
 
-<!--MODAL starts--> 
+<!--MODAL starts-->
 <div id="addDataModal" class="reveal-modal fixed-position white-box" data-reveal>
   <h2>Add a OP_RETURN Output</h2>
   <form name="formData">
@@ -336,9 +340,9 @@
     <i class="fi-x center-text link1 fnt04"></i>
   </a>
 </div>
-<!--MODAL ends--> 
+<!--MODAL ends-->
 
-<!--MODAL starts--> 
+<!--MODAL starts-->
 <div id="addSignatureModal" class="reveal-modal fixed-position white-box" data-reveal>
   <h2>Sign transaction</h2>
   <form name="formSign">
@@ -359,7 +363,7 @@
     <i class="fi-x center-text link1 fnt04"></i>
   </a>
 </div>
-<!--MODAL ends--> 
+<!--MODAL ends-->
 
 <div id="noSignatures" class="reveal-modal fixed-position" data-reveal>
   <h2>Could not sign any inputs.</h2>

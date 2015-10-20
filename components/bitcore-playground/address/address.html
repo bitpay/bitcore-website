@@ -11,12 +11,12 @@
   </div>
 </div>
 
-<!--White box starts--> 
+<!--White box starts-->
   <div class="row collapse bg-color-white white-box radius p20">
-    <div class="small-12 large-2 columns input-title">
+    <div class="small-12 large-3 columns input-title">
       <span class="prefix prefix-clean fnt1"><span class="icon-private-key fnt16 center-text"></span> PRIVATE KEY</span>
     </div>
-    <div class="small-10 large-9 columns">
+    <div class="small-10 large-8 columns">
       <input type="text" placeholder="Hex format" ng-model="privateKey" ng-change="privateUpdated(privateKey)" private-key auto-select/>
     </div>
     <div class="small-2 large-1 columns">
@@ -28,44 +28,44 @@
     </div>
 
   </div>
-  <!--White box ends--> 
+  <!--White box ends-->
 
-<!--Flow down starts--> 
-  <div class="row text-center">
+<!--Flow down starts-->
+  <div class="row">
     <div class="small-12 columns">
       <span class="icon-arrow-down fnt24 center-text"></span>
     </div>
   </div>
-  <!--Flow down ends--> 
+  <!--Flow down ends-->
 
-<!--White box starts--> 
+<!--White box starts-->
   <div class="row collapse bg-color-white white-box radius p20">
-    <div class="small-12 large-2 columns input-title">
+    <div class="small-12 large-3 columns input-title">
       <span class="prefix prefix-clean fnt1"><span class="icon-public-key fnt16 center-text"></span> PUBLIC KEY</span>
     </div>
-    <div class="small-12 large-10 columns">
+    <div class="small-12 large-9 columns">
       <input id="publicKey" type="text" placeholder="Hex format" ng-model="publicKey" ng-change="publicUpdated(publicKey)" public-key auto-select/>
     </div>
   </div>
-  <!--White box ends--> 
+  <!--White box ends-->
 
-<!--Flow down starts--> 
-  <div class="row text-center">
+<!--Flow down starts-->
+  <div class="row">
     <div class="small-12 columns">
       <span class="icon-arrow-down fnt24 center-text"></span>
     </div>
   </div>
-  <!--Flow down ends--> 
+  <!--Flow down ends-->
 
-  <!--White box starts--> 
+  <!--White box starts-->
  <div class="row collapse bg-color-white white-box radius p20">
-    <div class="small-12 large-2 columns input-title">
+    <div class="small-12 large-3 columns input-title">
       <span class="prefix prefix-clean fnt1"><span class="icon-qr-solid fnt16 center-text"></span> ADDRESS</span>
     </div>
-    <div class="small-12 large-10 columns">
+    <div class="small-12 large-9 columns">
       <input id="address" type="text" placeholder="Bitcoin address" value="{{publicKey.toAddress().toString()}}" readonly auto-select/>
     </div>
   </div>
-  <!--White box ends--> 
+  <!--White box ends-->
 
 <ng-include src="'components/explanation.html'"></ng-include>
