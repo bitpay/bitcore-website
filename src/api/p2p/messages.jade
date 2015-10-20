@@ -1,0 +1,63 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Messages';
+  -var description = 'A superclass for the messages of the bitcoin network.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/docs/messages.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/index.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/builder.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/message.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/utils.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/addr.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/alert.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/block.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/filteradd.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/filterclear.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/filterload.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/getaddr.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/getblocks.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/getdata.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/getheaders.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/headers.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/inv.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/mempool.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/merkleblock.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/notfound.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/ping.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/pong.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/reject.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/tx.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/verack.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/messages/commands/version.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/inventory.md

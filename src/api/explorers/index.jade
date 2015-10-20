@@ -1,0 +1,20 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Bitcore Explorers';
+  -var pageSlug = 'explorers';
+  -var description = 'Provides an interface to fetch information about the state of the blockchain from a trusted blockchain explorer, such as Insight.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-explorers/docs/index.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-explorers/lib/index.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-explorers/lib/insight.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-explorers/lib/models/index.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-explorers/lib/models/addressinfo.md

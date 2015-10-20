@@ -1,0 +1,13 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Pool';
+  -var description = 'A simple interface to create and maintain a set of connections to bitcoin nodes.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/docs/pool.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-p2p/lib/pool.md

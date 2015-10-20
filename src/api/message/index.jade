@@ -1,0 +1,14 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Overview';
+  -var pageSlug = 'message';
+  -var description = 'Bitcoin Message Verification and Signing.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-message/docs/index.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-message/lib/message.md

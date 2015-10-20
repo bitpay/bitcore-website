@@ -1,5 +1,8 @@
 extends ../_layouts/two-column
 
+append vars
+  -var section = 'guides';
+
 block menu
   mixin item(name, slug)
     li.nav-item

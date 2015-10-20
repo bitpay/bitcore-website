@@ -1,0 +1,26 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Overview';
+  -var pageSlug = 'channel';
+  -var description = 'Overview of Bitcore\'s Bitcoin Payment Channels module.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/docs/index.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/transactions/commitment.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/transactions/commitment.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/transactions/payment.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/transactions/refund.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/consumer.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/provider.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-channel/lib/errors.md

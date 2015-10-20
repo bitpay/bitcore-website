@@ -1,0 +1,18 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Overview';
+  -var pageSlug = 'mnemonic';
+  -var description = 'A simple interface to generate mnemonic codes and deterministic keys.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-mnemonic/docs/index.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-mnemonic/lib/mnemonic.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-mnemonic/lib/pbkdf2.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-mnemonic/lib/errors.md

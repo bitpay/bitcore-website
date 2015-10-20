@@ -6,15 +6,15 @@ var runSequence = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
 var repos = [
-  'bitpay/bitcore-channel',
-  'bitpay/bitcore-ecies',
-  'bitpay/bitcore-explorers',
+  'bitjson/bitcore-channel',
+  'bitjson/bitcore-ecies',
+  'bitjson/bitcore-explorers',
   'bitjson/bitcore-lib',
-  'bitpay/bitcore-message',
-  'bitpay/bitcore-mnemonic',
+  'bitjson/bitcore-message',
+  'bitjson/bitcore-mnemonic',
   'bitjson/bitcore-node',
-  'bitpay/bitcore-p2p',
-  'bitpay/bitcore-payment-protocol'
+  'bitjson/bitcore-p2p',
+  'bitjson/bitcore-payment-protocol'
 ];
 
 gulp.task('update-generated-markdown', function(cb) {

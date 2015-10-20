@@ -4,8 +4,12 @@ block menu
   
   mixin item(name, slug)
     li.nav-item
-      a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
-  
+      - if (typeof(pageSlug) !== 'undefined') {
+        a(href="/api/#{slug}" class= pageSlug === slug ? "active" : undefined).nav-link #{name}
+      - } else {
+        a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
+      - }  
+
   h3.menu-header.m-t-md Introduction
   ul.nav.nav-pills.nav-stacked
     +item('Get Started', '')
@@ -42,29 +46,21 @@ block menu
     +item('Unspent Outputs', 'lib/unspent-output')
     +item('Bitcoin URIs', 'lib/uri')
 
-  h3.menu-header.m-t-md Channels Module
+  h3.menu-header.m-t-md Modules
   ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'channels')
-
-  h3.menu-header.m-t-md ECIES Module
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'ecies')
-
-  h3.menu-header.m-t-md Message Module
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'message')
+    +item('Payment Channels', 'channel')
+    +item('ECIES', 'ecies')
+    +item('Explorers', 'explorers')
+    +item('Message', 'message')
+    +item('Mnemonic', 'mnemonic')
+    +item('Payment Protocol', 'paypro')
     
-  h3.menu-header.m-t-md Mnemonic Module
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'mnemonic')
-    
-  h3.menu-header.m-t-md Payment Protocol Module
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'paypro')
-    
-  h3.menu-header.m-t-md P2P Module
+  h3.menu-header.m-t-md Peer-to-Peer
   ul.nav.nav-pills.nav-stacked
     +item('Overview', 'p2p')
+    +item('Messages', 'p2p/messages')
+    +item('Peer', 'p2p/peer')
+    +item('Pool', 'p2p/pool')
 
 block content
   .api-content
