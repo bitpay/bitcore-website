@@ -8,13 +8,13 @@ var $ = require('gulp-load-plugins')();
 var repos = [
   'bitjson/bitcore-channel',
   'bitjson/bitcore-ecies',
-  'bitpay/bitcore-explorers',
+  'bitjson/bitcore-explorers',
   'bitjson/bitcore-lib',
   'bitjson/bitcore-message',
-  'bitpay/bitcore-mnemonic',
+  'bitjson/bitcore-mnemonic',
   'bitjson/bitcore-node',
-  'bitpay/bitcore-p2p',
-  'bitpay/bitcore-payment-protocol'
+  'bitjson/bitcore-p2p',
+  'bitjson/bitcore-payment-protocol'
 ];
 
 gulp.task('update-generated-markdown', function(cb) {
