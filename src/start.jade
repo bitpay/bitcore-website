@@ -21,7 +21,7 @@ block page
     .container
       .row.steps
         .col-lg-6
-          .number 1
+          .tutorial-number 1
           h4 Install Bitcore
           p First install bitcore and then do some stuff
         .col-lg-6
@@ -30,7 +30,7 @@ block page
 
       .row.steps
         .col-lg-6
-          .number 2
+          .tutorial-number 2
           h4 Create a node
           p We are going to create a bitcore node here and call it mynode
         .col-lg-6
@@ -40,7 +40,7 @@ block page
           
       .row.steps
         .col-lg-6
-          .number 3
+          .tutorial-number 3
           h4 Add a service
           p Install both the insight UI and the insight API full featured block exploreres.
         .col-lg-6
@@ -49,51 +49,54 @@ block page
 
       .row.steps
         .col-lg-6
-          .number 4
+          .tutorial-number 4
           h4 Start your node
           p First install bitcore and the do some stuff.
         .col-lg-6
           pre
             code.language-bash bitcore start
-
-
-
-  .section.bg-white.border-vertical-grey 
+  
+  .section.bg-white.border-top-grey
     .container
-      .row.m-y-lg
-        h2.text-center Tutorials & Next Steps
-        p.text-center We’ve provided a few example projects for you depending on the direction your heading in. 
+      h4.text-center.header__bottom-border What's Next
       .row
-        .col-lg-4
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h4.card-title Satoshi Fire Alarm
-              p.card-text Learn how to interact with hardware functionallity 
-
-        .col-lg-4
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h4.card-title Lemonade Stand
-              p.card-text Learn how to build an online vendor that sells lemonade.
-
-        .col-lg-4
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h4.card-title I made this
-              p.card-text Learn how to tie specific information and embed it in the blockchain.
-
-
-  .bg-gray.p-y-lg
+        .col-lg-8.col-lg-offset-2.m-b-lg
+          p.text-center We’ve provided a few example projects for you depending on the direction your heading in. 
+      .row
+        .col-lg-5
+          img.card-img-top.width-100.m-b-md(src='/images/card-placeholder.png', alt='Card image cap')
+          a(href="#").orange-uppercase-link Run your own wallet service
+          p.m-t With our copay app you can run your own server and have complete control over your bitcoin. In this tutorial we take you throigh setting up your own personal bitcoin node and hooking up your copay app to it.
+        .col-lg-1
+        .col-lg-6.col-offset-1.border-left-grey
+          .row.vertical-align.m-b-lg.m-t-0
+            .col-lg-3.text-center 
+              img(src="/images/hex-placeholder.svg")
+            .col-lg-9
+              a(href="#").orange-uppercase-link Satoshi Fire Alarm
+              p.opacity-70 Hook up to a hardware unit and watch for for satoshi's coins
+          .row.vertical-align.m-y-lg
+            .col-lg-3.text-center 
+              img(src="/images/hex-placeholder.svg")
+            .col-lg-9
+              a(href="#").orange-uppercase-link Lemonade Stand
+              p.opacity-70 Learn how to create a website that accepts bitcoin payments directly            
+          .row.vertical-align.m-y-lg
+            .col-lg-3.text-center 
+              img(src="/images/hex-placeholder.svg")
+            .col-lg-9
+              a(href="#").orange-uppercase-link I made this
+              p.opacity-70 Learn how to stamp a piece of information into the blockchain.        
+  
+  
+  .bg-gray.p-y-lg.border-vertical-grey 
     .container
         .col-sm-6.p-r-lg.border-right-grey
-          h5.m-b.arrow-dark Documentation
-          p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+          a(href="/start").cta-link.bold.m-b.arrow-dark Guides
+          p.m-t Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
         .col-sm-6.p-l-lg
-          h5.m-b.arrow-dark API Reference
-          p Go deep with the full API documentation. You should have this pulled up.
+          a(href="/guides").cta-link.bold.m-b.arrow-dark API Reference
+          p.m-t Go deep with the full API documentation. You should have this pulled up.
 
     
   

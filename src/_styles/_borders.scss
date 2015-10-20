@@ -2,12 +2,20 @@
   border-right: 1px solid $border;
 }
 
+.border-left-grey {
+  border-left: 1px solid $border;
+}
+
 .border-grey {
   border: 1px solid $border;
 }
 
 .border-vertical-grey {
   border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+}
+
+.border-top-grey {
   border-top: 1px solid $border;
 }
 

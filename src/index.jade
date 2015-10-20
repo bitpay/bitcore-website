@@ -7,69 +7,72 @@ block body
       .row
         .col-sm-12
           ul.nav.navbar-nav.space-between.hero-links
-            li.nav-item
+            li.nav-item.fade-in-delayed
               a.nav-link(href="/start") Start
-            li.nav-item
+            li.nav-item.fade-in-delayed
               a.nav-link(href="/guides") Guides
-            li.nav-item
-              a.nav-link(href="http://discuss.bitcore.io/") Forum
-            li.nav-item
+            li.nav-item.fade-in-delayed
+              a.nav-link(href="http://forum.bitcore.io/") Forum
+            li.nav-item.fade-in-delayed
               a.nav-link(href="http://bitcore.io/playground/#/units") Playground
-            li.nav-item
+            li.nav-item.fade-in-delayed
               a.nav-link(href="/api") API
-          img(src="/images/bitcore-logo-vertical-dark.svg").m-t-lg.m-b
-          h6.m-b-md v1.0.0
-          h4.m-b-lg An open source full node for your bitcoin and blockchain app
-          a(href="/start").btn.btn-primary.btn-margin Get Started
-          a(href="/guides").btn.btn-secondary.btn-margin Documentation
+          img(src="/images/bitcore-logo-vertical-dark.svg").m-t-lg.m-b.fade-in-down
+          h6.m-b-md.fade-in-up v1.0.0
+          h4.m-b-lg.fade-in-delayed An open source full node for your bitcoin and blockchain app
+          a(href="/start").btn.btn-primary.btn-margin.fade-in-delayed Get Started
+          a(href="/api").btn.btn-secondary.btn-margin.fade-in-delayed Documentation
 
 
   .bg-darker.p-y-md
     .container
-      .col-sm-8.col-sm-offset-2.text-center
-        <iframe src="https://ghbtns.com/github-btn.html?user=bitpay&repo=bitcore&type=star&count=true&size=large&count=true" frameborder="0" scrolling="0" width="150px" height="30px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=bitpay&repo=bitcore&type=fork&count=true&size=large&count=true" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
-        .input-group
+      .row
+        .col-lg-6
+          .pull-right<iframe src="https://ghbtns.com/github-btn.html?user=bitpay&repo=bitcore&type=star&count=true&size=large&count=true" frameborder="0" scrolling="0" width="150px" height="30px"></iframe>
+          .pull-right<iframe src="https://ghbtns.com/github-btn.html?user=bitpay&repo=bitcore&type=fork&count=true&size=large&count=true" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+        .col-lg-4.input-group
           input(type="text" placeholder="Enter email to stay updated").form-control
           span.input-group-btn
             button.btn(type="button") Subscribe
 
 
-  .section.bg-white
+  .section.bg-white.p-b-0
     .container
       h4.text-center.header__bottom-border What makes it great
       .row
-        .col-lg-8.col-lg-offset-2.m-b-lg
+        .col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.m-b-lg
           p.text-center Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper quam risus, sit amet ipiscing elit. Donec semper quam ri
       
-      .row.p-y.vertical-align
-        .col-lg-2.col-lg-offset-2.text-center 
-          img(src="/images/hex-placeholder.svg")
-        .col-lg-4.col-lg-offset-1
+      
+      .row.p-y-0.vertical-align
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+          img(src="/images/illustrations/top-slice.svg")
+        .col-xs-8.col-sm-8.col-md-6.col-lg-5
           h5.uppercase.letter-spacing-2.m-b-md Open Source
-          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper quam risus, sit amet
-      .row.p-y.vertical-align
-        .col-lg-2.col-lg-offset-2.text-center 
-          img(src="/images/hex-placeholder.svg")
-        .col-lg-4.col-lg-offset-1
+          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          
+      .row.p-y-0.vertical-align
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+          img(src="/images/illustrations/middle-slice.svg")
+        .col-xs-8.col-sm-8.col-md-6.col-lg-5
           h5.uppercase.letter-spacing-2.m-b-md Full-Featured & Extensible
-          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper quam risus, sit amet
-      .row.p-y.vertical-align
-        .col-lg-2.col-lg-offset-2.text-center 
-          img(src="/images/hex-placeholder.svg")
-        .col-lg-4.col-lg-offset-1
+          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      .row.p-y-0.vertical-align
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+          img(src="/images/illustrations/bottom-slice.svg")
+        .col-xs-8.col-sm-8.col-md-6.col-lg-5
           h5.uppercase.letter-spacing-2.m-b-md Built on the blockchain
-          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper quam risus, sit amet
+          p.opacity-70 Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
     
   .bg-gray.p-y-lg.border-vertical-grey 
     .container
         .col-sm-6.p-r-lg.border-right-grey
-          h5.bold.m-b.arrow-dark Getting Started
-          p Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+          a(href="/start").cta-link.bold.m-b.arrow-dark Getting Started
+          p.m-t Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
         .col-sm-6.p-l-lg
-          h5.bold.m-b.arrow-dark Documentation
-          p Go deep with the full API documentation. You should have this pulled up.
+          a(href="/guides").cta-link.bold.m-b.arrow-dark Guides
+          p.m-t Go deep with the full API documentation. You should have this pulled up.
   
   .section.bg-white
     .container
