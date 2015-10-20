@@ -61,6 +61,7 @@ gulp.task('watch', ['build'], function() {
     'src/**/*.js'
   ], [
     'jscs-jshint',
+    'jademin-uglify',
     gulp.devDeps.reload
   ]);
 
