@@ -1,7 +1,9 @@
 /* reset foundation */
 /*body{max-width:1000px !important;}*/
 body {
-  font-family: 'Ubuntu';
+  font-family: 'Source Sans Pro';
+  /*background-color: #F9F9F9;*/
+  background-color: #ffffff;
 }
 label.inline {
   margin: 0 0 0 0;
@@ -30,16 +32,16 @@ select {
   margin: 0 0 0.5rem 0;
 }
 a {
-  color: #BD1900;
+  color: #f9b544;
 }
 a:hover {
   color: #E7280A;
 }
 .link1 {
-  color: #AAAAAA;
+  color: #ff9f00;
 }
 .link1:hover {
-  color: #BD1900;
+  color: #ff9f00;
 }
 button,
 .button {
@@ -47,7 +49,7 @@ button,
 }
 input.ng-invalid {
   background-color: pink !important;
-  border: 1px dashed red;
+  border: 1px dashed #ff9f00;
 }
 input.ng-pristine {
   background-color: inherit !important;
@@ -83,11 +85,15 @@ code {
   background-color: #3A3A3A;
 }
 .bg-color-red1 {
-  background-color: #BD1900;
+  background-color: #ff9f00;
 }
 .bg-color-gray1 {
   background-color: #F6F6F6;
 }
+.bg-color-white {
+  background-color: #ffffff;
+}
+
 .bg-color-gray2 {
   background-color: #F1EFEF;
 }
@@ -409,22 +415,23 @@ input.nlocktime {
   margin-left: 220px;
 }
 .examples {
-  min-height: 600px;
+  min-height: 1200px;
 }
 /* Header */
 
 #header {
-  font-family: "Ubuntu-Light"!important;
+  font-family: 'Titillium Web'!important;
   padding: 14px 0 14px 0;
+  height: 62px;
 }
 .v-align {
   vertical-align: middle;
 }
 .playground-logo {
-  font-family: "Ubuntu-Light"!important;
+  font-family: 'Titillium Web'!important;
   font-style: italic;
   color: #A0A1A0;
-  margin: 5px 0 0 2px;
+  /*margin: 5px 0 0 2px;*/
   vertical-align: middle;
 }
 .playground-logo img {
@@ -438,7 +445,9 @@ input.nlocktime {
   display: inline-block;
 }
 #nav-hd li {
-  margin: 10px 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 5px 10px;
 }
 #nav-ft li {
   margin: 8px 16px;
@@ -489,7 +498,7 @@ input.nlocktime {
 /* Sidebar menu */
 
 .switch-opt {} .switch-txt-opt {
-  font-family: "Ubuntu-Light"!important;
+  font-family: "Titillium Web"!important;
   padding: 0 5px 15px 5px !important;
   vertical-align: middle;
 }
@@ -505,11 +514,11 @@ ul.menu {} .menu li {
   color: #000000;
 }
 .dropdown-menu li a:hover {
-  color: #BD1900;
+  color: #f9b544;
 }
 .menu li a:hover,
 .menu li:hover a {
-  color: #BD1900;
+  color: #ff9f00;
 }
 .menu li:hover {
   background-color: #F6F6F6;
@@ -522,17 +531,19 @@ ul.menu {} .menu li {
   cursor: pointer;
 }
 .sidebar {
-  padding: 30px 0 0 0;
+  padding: 0px 0 0 0;
+  background-color: #f9f9f9;
 }
 .menu li.current {
-  background-color: #F6F6F6;
+  background-color: #FFFFFF;
+  border-left: 4px solid #f9b544;
 }
 /* Buttons */
 
 .button1 {
   border-style: none;
   font-weight: bold;
-  background-color: #bd1900;
+  background-color: #f9b544;
   color: #FFFFFF;
   text-transform: uppercase;
   padding: 0rem 0rem 0rem;
@@ -546,7 +557,7 @@ ul.menu {} .menu li {
   transition: 0.15s ease-out;
 }
 .button1:hover {
-  background-color: #A31600 !important;
+  background-color: #ff9f00 !important;
   color: #FFFFFF !important;
   border-style: none;
   -webkit-transition: background-color 300ms linear;
@@ -557,7 +568,7 @@ ul.menu {} .menu li {
 }
 .button1:focus {
   background-color: initial;
-  background-color: #A31600 !important;
+  background-color: #ff9f00 !important;
   color: #FFFFFF !important;
   border-style: none;
 }
@@ -656,25 +667,31 @@ button[disabled]:focus,
 /* Content menu */
 
 .section-title {} #content {} .ubuntu-bold {
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";
 }
 .content-title h1 {
   font-size: 1.4em;
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";;
 }
 .share-link {
   margin-bottom: 30px;
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";;
 }
 a.share-link {
   color: ;
 }
+
+.white-box {
+  border: 1px solid #D8D8D8;
+  border-radius: .5em;
+}
+
 .white-box {} .white-box input {
   font-size: 0.8em;
 }
 .white-box h2 {
   text-transform: uppercase;
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";;
   font-size: 1em;
   padding: 0 0 20px 0;
 }
@@ -682,10 +699,10 @@ a.share-link {
   border-right: 1px solid #F1EFEF;
 }
 .v-divider {
-  border-left: 1px solid red;
+  border-left: 1px solid #ff9f00;
 }
 .key-title {
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";;
   font-size: 0.9em;
   margin: 0;
 }
@@ -700,7 +717,7 @@ a.share-link {
 .input-title {
   background-repeat: no-repeat;
   background-position: center left;
-  font-family: "Ubuntu-Bold";
+  font-family: "Titillium Web";;
   font-size: 1em;
   border: none;
   background-color: #FFFFFF;
@@ -825,9 +842,9 @@ a.share-link {
 
 #console {
   width: 100%;
-  height: 250px;
+  height: 1120px;
   overflow-y: scroll;
-  background-color: #3A3A3A;
+  background-color: #4A4A4A;
   font-size: 1.2em;
 }
 #console::-webkit-scrollbar {
@@ -911,6 +928,8 @@ a.share-link {
 }
 #terminal-content {
   font-family: Monaco, "Courier New", Courier, monospace !important;
+  height: 1200px;
+  background-color: #4A4A4A;
 }
 .footer {
   border-top: solid 1px #555;
@@ -959,7 +978,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 .switch input:checked + label {
-  background: #bd1900;
+  background: #ff9f00;
 }
 .animate-enter,
 .animate-leave {
@@ -982,4 +1001,16 @@ input[type=number] {
   opacity: 0;
   top: -50px;
   height: 0px;
+}
+
+.max-width-large {
+  max-width: 1455px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.button.expand {
+      font-size: 0.65rem;
 }

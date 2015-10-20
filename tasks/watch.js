@@ -71,6 +71,13 @@ gulp.task('watch', ['build'], function() {
   ], [
     'images', gulp.devDeps.reload
   ]);
+
+  // Playground
+  gulp.watch([
+    'components/bitcore-playground/**/*'
+  ], [
+    'playground', gulp.devDeps.reload
+  ]);
 });
 
 // Build and serve the output from the dist build

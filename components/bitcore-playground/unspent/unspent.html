@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="preloader"></div>
-<div class="row bg-color-white p20">
+<div class="row bg-color-white">
   <div class="row collapse">
     <div class="columns large-10 small-8">
       <input type="text" ng-model="utxoAddress" placeholder="enter an address" class="radius" address auto-select ng-change="addressUpdated(utxoAddress)">
@@ -42,9 +42,9 @@
   </div>
 
   <div class="row collapse" ng-repeat="utxo in utxos" ng-show="utxos">
-    <div class="small-12 columns capsule-inside mt10 plr10 p10 rdt3">
+    <div class="small-12 columns capsule-inside mt10 mb20 plr10 p10 rdt3">
       <div class="coin-in-box">
-        <div class="icon-coin v-align fnt20 pr5"></div>
+        <div class="v-align fnt20 pr5"></div>
       </div>
       <h1 class="amount ml10 fnt1">{{utxo.satoshis|btc}}<span class="btc"> BTC</span></h1>
       <div class="fnt09 mt2 row collapse">

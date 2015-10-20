@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 
 gulp.task('playground', function() {
-  gulp.src('components/playground/**', {
-    base: 'components/playground/app/'
+  gulp.src('components/bitcore-playground/**', {
+    base: 'components/bitcore-playground/'
   }).pipe(gulp.dest('dist/playground'));
 });
