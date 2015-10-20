@@ -1,0 +1,22 @@
+extends ../../_layouts/api
+
+append vars
+  -var title = 'Overview';
+  -var pageSlug = 'ecies';
+  -var description = 'Uses ECIES symmetric key negotiation from public keys to encrypt arbitrarily long data streams.';
+
+block docs
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/docs/index.md
+
+block lib
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/lib/aes.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/lib/aescbc.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/lib/cbc.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/lib/ecies.md
+  .section.p-t-lg
+    include:marked ../../../generated/bitcore-ecies/lib/errors.md

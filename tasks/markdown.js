@@ -7,10 +7,10 @@ var $ = require('gulp-load-plugins')();
 
 var repos = [
   'bitjson/bitcore-channel',
-  'bitpay/bitcore-ecies',
+  'bitjson/bitcore-ecies',
   'bitpay/bitcore-explorers',
   'bitjson/bitcore-lib',
-  'bitpay/bitcore-message',
+  'bitjson/bitcore-message',
   'bitpay/bitcore-mnemonic',
   'bitjson/bitcore-node',
   'bitpay/bitcore-p2p',
