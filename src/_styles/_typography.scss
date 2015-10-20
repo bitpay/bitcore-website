@@ -27,10 +27,17 @@ h4 {
   line-height: 1.5em;
 }
 
-h5 {
+
+.cta-link {
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-size: 1.2em;
+  color: $bc-dark;
+  &:hover {
+    text-decoration: none;
+    color: $bc-orange-dark;
+  }
 }
 
 .menu-header {
@@ -38,6 +45,7 @@ h5 {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
+
 }
 
 .arrow-dark {
