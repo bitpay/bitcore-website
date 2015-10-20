@@ -28,7 +28,8 @@ gulp.task('watch', ['build'], function() {
 
   // Jade templates and partials
   gulp.watch([
-    'src/_**/*.jade'
+    'src/_**/*.jade',
+    'src/**/*.md'
   ], [
     'uncached-rebuild-jade',
     gulp.devDeps.reload
@@ -60,6 +61,7 @@ gulp.task('watch', ['build'], function() {
     'src/**/*.js'
   ], [
     'jscs-jshint',
+    'jademin-uglify',
     gulp.devDeps.reload
   ]);
 

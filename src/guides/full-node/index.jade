@@ -1,0 +1,9 @@
+extends ../../_layouts/guides
+
+append vars
+  -var title = 'Run a Bitcoin Node';
+  -var pageSlug = 'full-node';
+  -var description = 'Setup and run a full Bitcoin Node with Bitcore.';
+
+block content
+  include:marked full-node.md
