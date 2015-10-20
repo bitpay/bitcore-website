@@ -5,8 +5,9 @@ block menu
   mixin item(name, slug)
     li.nav-item
       a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
-      
-  ul.nav.nav-pills.nav-stacked.m-t-lg
+  
+  h3.menu-header.m-t-md Introduction
+  ul.nav.nav-pills.nav-stacked
     +item('Get Started', '')
     +item('Build & Install', 'build')
     +item('Node Constructor', 'node')

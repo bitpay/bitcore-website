@@ -1,15 +1,77 @@
+// Variables
+$sidebar-width:       280px;
+$navbar-height:       62px;
+
+// Layout
+.fixed-sidebar {
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  position: absolute;
+  right: 0;
+  top: $navbar-height;
+  width: $sidebar-width;
+}
+
+.scroll-content {
+  @include media-breakpoint-down(lg) {
+    left: 0;
+  }
+  bottom: 0;
+  left: $sidebar-width;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-top: $navbar-height;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+
+// Docs Section
 .docs {
+  a {
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.8rem;
+  }
+
   h2 {
     @extend.m-t-lg
   }
+
+  pre {
+    box-shadow: none;
+  }
+
+  :not(pre)>code {
+    background-color: $bc-grey;
+    border: 1px solid $border;
+    color: $bc-orange-dark;
+    font-weight: 500;
+    padding: .2em .6em;
+    text-shadow: none;
+  }
 }
 
+
+// API Reference
 .lib {
   color: $white;
 
+  a {
+    font-weight: 500;
+  }
+
   h3 {
     color: $bc-orange;
-    font-family: monospace;
+    font-family: $font-family-monospace, monospace;
     font-size: 1.25em;
     margin-top: 3.5em;
   }
@@ -19,12 +81,10 @@
   }
 
   ul {
-    background-color: $bc-grey;
     border-left: 1px solid $border;
-    color: $bc-dark;
+    color: $white;
     display: table;
     list-style: none;
-    padding: 1.2em;
   }
 
   code {
