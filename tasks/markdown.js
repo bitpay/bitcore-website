@@ -6,7 +6,7 @@ var runSequence = require('run-sequence');
 var $ = require('gulp-load-plugins')();
 
 var repos = [
-  'bitpay/bitcore-channel',
+  'bitjson/bitcore-channel',
   'bitpay/bitcore-ecies',
   'bitpay/bitcore-explorers',
   'bitjson/bitcore-lib',

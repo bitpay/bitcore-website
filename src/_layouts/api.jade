@@ -4,8 +4,12 @@ block menu
   
   mixin item(name, slug)
     li.nav-item
-      a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
-  
+      - if (typeof(pageSlug) !== 'undefined') {
+        a(href="/api/#{slug}" class= pageSlug === slug ? "active" : undefined).nav-link #{name}
+      - } else {
+        a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
+      - }  
+
   h3.menu-header.m-t-md Introduction
   ul.nav.nav-pills.nav-stacked
     +item('Get Started', '')
@@ -44,7 +48,7 @@ block menu
 
   h3.menu-header.m-t-md Channels Module
   ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'channels')
+    +item('Overview', 'channel')
 
   h3.menu-header.m-t-md ECIES Module
   ul.nav.nav-pills.nav-stacked
