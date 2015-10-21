@@ -11,23 +11,23 @@ MongoDB is the main dependency that you will need to install outside of node mod
 The easiest way to install MongoDB on a Mac is to use brew. Please refer to these [complete instructions](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/):
 
 ```bash
-$ brew install update
-$ brew install mongodb
-$ mkdir -p /data/db
-$ sudo chown -R `whoami` /data/db #this assumes that the next step will be run by the current user
-$ mongod
+brew install update
+brew install mongodb
+mkdir -p /data/db
+sudo chown -R `whoami` /data/db #this assumes that the next step will be run by the current user
+mongod
 ```
 
 ### Installing MongoDB on Linux (Debian-based)
 
 ```bash
-$ sudo apt-get install mongodb
+sudo apt-get install mongodb
 ```
 
 This usually starts mongod for you after installation, but if it doesn't:
 
 ```bash
-$ mongod
+mongod
 ```
 
 ### Installing Kerberos on Linux (Debian-based)
@@ -38,35 +38,38 @@ You may need to install the following package to get the Wallet Service running 
 apt-get install libkrb5-dev
 ```
 
+Alternatively, you can download MongoDB from the [MongoDB website](https://www.mongodb.org/downloads).
+
 ## Add the Wallet Service to Our Node
 
 We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](fullnode.md)
 
 ```bash
-$ cd <your node>
-$ bitcore install bitcore-wallet-service
-$ bitcore install insight-api
+cd <your node>
+bitcore install bitcore-wallet-service
+bitcore install insight-api
 ```
 
-Now we should be ready to launch Bitcore-node and test the Wallet Service
+Now we should be ready to launch Bitcore and test the Wallet Service
 
 ```bash
-$ bitcored
+bitcore start
 ```
 
 ## Test the Wallet Service using Copay
 
-The wallet service should be running as a service within bitcore-node. You may point wallets on the same network to:
+The wallet service should be running as a service within Bitcore. You may point wallets on the same network to:
 
-http://your-bitcore-node-ip:3232/bws/api
+http://your-bitcore-node-ip:3232/bws/api  
+Don't forget to include the "http://"
 
 ![Copay Screenshot](https://i.imgur.com/2hsGXrx.png)
 
 ### Example
+Once the wallet service is running on your computer, configure your Copay wallet as such:
 
-Once the wallet service is running on my computer that has an ip address of 10.10.10.10, then I would configure my Copay wallet as such:
 
-* Open the settings on my Copay wallet. Scroll to "Bitcore Wallet Service" and change this value to: http://10.10.10.10:3232/bws/api
+* Open the settings inn your Copay wallet. Scroll to "Bitcore Wallet Service" and change this value to: http://your-bitcore-node-ip:3232/bws/api
 * Please ensure that Copay is on the same network or that you have opened ports in order to let Copay access your new Wallet Service
 * TLS/SSL support can be enabled by [adding a few things to the bitcore-node.json config](#adding-ssltls-support)
 
@@ -75,30 +78,30 @@ Once the wallet service is running on my computer that has an ip address of 10.1
 Install the wallet client
 
 ```bash
-$ sudo npm install -g bitcore-wallet
+npm install -g bitcore-wallet
 ```
 
 Create a new wallet on your server:
 ```bash
-$ wallet-create -h http://your-bitcore-node-ip:3232/bws/api --testnet 'myWallet' 1-1
-[info] Generating new keys
-* Testnet Wallet Created.
-* Saving file /Users/myUsername/.wallet.dat
+wallet-create -h http://your-bitcore-node-ip:3232/bws/api --testnet 'myWallet' 1-1
+   [info] Generating new keys
+   * Testnet Wallet Created.
+   * Saving file /Users/myUsername/.wallet.dat
 ```
 Add a new address:
 ```bash
-$ wallet -h http://your-bitcore-node-ip:3232/bws/api address
-* New Address mjfmEtkaVbZPGPLBYvznPDer2dDdcruirB
+wallet -h http://your-bitcore-node-ip:3232/bws/api address
+   * New Address mjfmEtkaVbZPGPLBYvznPDer2dDdcruirB
 ```
 
-Then send funds to this address from a faucet or other wallet, after you have funds you can see them by checking your
+Then send funds to this address from a faucet or other wallet. After you have funds, you can see them by checking your
 wallet status.
 
 ```bash
-$ wallet -h http://your-bitcore-node-ip:3232/bws/api status
-* Wallet myWallet [testnet]: 1-of-1 complete
-* Copayers: myUsername
-* Balance 1,000 bit (Locked: 0 bit)
+wallet -h http://your-bitcore-node-ip:3232/bws/api status
+   * Wallet myWallet [testnet]: 1-of-1 complete
+   * Copayers: myUsername
+   * Balance 1,000 bit (Locked: 0 bit)
 
 ```
 
@@ -111,14 +114,14 @@ alias mywallet='wallet -h http://your-bitcore-node-ip:3232/bws/api'
 
 You can then send your bits by using your new alias:
 ```bash
-$ mywallet send mxo2iZ9e1c4piKMZGyeujk2MwgBU31W7cw 100bit
-* Tx created: ID 36f4 [pending] RequiredSignatures: 1
-$ mywallet sign 36f4
-Transaction signed by you.
-$ mywallet broadcast 36f4
-Transaction Broadcasted: TXID: fa7b45b63562c265c3a79904f1ec9c547bad5dee1508ce63628047a9097bfd0e
-$ mywallet balance
-* Wallet balance 900 bit (Locked 0 bit)
+mywallet send mxo2iZ9e1c4piKMZGyeujk2MwgBU31W7cw 100bit
+   * Tx created: ID 36f4 [pending] RequiredSignatures: 1
+mywallet sign 36f4
+   Transaction signed by you.
+mywallet broadcast 36f4
+   Transaction Broadcasted: TXID: fa7b45b63562c265c3a79904f1ec9c547bad5dee1508ce63628047a9097bfd0e
+mywallet balance
+   * Wallet balance 900 bit (Locked 0 bit)
 ```
 
 ## Adding SSL/TLS Support
@@ -128,21 +131,21 @@ $ mywallet balance
 These directions assume that you have openssl installed, please run:
 
 ```bash
-$ openssl
+openssl
 ```
 
-You should see "OpenSSL>" prompt, then press Ctrl+D to exit. If you don't have OpenSSL, then install it [here](http://www.openssl.org)
+You should see an "OpenSSL>" prompt, then press Ctrl+D to exit. If you don't have OpenSSL, then install it [here](http://www.openssl.org)
 
 Next, you can run the following commands to generated a self-signed certificate:
 
 ```bash
-$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem
 ```
 
 For ease of use, just type in a password that you can remember to encrypt the key (you have the option to remove it later), then feel free to fill out the form or just hit "enter" for every question. If you would like to remove the password from the key.pem that you just created, then follow the next step, otherwise skip it. If you leave the password encryption on your key, then you will need to type it in each time the Wallet Service starts up:
 
 ```bash
-$ openssl rsa -in key.pem -out key.nopass.pem
+openssl rsa -in key.pem -out key.nopass.pem
 ```
 
 Now, key.pem has the password you typed in upon certificate creation and key.nopass.pem does not have any password. It would be a good idea to store key.pem and cert.pem somewhere safe on your computer.
@@ -150,7 +153,7 @@ Now, key.pem has the password you typed in upon certificate creation and key.nop
 ### Edit Your Config.
 
 ```bash
-$ nano bitcore-node.json
+vi bitcore-node.json
 ```
 
 Added https options. Example:
