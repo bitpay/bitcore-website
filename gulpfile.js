@@ -7,7 +7,7 @@ gulp.devDeps = {};
 var runSequence = require('run-sequence');
 
 gulp.task('default', function(cb) {
-  runSequence('build', 'hash', cb);
+  runSequence('build', 'hash', 'playground', cb);
 });
 
 gulp.task('serve', function(cb) {
@@ -23,8 +23,7 @@ gulp.task('build', ['delete'], function(cb) {
       'sass',
       'jade',
       'copy',
-      'copy-images',
-      'playground'
+      'copy-images'
     ], [
       'styles',
       'jademin-uglify'

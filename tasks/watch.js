@@ -1,9 +1,11 @@
 'use strict';
 
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
 // Watch for changes & reload
 gulp.task('watch', ['build'], function() {
+  runSequence('playground');
   loadBrowserSync();
   gulp.devDeps.browserSync({
     notify: false,
