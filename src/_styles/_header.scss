@@ -53,6 +53,12 @@
 .navbar {
   border-radius: 0;
 
+  .nav-link {
+    &.active {
+      border-bottom: 5px solid $bc-dark;
+    }
+  }
+
   .nav-item {
     a {
       color: $bc-dark;
@@ -64,6 +70,23 @@
     }
   }
 }
+
+
+.mobile-menu {
+  .nav-link {
+    &.active {
+      border-left: 5px solid $bc-dark;
+      padding-left: 15px;
+    }
+  }
+}
+
+.light-nav {
+  background-color: $white;
+  border-bottom: 1px solid $border;
+}
+
+
 
 .dark-nav {
   background-color: $bc-darker;
