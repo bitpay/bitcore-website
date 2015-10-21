@@ -118,4 +118,4 @@ Go to the URL (default):
 
 `http://localhost:3001/insight/`
 
-we should probably insert a screenshot here
+![Insight Screenshot](/images/guides/full-node/insight.png)
