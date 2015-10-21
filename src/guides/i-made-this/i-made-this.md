@@ -119,7 +119,7 @@ module.exports = StampingService;
 
 To check whether a file has been previously timestamped in the blockchain we need to add 2 methods to `index.js`:
 
-1. A blockHandler method to index any transactions containing OPRETURN data as they come in from the bitcoin network
+1. A blockHandler method to index any transactions containing OP_RETURN data as they come in from the bitcoin network
 2. A lookupHash method to scan our indexed transactions for the hash of a specific file.
 
 The blockHandler method is included below. Add this method to `index.js`.
