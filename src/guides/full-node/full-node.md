@@ -12,7 +12,7 @@ nvm install v0.12.7
 
 ## Install Bitcore
 
-Bitcore Node will come with a commandline utility for creating and managing your full node. To get started, run these commands, and you'll then have `bitcore-node` command in your path:
+Bitcore comes with a command line utility for creating and managing your full node. To get started, run these commands, and you'll then have the `bitcore` command in your path:
 
 ```
 npm install -g bitcore

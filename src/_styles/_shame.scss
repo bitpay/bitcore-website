@@ -6,6 +6,30 @@
   background: $instantclick-bar-color;
 }
 
+.api-content {
+  a {
+    // adjust the placement of named anchors to account for fixed top-nav
+    &[name] {
+      display: block;
+      margin-top: -40px;
+      padding-top: 40px;
+    }
+  }
+
+  .lib {
+    .section {
+      // nesting this deeply rather than modifying jsdoc-to-markdown
+      // to style the spec contents with a custom class
+      & > ul {
+        background-color: $api-spec-contents-background-color;
+        border: 1px solid $api-spec-contents-border-color;
+        margin: 3em 2em;
+        padding: 3em;
+      }
+    }
+  }
+}
+
 //animatewithsass uses camelCase so we import it here to rename the mixins
 @mixin fade-in($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
 	@include animation-name(fadeIn);
