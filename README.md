@@ -54,3 +54,7 @@ $ gulp images
 ```
 
 This command pipes all files in `src/images` through `imagemin`.
+
+## Brand Assets
+
+All bitcore brand assets can be found in the ![bitcore-brand repo](https://github.com/bitpay/bitcore-brand)
