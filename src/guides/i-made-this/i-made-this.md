@@ -361,7 +361,7 @@ Add `StampingService` as a dependency in `mynode/bitcore-node.json`
     "db",
     "address",
     "web",
-    "StampingService"
+    "StampingService" //add this
   ]
 }
 ```
@@ -378,13 +378,13 @@ To install the Bitcore client-side library, run:
 `bower install bitcore --save`
 
 Include bitcore in your `index.html` file via a script tag:
-```
+```html
 <script src="bower_components/bitcore/bitcore.js"></script>
 ```
 Then require Bitcore globally via:
 
-```
-bitcore = require('bitcore')
+```javascript
+bitcore = require('bitcore');
 ```
 
 #### Hashing the uploaded file
