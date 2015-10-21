@@ -16,8 +16,8 @@
 //-         a.nav-link.active(href="/api") API
 
 
-nav.navbar.navbar-fixed-top.dark-nav
-  a(href="/" title="Home").logo.logo-dark.margin-top
+nav.navbar.navbar-fixed-top.dark-nav.hidden-xs-down
+  a(href="/" title="Home").logo.logo-light.margin-top
   ul.nav.navbar-nav.pull-right
     li.nav-item
       a.nav-link(href="/start" class= section === 'start' ? "active" : undefined) Getting Started
@@ -29,3 +29,24 @@ nav.navbar.navbar-fixed-top.dark-nav
       a.nav-link(href="/playground") Playground        
     li.nav-item
       a.nav-link(href="/api") API
+
+.mobile-menu.hidden-sm-up.navbar-fixed-top
+  #exCollapsingNavbar.collapse
+    .bg-inverse.p-a
+      h3
+        ul.p-l-0.no-bullets
+          li.nav-item
+            a.nav-link(href="/") Home
+          li.nav-item
+            a.nav-link(href="/start" class= section === 'start' ? "active" : undefined) Getting Started
+          li.nav-item
+            a.nav-link(href="/guides" class= section === 'guides' ? "active" : undefined) Guides
+          li.nav-item
+            a.nav-link(href="//forum.bitcore.io/") Forum
+          li.nav-item
+            a.nav-link(href="/playground") Playground        
+          li.nav-item
+            a.nav-link(href="/api") API
+  nav.navbar.dark-nav
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#exCollapsingNavbar')
+      .logo.logo-square-orange
