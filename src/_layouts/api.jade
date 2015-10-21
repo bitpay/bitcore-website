@@ -10,57 +10,82 @@ block menu
         a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
       - }  
 
-  h3.menu-header.m-t-md Introduction
-  ul.nav.nav-pills.nav-stacked
-    +item('Get Started', '')
-    +item('Build & Install', 'build')
-    +item('Node Constructor', 'node')
-    +item('Scaffold', 'scaffold')
-    +item('Event Bus', 'bus')
-    +item('Error Handling', 'errors')
-    +item('Bitcoind Patch', 'patch')
-    +item('Release Process', 'release')
-    +item('Development & Testing', 'testing')
+  - if (section === 'node') {
+    h3.menu-header.m-t-md Node
+    ul.nav.nav-pills.nav-stacked
+      +item('Get Started', '')
+      +item('Build & Install', 'build')
+      +item('Node Constructor', 'node')
+      +item('Scaffold', 'scaffold')
+      +item('Event Bus', 'bus')
+      +item('Error Handling', 'errors')
+      +item('Bitcoind Patch', 'patch')
+      +item('Release Process', 'release')
+      +item('Development & Testing', 'testing')
+  - } else {
+    a(href="/api/")
+      h3.menu-header.m-t-md Node
+  - }
 
-  h3.menu-header.m-t-md Services
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'service')
-    +item('Bitcoin Service', 'service/bitcoin')
-    +item('Database Service', 'service/database')
-    +item('Address Service', 'service/address')
-    +item('Web Service', 'service/web')
+  - if (section === 'service') {
+    h3.menu-header.m-t-md Services
+    ul.nav.nav-pills.nav-stacked
+      +item('Overview', 'service')
+      +item('Bitcoin Service', 'service/bitcoin')
+      +item('Database Service', 'service/database')
+      +item('Address Service', 'service/address')
+      +item('Web Service', 'service/web')
+  - } else {
+    a(href="/api/service")
+      h3.menu-header.m-t-md Services
+  - }
 
-  h3.menu-header.m-t-md Bitcore Library
-  ul.nav.nav-pills.nav-stacked
-    +item('Address', 'lib/address')
-    +item('Block', 'lib/block')
-    +item('Crypto', 'lib/crypto')
-    +item('Encoding', 'lib/encoding')
-    +item('HD Keys', 'lib/hd-keys')
-    +item('Networks', 'lib/networks')
-    +item('Private Key', 'lib/private-key')
-    +item('Public Key', 'lib/public-key')
-    +item('Script', 'lib/script')
-    +item('Transaction', 'lib/transaction')
-    +item('Bitcoin Units', 'lib/unit')
-    +item('Unspent Outputs', 'lib/unspent-output')
-    +item('Bitcoin URIs', 'lib/uri')
+  - if (section === 'lib') {
+    h3.menu-header.m-t-md Bitcore Library
+    ul.nav.nav-pills.nav-stacked
+      +item('Address', 'lib/address')
+      +item('Block', 'lib/block')
+      +item('Crypto', 'lib/crypto')
+      +item('Encoding', 'lib/encoding')
+      +item('HD Keys', 'lib/hd-keys')
+      +item('Networks', 'lib/networks')
+      +item('Private Key', 'lib/private-key')
+      +item('Public Key', 'lib/public-key')
+      +item('Script', 'lib/script')
+      +item('Transaction', 'lib/transaction')
+      +item('Bitcoin Units', 'lib/unit')
+      +item('Unspent Outputs', 'lib/unspent-output')
+      +item('Bitcoin URIs', 'lib/uri')
+  - } else {
+    a(href="/api/lib/address")
+      h3.menu-header.m-t-md Bitcore Library
+  - }
 
-  h3.menu-header.m-t-md Modules
-  ul.nav.nav-pills.nav-stacked
-    +item('Payment Channels', 'channel')
-    +item('ECIES', 'ecies')
-    +item('Explorers', 'explorers')
-    +item('Message', 'message')
-    +item('Mnemonic', 'mnemonic')
-    +item('Payment Protocol', 'paypro')
+  - if (section === 'modules') {
+    h3.menu-header.m-t-md Modules
+    ul.nav.nav-pills.nav-stacked
+      +item('Payment Channels', 'channel')
+      +item('ECIES', 'ecies')
+      +item('Explorers', 'explorers')
+      +item('Message', 'message')
+      +item('Mnemonic', 'mnemonic')
+      +item('Payment Protocol', 'paypro')
+  - } else {
+    a(href="/api/channel")
+      h3.menu-header.m-t-md Modules
+  - }
     
-  h3.menu-header.m-t-md Peer-to-Peer
-  ul.nav.nav-pills.nav-stacked
-    +item('Overview', 'p2p')
-    +item('Messages', 'p2p/messages')
-    +item('Peer', 'p2p/peer')
-    +item('Pool', 'p2p/pool')
+  - if (section === 'p2p') {
+    h3.menu-header.m-t-md Peer-to-Peer
+    ul.nav.nav-pills.nav-stacked
+      +item('Overview', 'p2p')
+      +item('Messages', 'p2p/messages')
+      +item('Peer', 'p2p/peer')
+      +item('Pool', 'p2p/pool')
+  - } else {
+    a(href="/api/p2p")
+      h3.menu-header.m-t-md Peer-to-Peer
+  - }
 
 block content
   .api-content
