@@ -1,6 +1,6 @@
 # I Made This
 
-In this tutorial, we will build a Desktop app that will communicate with the blockchain to timestamp original files. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of copyrighted material. You can view the completed project files [here](https://github.com/bitpay/i-made-this).
+In this tutorial, we will build a Desktop app that will communicate with the blockchain to timestamp original files. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of copyrighted material. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
 
 #### How it works
 1. The user uploads a file via the UI.
@@ -49,7 +49,6 @@ You should now see your Bitcore node begin to download the testnet blockchain (t
 ```
 
 ### Extending your Bitcore node with a custom service
-Before continuing with this section, please review the basics of custom Bitcore services [here]().
 
 To create your custom Bitcore timestamping service, create a new `stampingservice` directory in your project root:
 
@@ -60,7 +59,7 @@ cd stampingservice
 nano index.js
 ```
 
-Install async with:
+Install async as a dependency to your `stampingservice` with:
 ```
 npm install async --save
 ```
@@ -120,7 +119,7 @@ module.exports = StampingService;
 
 To check whether a file has been previously timestamped in the blockchain we need to add 2 methods to `index.js`:
 
-1. A blockHandler method to index any transactions containing OPRETURN data as they come in from the bitcoin network
+1. A blockHandler method to index any transactions containing OP_RETURN data as they come in from the bitcoin network
 2. A lookupHash method to scan our indexed transactions for the hash of a specific file.
 
 The blockHandler method is included below. Add this method to `index.js`.
@@ -143,55 +142,56 @@ StampingService.prototype.blockHandler = function(block, add, callback) {
     setImmediate(function() {
       callback(null, []);
     });
-  }
+  } else {
 
-  var operations = [];
-  var txs = block.transactions;
-  var height = block.__height;
+    var operations = [];
+    var txs = block.transactions;
+    var height = block.__height;
 
-  // Loop through every transaction in the block
-  var transactionLength = txs.length;
-  for (var i = 0; i < transactionLength; i++) {
-    var tx = txs[i];
-    var txid = tx.id;
-    var outputs = tx.outputs;
-    var outputScriptHashes = {};
-    var outputLength = outputs.length;
+    // Loop through every transaction in the block
+    var transactionLength = txs.length;
+    for (var i = 0; i < transactionLength; i++) {
+      var tx = txs[i];
+      var txid = tx.id;
+      var outputs = tx.outputs;
+      var outputScriptHashes = {};
+      var outputLength = outputs.length;
 
-    // Loop through every output in the transaction
-    for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
-      var output = outputs[outputIndex];
-      var script = output.script;
+      // Loop through every output in the transaction
+      for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
+        var output = outputs[outputIndex];
+        var script = output.script;
 
-      if(!script || !script.isDataOut()) {
-        this.node.log.debug('Invalid script');
-        continue;
+        if(!script || !script.isDataOut()) {
+          this.node.log.debug('Invalid script');
+          continue;
+        }
+
+        // If we find outputs with script data, we need to store the transaction into level db
+        var scriptData = script.getData().toString('hex');
+        this.node.log.info('scriptData added to in-memory index:', scriptData);
+
+        // Prepend a prefix to the key to prevent namespacing collisions
+        // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
+        // in the order they occured)
+        var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
+        var value = block.hash;
+
+        var action = add ? 'put' : 'del';
+        var operation = {
+          type: action,
+          key: key,
+          value: value
+        };
+
+        operations.push(operation);
       }
-
-      // If we find outputs with script data, we need to store the transaction into level db
-      var scriptData = script.getData().toString('hex');
-      this.node.log.info('scriptData added to in-memory index:', scriptData);
-
-      // Prepend a prefix to the key to prevent namespacing collisions
-      // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
-      // in the order they occured)
-      var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
-      var value = block.hash;
-
-      var action = add ? 'put' : 'del';
-      var operation = {
-        type: action,
-        key: key,
-        value: value
-      };
-
-      operations.push(operation);
     }
+    setImmediate(function() {
+      // store transactions with script data into level db
+      callback(null, operations);
+    });
   }
-  setImmediate(function() {
-    // store transactions with script data into level db
-    callback(null, operations);
-  });
 }
 
 ```
@@ -375,16 +375,16 @@ Since the focus of this tutorial is Bitcore, only Bitcore-specific client-side c
 will be covered. The rest of the client code can be viewed in the [project repository on GitHub](https://github.com/bitpay/i-made-this).
 
 To install the Bitcore client-side library, run:
-`bower install bitcore --save`
+`bower install bitcore-lib --save`
 
 Include bitcore in your `index.html` file via a script tag:
 ```html
-<script src="bower_components/bitcore/bitcore.js"></script>
+<script src="bower_components/bitcore-lib/bitcore-lib.js"></script>
 ```
 Then require Bitcore globally via:
 
 ```javascript
-bitcore = require('bitcore');
+bitcore = require('bitcore-lib');
 ```
 
 #### Hashing the uploaded file
