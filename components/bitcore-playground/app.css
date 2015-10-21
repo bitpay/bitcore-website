@@ -431,7 +431,7 @@ input.nlocktime {
   font-family: 'Titillium Web'!important;
   font-style: italic;
   color: #A0A1A0;
-  /*margin: 5px 0 0 2px;*/
+  margin: 4px 0 0 2px;
   vertical-align: middle;
 }
 .playground-logo img {
@@ -448,17 +448,18 @@ input.nlocktime {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 5px 10px;
+  font-size: 0.8em;
 }
 #nav-ft li {
   margin: 8px 16px;
 }
 #nav-hd li a,
 #nav-ft li a {
-  color: #6B6B6A;
+  color: #E5E5E5;
 }
 #nav-hd li a:hover,
 #nav-ft li a:hover {
-  color: #A39F9A;
+  color: #fff;
 }
 .docs a,
 .docs a:hover,
@@ -1013,4 +1014,9 @@ input[type=number] {
 
 .button.expand {
       font-size: 0.65rem;
+}
+
+.active {
+  padding-bottom: 10px;
+  border-bottom: 4px solid #ff9f00;
 }
