@@ -50,7 +50,6 @@
 }
 
 
-
 // This overrides the default spacing for bootstrap nav-pills
 .nav-pills {
   .nav-link {
@@ -62,6 +61,26 @@
     &.active {
       letter-spacing: 1px;
       margin-left: 1em;
+    }
+  }
+}
+
+.api-content {
+  a {
+    // adjust the placement of named anchors to account for fixed top-nav
+    &[name] {
+      display: block;
+      margin-top: -50px;
+      padding-top: 50px;
+    }
+  }
+
+  .section {
+    & > ul {
+      background-color: $api-spec-contents-background-color;
+      border: 1px solid $api-spec-contents-border-color;
+      margin: 3em 2em;
+      padding: 3em;
     }
   }
 }
