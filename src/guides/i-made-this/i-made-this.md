@@ -1,6 +1,6 @@
 # I Made This
 
-In this tutorial, we will build a Desktop app that will communicate with the blockchain to timestamp original files. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of copyrighted material. You can view the completed project files [here](https://github.com/bitpay/i-made-this).
+In this tutorial, we will build a Desktop app that will communicate with the blockchain to timestamp original files. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of copyrighted material. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
 
 #### How it works
 1. The user uploads a file via the UI.
@@ -49,7 +49,6 @@ You should now see your Bitcore node begin to download the testnet blockchain (t
 ```
 
 ### Extending your Bitcore node with a custom service
-Before continuing with this section, please review the basics of custom Bitcore services [here]().
 
 To create your custom Bitcore timestamping service, create a new `stampingservice` directory in your project root:
 
@@ -60,7 +59,7 @@ cd stampingservice
 nano index.js
 ```
 
-Install async with:
+Install async as a dependency to your `stampingservice` with:
 ```
 npm install async --save
 ```
@@ -376,16 +375,16 @@ Since the focus of this tutorial is Bitcore, only Bitcore-specific client-side c
 will be covered. The rest of the client code can be viewed in the [project repository on GitHub](https://github.com/bitpay/i-made-this).
 
 To install the Bitcore client-side library, run:
-`bower install bitcore --save`
+`bower install bitcore-lib --save`
 
 Include bitcore in your `index.html` file via a script tag:
 ```html
-<script src="bower_components/bitcore/bitcore.js"></script>
+<script src="bower_components/bitcore-lib/bitcore-lib.js"></script>
 ```
 Then require Bitcore globally via:
 
 ```javascript
-bitcore = require('bitcore');
+bitcore = require('bitcore-lib');
 ```
 
 #### Hashing the uploaded file
