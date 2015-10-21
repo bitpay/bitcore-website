@@ -1,20 +1,30 @@
+// icon
 .fade-in-down {
   @include fade-in-down(
-    $duration: 1s,
+    $duration: 1.25s,
     $delay: .2s
   );
 }
 
-.fade-in-delayed {
-  @include fade-in(
-    $duration: 1s,
-    $delay: 1.25s
-  );
-}
-
+// version
 .fade-in-up {
   @include fade-in-up(
     $duration: 1s,
     $delay: .2s
+  );
+}
+
+.grid-fade-in {
+  @include fade-in(
+    $duration: 2.5s,
+    $delay: .2s
+  );
+}
+
+// buttons and menu
+.fade-in-delayed {
+  @include fade-in(
+    $duration: 2s,
+    $delay: 1.75s
   );
 }

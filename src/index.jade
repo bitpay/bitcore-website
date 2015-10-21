@@ -1,8 +1,9 @@
 extends _layouts/primary
 
 block body
-
-  .hero.background-center(role="navigation" style="background: #ffffff url('/images/iso-grid.jpg'); background-position: center; background-repeat: no-repeat;")
+  
+  .background-element.grid-fade-in.text-center(style="background: url('/images/shadow-grid.png') no-repeat center; height:500px; width:100%")
+  .hero.bg-white
     .container.hero-container
       .row
         .col-sm-12
@@ -17,14 +18,14 @@ block body
               a.nav-link(href="/playground") Playground
             li.nav-item.fade-in-delayed
               a.nav-link(href="/api") API
-          img(src="/images/bitcore-logo-vertical-dark.svg").m-t-lg.m-b.fade-in-down
+          img(src="/images/home-logo.png" width="150px").m-t-lg.m-b.fade-in-down
           h6.m-b-md.fade-in-up v1.0.0
           h4.m-b-lg.fade-in-delayed An open source full node for your bitcoin and blockchain app
           a(href="/start").btn.btn-primary.btn-margin.fade-in-delayed Get Started
           a(href="/api").btn.btn-secondary.btn-margin.fade-in-delayed Documentation
 
 
-  .bg-darker.p-y-md
+  .bg-darker.p-y-md.subscribe-bar
     .container
       .row
         .col-lg-4.col-lg-offset-2.col-md-6.hidden-sm-down
