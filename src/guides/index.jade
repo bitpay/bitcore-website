@@ -5,37 +5,60 @@ append vars
   -var description = 'Guides and Tutorials for using Bitcore';
 
 block content
-  h1.header__bottom-border-left Guides
+  h3.header__bottom-border-left Guides
+  p This line should tell you to how to jump into the various sections of this documenation section.
+  .m-t
+    .container
+      .row
+        .col-sm-4.p-l-0
+          a(href="/guides/full-node")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Run a Full Node
+
+        .col-sm-4
+          a(href="/guides/wallet-service")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Run a Wallet Service
+        .col-sm-4
+          a(href="/guides/browser")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Browser Builds
+
+  h3.header__bottom-border-left.m-t-lg Tutorials
   p.m-t This line should tell you to how to jump into the various sections of this documenation section.
-
-  h4.m-y-md Tutorials
   .m-t
     .container
       .row
         .col-sm-4.p-l-0
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h5.card-title Lemonade Stand
+          a(href="/guides/browser")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Service Development
 
         .col-sm-4
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h5.card-title I made this
-  
-  h4.m-y-md Guides
-  .m-t
-    .container
+          a(href="/guides/browser")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Satoshi Fire Alarm
+
+        .col-sm-4
+          a(href="/guides/browser")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title Lemonade Stand
       .row
         .col-sm-4.p-l-0
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h5.card-title Run a Wallet Server
-
-        .col-sm-4
-          .card
-            img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
-            .card-block
-              h5.card-title Bitcore in the Browser
+          a(href="/guides/browser")
+            .card
+              img.card-img-top.width-100(src='/images/card-placeholder.png', alt='Card image cap')
+              .card-block
+                h5.card-title I made this
