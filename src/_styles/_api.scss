@@ -50,6 +50,11 @@ $navbar-height:       62px;
     box-shadow: none;
   }
 
+  img {
+    margin: 2em 0;
+    max-width: 100%;
+  }
+
   :not(pre)>code {
     background-color: $bc-grey;
     border: 1px solid $border;
