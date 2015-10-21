@@ -25,7 +25,7 @@ cd i-made-this
 ```
 
 ### Setting up your Bitcore node
-To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development.
+To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development. Also, ensure your version of Node.js is 12.0 and above.
 
 Start your new Bitcore node from within the newly created `mynode` directory (the start command must always be executed from within the `mynode` directory):
 
@@ -60,11 +60,17 @@ cd stampingservice
 nano index.js
 ```
 
+Install async with:
+```
+npm install async --save
+```
+
 Place the following boilerplate code into `index.js`
 
 ```javascript
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
+var async = require('async');
 
 // A prefix for our level db file hash keys to ensure there
 // are no collisions the bitcore namespace (0-255 is reserved by bitcore)
@@ -360,7 +366,7 @@ Add `StampingService` as a dependency in `mynode/bitcore-node.json`
 }
 ```
 
-Restart your Bitcore node, and visit [http://localhost:3001/stampingservice/hash/aCrAzYHaSh](http://localhost:3001/stampingservice/hash/aCrAzYHaSh) in your browser. If all went well, the server response will be an empty array, indicating that 'aCrAzYHaSh' has never been included in the blockchain.
+Restart your Bitcore node, and visit [http://localhost:3001/stampingservice/hash/aCrAzYHaSh](http://localhost:3001/stampingservice/hash/aCrAzYHaSh) in your browser. If all went well, the server response will be "Not Found", indicating that 'aCrAzYHaSh' has never been included in the blockchain.
 
 
 ## Wiring the client-side app to your Bitcore endpoints
