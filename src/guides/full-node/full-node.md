@@ -44,7 +44,7 @@ This will create the directory "mynode" in your current working and install all 
 To create a node if you already have a Bitcoin data directory that you want to use:
 
 ```bash
-bitcore -d <path-to-datadirectory> mynode
+bitcore create -d <path-to-datadirectory> mynode
 ```
 
 The database directory will likely be at `~/.bitcore`. Note that you'll need to have `txindex` enabled in your bitcoin configuration file. To enable `txindex`, add `txindex=1` and `reindex=1` to `~/.bitcoin/bitcoin.conf`. After you start Bitcoin once with `reindex=1` you should remove it, otherwise it will reindex every time the node starts. Be sure to leave `txindex=1`, though.
