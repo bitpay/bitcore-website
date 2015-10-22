@@ -14,6 +14,10 @@ $navbar-height:       62px;
   right: 0;
   top: $navbar-height;
   width: $sidebar-width;
+
+  h3 {
+    color: $bc-darker;
+  }
 }
 
 .scroll-content {
@@ -51,7 +55,7 @@ $navbar-height:       62px;
   }
 
   img {
-    margin: 2em 0;
+    // margin: 2em 0;
     max-width: 100%;
   }
 
