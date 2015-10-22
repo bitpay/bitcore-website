@@ -1,7 +1,7 @@
 # I Made This
 
 <div id="i-made-this-container" align="center">
-  <img src="/src/images/guides/i-made-this/picturesinboxes-imadethis.jpg" />
+  <img src="/images/guides/i-made-this/picturesinboxes-imadethis.jpg" />
   <p>
     Courtesy of <a href="http://www.picturesinboxes.com/2014/01/01/internet/">
       picturesinboxes
@@ -29,7 +29,7 @@ In this tutorial, we will build a desktop app that will timestamp original files
 The final app will look like this:
 
 <div align="center">
-  <img src="/src/images/guides/i-made-this/screenshot.png" />
+  <img src="/images/guides/i-made-this/screenshot.png" />
 </div>
 
 
