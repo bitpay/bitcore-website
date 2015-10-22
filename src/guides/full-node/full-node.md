@@ -24,7 +24,7 @@ At this point, if you just want to sync the blockchain and run the Insight Block
 ```bash
 bitcored
 ```
-This will start your node with the insight-api-and insight-ui services.
+This will start your node from a config file in `~/.bitcore` with the insight-api and insight-ui services enabled.
 
 ## Create a New (Non-Global) Node for Running Custom Services like Bitcore Wallet Service
 
@@ -82,7 +82,7 @@ As mentioned previously, this process can take several hours to complete, so you
 
 ```bash
 cd mynode
-bitcore start
+bitcored
 ```
 
 This will start up all of the services that have been enabled in your configuration file. The first service that will most likely be started is Bitcoin itself, followed by others that depend on it, such as the Database and Address Service. The syncing process will connect to other Bitcoin peers in the network and start downloading the blockchain, verifying proof-of-work, and creating indexes for querying the blockchain. Both Bitcoin and the Database Service will log the status of the initial syncronization process.

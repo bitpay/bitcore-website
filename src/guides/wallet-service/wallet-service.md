@@ -53,7 +53,7 @@ bitcore install insight-api
 Now we should be ready to launch Bitcore and test the Wallet Service
 
 ```bash
-bitcore start
+bitcored
 ```
 
 ## Test the Wallet Service using Copay
