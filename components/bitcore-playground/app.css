@@ -844,7 +844,7 @@ a.share-link {
 #console {
   width: 100%;
   height: 1120px;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: #4A4A4A;
   font-size: 1.2em;
 }
