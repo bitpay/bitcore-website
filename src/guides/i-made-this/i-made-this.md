@@ -1,7 +1,7 @@
 # I Made This
 
 <div id="i-made-this-container" align="center">
-  <img src="/src/images/guides/i-made-this/picturesinboxes-imadethis.jpg" />
+  <img src="/images/guides/i-made-this/picturesinboxes-imadethis.jpg" />
   <p>
     Courtesy of <a href="http://www.picturesinboxes.com/2014/01/01/internet/">
       picturesinboxes
@@ -9,14 +9,14 @@
   </p>
 </div>
 
-In this tutorial, we will build a desktop app that will timestamp original files into the blockchain by including their unique hashes as part of the [OP_RETURN](http://bitcoin.stackexchange.com/questions/29554/explanation-of-what-an-op-return-transaction-looks-like) data of bitcoin transactions. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of original content. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
+In this tutorial, we will build a desktop app that timestamps original files into the blockchain by including their unique hashes as part of the [OP_RETURN](http://bitcoin.stackexchange.com/questions/29554/explanation-of-what-an-op-return-transaction-looks-like) data of bitcoin transactions. The timestamps will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of original content. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
 
 
 
 
 #### How it works
 1. The user uploads a file via the desktop app.
-2. The app hashes the file and asks Bitcore node whether the file hash already been timestamped in the blockchain.
+2. The app hashes the file and asks Bitcore node whether the file has already been timestamped in the blockchain.
 3. If the file has not yet been timestamped, the app generates a new BTC address and displays that address to the user in the form of a qrcode, prompting the user to send a small amount of BTC to that address.
 4. Once the user's BTC arrives at the address, your Bitcore node utilizes the received bitcoin to broadcast a new transaction with the file hash included, serving as a permanent timestamp in the blockchain.
 
@@ -29,7 +29,7 @@ In this tutorial, we will build a desktop app that will timestamp original files
 The final app will look like this:
 
 <div align="center">
-  <img src="/src/images/guides/i-made-this/screenshot.png" />
+  <img src="/images/guides/i-made-this/screenshot.png" />
 </div>
 
 
@@ -91,7 +91,7 @@ var EventEmitter = require('events').EventEmitter;
 var async = require('async');
 
 // A prefix for our level db file hash keys to ensure there
-// are no collisions the bitcore namespace (0-255 is reserved by bitcore)
+// are no collisions with the bitcore namespace (0-255 is reserved by bitcore)
 var PREFIX = String.fromCharCode(0xff) + 'StampingService';
 
 function enableCors(response){
@@ -157,62 +157,56 @@ StampingService.prototype.blockHandler = function(block, add, callback) {
     store that ships with bitcore.
 
   */
-  if (!add) {
-    setImmediate(function() {
-      callback(null, []);
-    });
-  } else {
 
-    var operations = [];
-    var txs = block.transactions;
-    var height = block.__height;
+  var operations = [];
+  var txs = block.transactions;
+  var height = block.__height;
 
-    // Loop through every transaction in the block
-    var transactionLength = txs.length;
-    for (var i = 0; i < transactionLength; i++) {
-      var tx = txs[i];
-      var txid = tx.id;
-      var outputs = tx.outputs;
-      var outputScriptHashes = {};
-      var outputLength = outputs.length;
+  // Loop through every transaction in the block
+  var transactionLength = txs.length;
+  for (var i = 0; i < transactionLength; i++) {
+    var tx = txs[i];
+    var txid = tx.id;
+    var outputs = tx.outputs;
+    var outputScriptHashes = {};
+    var outputLength = outputs.length;
 
-      // Loop through every output in the transaction
-      for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
-        var output = outputs[outputIndex];
-        var script = output.script;
+    // Loop through every output in the transaction
+    for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
+      var output = outputs[outputIndex];
+      var script = output.script;
 
-        if(!script || !script.isDataOut()) {
-          this.node.log.debug('Invalid script');
-          continue;
-        }
-
-        // If we find outputs with script data, we need to store the transaction into level db
-        var scriptData = script.getData().toString('hex');
-        this.node.log.info('scriptData added to in-memory index:', scriptData);
-
-        // Prepend a prefix to the key to prevent namespacing collisions
-        // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
-        // in the order they occured)
-        var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
-        var value = block.hash;
-
-        var action = add ? 'put' : 'del';
-        var operation = {
-          type: action,
-          key: key,
-          value: value
-        };
-
-        operations.push(operation);
+      if(!script || !script.isDataOut()) {
+        this.node.log.debug('Invalid script');
+        continue;
       }
-    }
-    setImmediate(function() {
-      // store transactions with script data into level db
-      callback(null, operations);
-    });
-  }
-}
 
+      // If we find outputs with script data, we need to store the transaction into level db
+      var scriptData = script.getData().toString('hex');
+      this.node.log.info('scriptData added to in-memory index:', scriptData);
+
+      // Prepend a prefix to the key to prevent namespacing collisions
+      // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
+      // in the order they occured)
+      var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
+      var value = block.hash;
+
+      var action = add ? 'put' : 'del';
+      var operation = {
+        type: action,
+        key: key,
+        value: value
+      };
+
+      operations.push(operation);
+    }
+  }
+  setImmediate(function() {
+    // store transactions with script data into level db
+    callback(null, operations);
+  });
+
+}
 ```
 
 
