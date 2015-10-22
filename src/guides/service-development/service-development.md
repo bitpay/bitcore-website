@@ -1,10 +1,10 @@
 # Creating a Service
 
-The purpose of this tutorial is to demostrate how to create a service for a Bitcore node.
+The purpose of this tutorial is to demonstrate how to create a service for a Bitcore node.
 
 ## Concepts
 
-Services can be added to your node in order to extend the functionality of a Bitcore node and Bitcoin itself. Services are very simple to write if you follow the guidlelines below. Services are intended to be node modules themselves. This is because we would like to leverage all the good things about npm.
+Services can be added to your node in order to extend the functionality of a Bitcore node and Bitcoin itself. Services are very simple to write if you follow the guidelines below. Services are intended to be node modules themselves. This is because we would like to leverage all the good things about npm.
 
 ## Creating a Node
 
