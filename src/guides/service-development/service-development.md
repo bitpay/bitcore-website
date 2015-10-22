@@ -8,7 +8,7 @@ Services can be added to your node in order to extend the functionality of a Bit
 
 ## Creating a Node
 
-Create a node using [these directions](fullnode.html). If your service will not require Bitcoin code or the blockchain, feel free to skip the sync of the blockchain.
+Create a node using [these directions](full-node). If your service will not require Bitcoin code or the blockchain, feel free to skip the sync of the blockchain.
 
 ## Create the Structure for Your Service
 
