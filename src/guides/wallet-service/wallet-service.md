@@ -1,6 +1,6 @@
 # Running a Wallet Service
 
-The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Mutisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full.
+The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Multisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full.
 
 ## Installing Dependencies
 

@@ -3,7 +3,7 @@
 The Address Service builds upon the Database Service and the Bitcoin Service to add additional
 functionality for getting information by base58check encoded addresses. This includes getting the
 balance for an address, the history for a collection of addresses, and unspent outputs for
-contstructing transactions. This is typically the core functionality for building a wallet.
+constructing transactions. This is typically the core functionality for building a wallet.
 
 **Kind**: global function  
 
@@ -26,7 +26,7 @@ contstructing transactions. This is typically the core functionality for buildin
   * [.balanceEventHandler(block, obj)](#AddressService+balanceEventHandler)
   * [.subscribe(name, emitter, addresses)](#AddressService+subscribe)
   * [.unsubscribe(name, emitter, addresses)](#AddressService+unsubscribe)
-  * [.unsubscribeAll(name, emiter)](#AddressService+unsubscribeAll)
+  * [.unsubscribeAll(name, emitter)](#AddressService+unsubscribeAll)
   * [.getBalance(address, queryMempool, callback)](#AddressService+getBalance)
   * [.getInputForOutput(txid, outputIndex, options, callback)](#AddressService+getInputForOutput)
   * [.getInputs(addressStr, options, callback)](#AddressService+getInputs)
@@ -89,7 +89,7 @@ mempoolOutputIndex, an object keyed by base58check encoded addresses with values
   satoshis - Total number of satoshis
   script - The script as a hex string
 
-mempoolInputIndex, an object keyed by base58check encoded addreses with values:
+mempoolInputIndex, an object keyed by base58check encoded addresses with values:
   txid - A hex string of the transaction hash
   inputIndex - A number of the corresponding input
 
@@ -188,7 +188,7 @@ events for this service.
 | addresses | <code>Array</code> | An array of addresses to subscribe |
 
 <a name="AddressService+unsubscribeAll"></a>
-### addressService.unsubscribeAll(name, emiter)
+### addressService.unsubscribeAll(name, emitter)
 A helper function for the `unsubscribe` method to unsubscribe from all addresses.
 
 **Kind**: instance method of <code>[AddressService](#AddressService)</code>  
