@@ -1,6 +1,14 @@
 // Please leave a comment when adding to this file!
 
+#i-made-this-container {
+    float: right;
+    max-width: 250px!important;
+    margin-left: 2em!important;
+}
 
+#i-made-this-container img {
+  margin: 0!important;
+}
 // Instantclick is styled by targeting the ID selector.
 #instantclick-bar {
   background: $instantclick-bar-color;
