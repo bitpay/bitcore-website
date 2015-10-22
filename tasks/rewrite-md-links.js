@@ -7,6 +7,7 @@ gulp.task('rewrite-md-links', function() {
   return gulp.src('./dist/api/**/*.html')
 
     // bitcore-node
+    .pipe($.replace('"services.md"', '/api/service'))
     .pipe($.replace('"services/bitcoind.md"', '/api/service/bitcoin'))
     .pipe($.replace('"services/address.md"', '/api/service/address'))
     .pipe($.replace('"services/db.md"', '/api/service/db'))
@@ -40,6 +41,10 @@ gulp.task('rewrite-md-links', function() {
     .pipe($.replace('"messages.md"', '/api/p2p/messages'))
     .pipe($.replace('"peer.md"', '/api/p2p/peer'))
     .pipe($.replace('"pool.md"', '/api/p2p/pool'))
+
+    // guides
+    .pipe($.replace('"guide/fullnode.md"', '/api/guides/full-node'))
+
 
     .pipe(gulp.dest('dist/api'));
 });
