@@ -24,6 +24,8 @@ var transaction = new Transaction()
     .sign(privkeySet)     // Signs all the inputs it can
 ```
 
+You can obtain the input and output total amounts of the transaction in satoshis by accessing the fields `inputAmount` and `outputAmount`.
+
 Now, this could just be serialized to hexadecimal ASCII values (`transaction.serialize()`) and sent over to the bitcoind reference client.
 
 ```bash
@@ -66,7 +68,7 @@ var multiSigTx = new Transaction()
     .change(address);
 
 var signature = multiSigTx.getSignatures(privateKey)[0];
-console.log(signature.toJSON());
+console.log(JSON.stringify(signature));
 console.log(signature.toObject());
 console.log(signature.signature.toString()); // Outputs a DER signature
 console.log(signature.sigtype);
@@ -102,7 +104,7 @@ Some methods related to adding inputs are:
   - `from(utxos)`: same as above, but passing in an array of Unspent Outputs.
   - `from(utxo, publicKeys, threshold)`: add an input that spends a UTXO with a P2SH output for a Multisig script. The `publicKeys` argument is an array of public keys, and `threshold` is the number of required signatures in the Multisig script.
 * `addInput`: Performs a series of checks on an input and appends it to the end of the `input` vector and updates the amount of incoming bitcoins of the transaction.
-* `uncheckedAddInput`: adds an input to the end of the `input` vector and updates the `_inputAmount` without performing any checks.
+* `uncheckedAddInput`: adds an input to the end of the `input` vector and updates the `inputAmount` without performing any checks.
 
 ### PublicKeyHashInput
 
@@ -127,27 +129,43 @@ The following methods are used to manage signatures for a transaction:
 * `clearSignatures`: removes all signatures for this input
 * `isFullySigned`: returns true if the input is fully signed
 
-## Adding outputs
+## Handling Outputs
 
 Outputs can be added by:
 
-* The `addOutput(output)` method, which pushes an `Output` to the end of the `outputs` property and updates the `_outputAmount`. It also clears signatures (as the hash of the transaction may have changed) and updates the change output.
+* The `addOutput(output)` method, which pushes an `Output` to the end of the `outputs` property and updates the `outputAmount` field. It also clears signatures (as the hash of the transaction may have changed) and updates the change output.
 * The `to(address, amount)` method, that adds an output with the script that corresponds to the given address. Builds an output and calls the `addOutput` method.
 * Specifying a [change address](#Fee_calculation)
+
+To remove all outputs, you can use `clearOutputs()`, which preserves change output configuration.
 
 ## Serialization
 
 There are a series of methods used for serialization:
 
-* `toObject`: Returns a plain javascript object with no methods and enough information to fully restore the state of this transaction. Using other serialization methods (except for `toJSON`) will cause a some information to be lost.
-* `toJSON`: Returns a string with a JSON-encoded version of the output for `toObject`.
+* `toObject`: Returns a plain JavaScript object with no methods and enough information to fully restore the state of this transaction. Using other serialization methods (except for `toJSON`) will cause a some information to be lost.
+* `toJSON`: Will be called when using `JSON.stringify` to return JSON-encoded string using the output from `toObject`.
 * `toString` or `uncheckedSerialize`: Returns an hexadecimal serialization of the transaction, in the [serialization format for bitcoin](https://bitcoin.org/en/developer-reference#raw-transaction-format).
-* `serialize`: Does a series of checks before serializing the transaction:
-  - Check that the fee to be used is not very small or very large
-  - Check for dust outputs
+* `serialize`: Does a series of checks before serializing the transaction
 * `inspect`: Returns a string with some information about the transaction (currently a string formated as `<Transaction 000...000>`, that only shows the serialized value of the transaction.
 * `toBuffer`: Serializes the transaction for sending over the wire in the bitcoin network
 * `toBufferWriter`: Uses an already existing BufferWriter to copy over the serialized transaction
+
+## Serialization Checks
+
+When serializing, the bitcore library performs a series of checks. These can be disabled by providing an object to the `serialize` method with the checks that you'll like to skip.
+
+* `disableLargeFees` avoids checking that the fee is no more than `Transaction.FEE_PER_KB * Transaction.FEE_SECURITY_MARGIN * size_in_kb`.
+* `disableSmallFees` avoids checking that the fee is less than `Transaction.FEE_PER_KB * size_in_kb / Transaction.FEE_SECURITY_MARGIN`.
+* `disableIsFullySigned` does not check if all inputs are fully signed
+* `disableDustOutputs` does not check for dust outputs being generated
+* `disableMoreOutputThanInput` avoids checking that the sum of the output amounts is less than or equal to the sum of the amounts for the outputs being spent in the transaction
+
+These are the current default values in the bitcore library involved on these checks:
+
+* `Transaction.FEE_PER_KB`: `10000` (satoshis per kilobyte)
+* `Transaction.FEE_SECURITY_MARGIN`: `15`
+* `Transaction.DUST_AMOUNT`: `546` (satoshis)
 
 ## Fee calculation
 

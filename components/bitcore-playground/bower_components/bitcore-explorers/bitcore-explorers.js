@@ -9,7 +9,7 @@ module.exports = {
 
 var request = require('request');
 
-var bitcore = require('bitcore');
+var bitcore = require('bitcore-lib');
 var _ = bitcore.deps._;
 
 var $ = bitcore.util.preconditions;
@@ -182,10 +182,10 @@ Insight.prototype.requestGet = function(path, callback) {
 
 module.exports = Insight;
 
-},{"./models/addressinfo":3,"bitcore":"bitcore","request":5}],3:[function(require,module,exports){
+},{"./models/addressinfo":3,"bitcore-lib":"bitcore-lib","request":5}],3:[function(require,module,exports){
 'use strict';
 
-var bitcore = require('bitcore');
+var bitcore = require('bitcore-lib');
 
 var _ = bitcore.deps._;
 var $ = bitcore.util.preconditions;
@@ -227,7 +227,7 @@ AddressInfo.fromInsight = function(param) {
 
 module.exports = AddressInfo;
 
-},{"bitcore":"bitcore"}],4:[function(require,module,exports){
+},{"bitcore-lib":"bitcore-lib"}],4:[function(require,module,exports){
 module.exports = {
   AddressInfo: require('./addressinfo')
 };

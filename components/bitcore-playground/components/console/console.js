@@ -217,6 +217,6 @@ REPL.prototype.errorCallback = function(error) {
 window.REPL = new REPL();
 window.REPL.prompt();
 window.REPL.console.SetPromptText("var priv = new bitcore.PrivateKey();");
-window.bitcore = require('bitcore');
+window.bitcore = require('bitcore-lib');
 
 });
