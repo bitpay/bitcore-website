@@ -64,7 +64,7 @@ Then change the network value to "testnet" or "livenet". Here is an example conf
 
 ```
 {
-  "datadir": "/home/user/.bitcore",
+  "datadir": "/home/user/.bitcore/data",
   "network": "livenet",
   "port": 3001,
   "services": [
@@ -85,7 +85,7 @@ cd mynode
 bitcored
 ```
 
-This will start up all of the services that have been enabled in your configuration file. The first service that will most likely be started is Bitcoin itself, followed by others that depend on it, such as the Database and Address Service. The syncing process will connect to other Bitcoin peers in the network and start downloading the blockchain, verifying proof-of-work, and creating indexes for querying the blockchain. Both Bitcoin and the Database Service will log the status of the initial syncronization process.
+This will start up all of the services that have been enabled in your configuration file. The first service that will most likely be started is Bitcoin itself, followed by others that depend on it, such as the Database and Address Service. The syncing process will connect to other Bitcoin peers in the network and start downloading the blockchain, verifying proof-of-work, and creating indexes for querying the blockchain. Both Bitcoin and the Database Service will log the status of the initial synchronization process.
 
 ## Query for Information
 

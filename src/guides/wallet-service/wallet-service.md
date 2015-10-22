@@ -69,7 +69,7 @@ Don't forget to include the "http://"
 Once the wallet service is running on your computer, configure your Copay wallet as such:
 
 
-* Open the settings inn your Copay wallet. Scroll to "Bitcore Wallet Service" and change this value to: http://your-bitcore-node-ip:3232/bws/api
+* Open the settings in your Copay wallet. Scroll to "Bitcore Wallet Service" and change this value to: http://your-bitcore-node-ip:3232/bws/api
 * Please ensure that Copay is on the same network or that you have opened ports in order to let Copay access your new Wallet Service
 * TLS/SSL support can be enabled by [adding a few things to the bitcore-node.json config](#adding-ssltls-support)
 
@@ -160,7 +160,7 @@ Added https options. Example:
 
 ```json
 {
-  "datadir": "/home/user/.bitcore",
+  "datadir": "/home/user/.bitcore/data",
   "network": "livenet",
   "port": 3001,
   "https": true,

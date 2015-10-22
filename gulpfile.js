@@ -26,7 +26,8 @@ gulp.task('build', ['delete'], function(cb) {
       'copy-images'
     ], [
       'styles',
-      'jademin-uglify'
+      'jademin-uglify',
+      'rewrite-md-links'
     ],
     cb);
 });

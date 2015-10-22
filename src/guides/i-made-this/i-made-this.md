@@ -1,18 +1,37 @@
 # I Made This
 
-In this tutorial, we will build a Desktop app that will communicate with the blockchain to timestamp original files. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of copyrighted material. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
+<div id="i-made-this-container" align="center">
+  <img src="/images/guides/i-made-this/picturesinboxes-imadethis.jpg" />
+  <p>
+    Courtesy of <a href="http://www.picturesinboxes.com/2014/01/01/internet/">
+      picturesinboxes
+    </a>
+  </p>
+</div>
+
+In this tutorial, we will build a desktop app that timestamps original files into the blockchain by including their unique hashes as part of the [OP_RETURN](http://bitcoin.stackexchange.com/questions/29554/explanation-of-what-an-op-return-transaction-looks-like) data of bitcoin transactions. The timestamps will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of original content. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
+
+
+
 
 #### How it works
-1. The user uploads a file via the UI.
-2. The UI hashes the file and asks Bitcore node whether the file hash already been timestamped in the blockchain.
-3. If the file has not yet been timestamped, the UI generates a new BTC address and displays that address to the user in the form of a qrcode, prompting the user to send a small amount of BTC to that address.
-4. Once the user's BTC arrives at the address, Bitcore node utilizes the received bitcoin to broadcast a new transaction with the file hash included, serving as a permanent timestamp in the blockchain.
+1. The user uploads a file via the desktop app.
+2. The app hashes the file and asks Bitcore node whether the file has already been timestamped in the blockchain.
+3. If the file has not yet been timestamped, the app generates a new BTC address and displays that address to the user in the form of a qrcode, prompting the user to send a small amount of BTC to that address.
+4. Once the user's BTC arrives at the address, your Bitcore node utilizes the received bitcoin to broadcast a new transaction with the file hash included, serving as a permanent timestamp in the blockchain.
 
 #### What we will use
 
 1. A [Bitcore](http://bitcore.io/) node to communicate with the blockchain
 2. A custom Bitcore service to extend your Bitcore node so that it can timestamp files
-3. [Electron](http://electron.atom.io) and [AngularJS](https://angularjs.org/) to serve as the Desktop UI to communicate with your Bitcore server. (However, the details of Electron and AngularJS will not be covered as part of this tutorial)
+3. [Electron](http://electron.atom.io) and [AngularJS](https://angularjs.org/) to serve as the Desktop UI to communicate with your Bitcore server. (The details of Electron and AngularJS will not be covered as part of this tutorial.)
+
+The final app will look like this:
+
+<div align="center">
+  <img src="/images/guides/i-made-this/screenshot.png" />
+</div>
+
 
 ### Starting your project
 
@@ -25,27 +44,27 @@ cd i-made-this
 ```
 
 ### Setting up your Bitcore node
-To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development. Also, ensure your version of Node.js is 12.0 and above.
+To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development. Also, ensure your version of Node.js is 12.0 or above.
 
 Start your new Bitcore node from within the newly created `mynode` directory (the start command must always be executed from within the `mynode` directory):
 
 ```
 cd mynode
-bitcore-node start
+bitcore start
 ```
 
 You should now see your Bitcore node begin to download the testnet blockchain (this can take up to 1 hour):
 ```
-{bitcore-node} info: Starting bitcoind
-{bitcore-node} info: Bitcoin Daemon Ready
-{bitcore-node} info: Starting db
-{bitcore-node} info: Bitcoin Database Ready
-{bitcore-node} info: Starting address
-{bitcore-node} info: Starting web
-{bitcore-node} info: Bitcore Node ready
-{bitcore-node} info: Bitcoin Core Daemon New Height: 88 Percentage: 0.004769453313201666
-{bitcore-node} info: Bitcoin Core Daemon New Height: 193 Percentage: 0.010396335273981094
-{bitcore-node} info: Bitcoin Core Daemon New Height: 304 Percentage: 0.01634475402534008
+[2015-10-21T22:53:25.974Z] info: Starting bitcoind
+[2015-10-21T22:53:27.991Z] info: Bitcoin Daemon Ready
+[2015-10-21T22:53:27.992Z] info: Starting db
+[2015-10-21T22:53:28.004Z] info: Bitcoin Database Ready
+[2015-10-21T22:53:28.005Z] info: Starting address
+[2015-10-21T22:53:28.005Z] info: Starting web
+[2015-10-21T22:53:28.040Z] info: Bitcore Node ready
+[2015-10-21T22:53:29.994Z] info: Bitcoin Height: 16 Percentage: 0.000008310586963489186
+[2015-10-21T22:53:30.999Z] info: Bitcoin Height: 64 Percentage: 0.00003177577309543267
+[2015-10-21T22:53:32.002Z] info: Bitcoin Height: 112 Percentage: 0.000055240951041923836
 ```
 
 ### Extending your Bitcore node with a custom service
@@ -72,7 +91,7 @@ var EventEmitter = require('events').EventEmitter;
 var async = require('async');
 
 // A prefix for our level db file hash keys to ensure there
-// are no collisions the bitcore namespace (0-255 is reserved by bitcore)
+// are no collisions with the bitcore namespace (0-255 is reserved by bitcore)
 var PREFIX = String.fromCharCode(0xff) + 'StampingService';
 
 function enableCors(response){
@@ -138,62 +157,56 @@ StampingService.prototype.blockHandler = function(block, add, callback) {
     store that ships with bitcore.
 
   */
-  if (!add) {
-    setImmediate(function() {
-      callback(null, []);
-    });
-  } else {
 
-    var operations = [];
-    var txs = block.transactions;
-    var height = block.__height;
+  var operations = [];
+  var txs = block.transactions;
+  var height = block.__height;
 
-    // Loop through every transaction in the block
-    var transactionLength = txs.length;
-    for (var i = 0; i < transactionLength; i++) {
-      var tx = txs[i];
-      var txid = tx.id;
-      var outputs = tx.outputs;
-      var outputScriptHashes = {};
-      var outputLength = outputs.length;
+  // Loop through every transaction in the block
+  var transactionLength = txs.length;
+  for (var i = 0; i < transactionLength; i++) {
+    var tx = txs[i];
+    var txid = tx.id;
+    var outputs = tx.outputs;
+    var outputScriptHashes = {};
+    var outputLength = outputs.length;
 
-      // Loop through every output in the transaction
-      for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
-        var output = outputs[outputIndex];
-        var script = output.script;
+    // Loop through every output in the transaction
+    for (var outputIndex = 0; outputIndex < outputLength; outputIndex++) {
+      var output = outputs[outputIndex];
+      var script = output.script;
 
-        if(!script || !script.isDataOut()) {
-          this.node.log.debug('Invalid script');
-          continue;
-        }
-
-        // If we find outputs with script data, we need to store the transaction into level db
-        var scriptData = script.getData().toString('hex');
-        this.node.log.info('scriptData added to in-memory index:', scriptData);
-
-        // Prepend a prefix to the key to prevent namespacing collisions
-        // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
-        // in the order they occured)
-        var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
-        var value = block.hash;
-
-        var action = add ? 'put' : 'del';
-        var operation = {
-          type: action,
-          key: key,
-          value: value
-        };
-
-        operations.push(operation);
+      if(!script || !script.isDataOut()) {
+        this.node.log.debug('Invalid script');
+        continue;
       }
-    }
-    setImmediate(function() {
-      // store transactions with script data into level db
-      callback(null, operations);
-    });
-  }
-}
 
+      // If we find outputs with script data, we need to store the transaction into level db
+      var scriptData = script.getData().toString('hex');
+      this.node.log.info('scriptData added to in-memory index:', scriptData);
+
+      // Prepend a prefix to the key to prevent namespacing collisions
+      // Append the block height, txid, and outputIndex for ordering purposes (ensures transactions will be returned
+      // in the order they occured)
+      var key = [PREFIX, scriptData, height, txid, outputIndex].join('-');
+      var value = block.hash;
+
+      var action = add ? 'put' : 'del';
+      var operation = {
+        type: action,
+        key: key,
+        value: value
+      };
+
+      operations.push(operation);
+    }
+  }
+  setImmediate(function() {
+    // store transactions with script data into level db
+    callback(null, operations);
+  });
+
+}
 ```
 
 
@@ -434,10 +447,9 @@ a new bitcoin address to which the user can send a small amount of Bitcoin, whic
 transaction. An address can be generated with the following code:
 
 ```javascript
-privateKey = new bitcore.PrivateKey();
-var publicKey = new bitcore.PublicKey(privateKey);
-address = new bitcore.Address(publicKey, bitcore.Networks.testnet).toString();
-
+privateKey1 = new bitcore.PrivateKey();
+var publicKey = new bitcore.PublicKey(privateKey1);
+$scope.address = new bitcore.Address(publicKey, bitcore.Networks.testnet).toString();
 ```
 
 We can be notified when the user has sent funds to this address by polling
@@ -466,15 +478,13 @@ Once the user's BTC arrives at the generated address, we can now create a new tr
 to which we will attach the hash of the uploaded file.
 
 ```javascript
-function timeStampFile(unspentOutput){
+function timeStampFile(unspentOutput, privateKey1){
   // Uses the BTC received from the user to create a new transaction object
   // that includes the hash of the uploaded file
   var UnspentOutput = bitcore.Transaction.UnspentOutput;
   var Transaction = bitcore.Transaction;
   var Address = bitcore.Address;
 
-  // Generate a new change address that we can monitor to know when the
-  // transaction completes
   var privateKey2 = new bitcore.PrivateKey();
   var publicKey2 = new bitcore.PublicKey(privateKey2);
   var change = new bitcore.Address(publicKey2, bitcore.Networks.testnet);
@@ -483,7 +493,6 @@ function timeStampFile(unspentOutput){
 
   var unspent2 = UnspentOutput(unspentOutput);
 
-  // Create the transaction object
   var transaction2 = Transaction();
   transaction2
     .from(unspent2)
@@ -496,7 +505,10 @@ function timeStampFile(unspentOutput){
     satoshis: 0
   }));
 
-  transaction2.sign(privateKey);
+  // Sign transaction with the original private key that generated
+  // the address to which the user sent BTC
+  transaction2.sign(privateKey1);
+  $scope.transactionId = transaction2.id;
   var serializedTransaction = transaction2.checkedSerialize();
 
   sendTransaction(serializedTransaction);
@@ -514,7 +526,20 @@ function sendTransaction(serializedTransaction){
     });
   }
 }
+
+function sendTransaction(serializedTransaction){
+  // Asks bitcore-node to broadcast the timestamped transaction
+  $http.get(bitcoreServiceBasePath + '/send/' + serializedTransaction)
+    .success(sentTransaction)
+
+  function sentTransaction(){
+    montiorAddress(changeAddress, function(unspentOutput){
+      $scope.stampSuccess = true;
+      pendingFileHashes[fileHash] = {date: new Date()};
+    });
+  }
+}
 ```
 ## The End
-That's it! Have questions about this tutorial? [Post them here]().
-You can also [view the completed project files on GitHub]().
+That's it! Have questions about this tutorial? [Post them here](https://forum.bitcore.io).
+You can also [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
