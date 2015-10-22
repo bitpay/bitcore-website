@@ -48,7 +48,7 @@ pool.connect();
 ```
 <a name="Pool+connect"></a>
 ### pool.connect()
-Will initiatiate connection to peers, if available peers have been added to
+Will initiate connection to peers, if available peers have been added to
 the pool, it will connect to those, otherwise will use DNS seeds to find
 peers to connect. When a peer disconnects it will add another.
 
@@ -64,7 +64,7 @@ Will disconnect all peers that are connected.
 **Returns**: <code>Number</code> - The number of peers currently connected.  
 <a name="Pool+_fillConnections"></a>
 ### pool._fillConnections()
-Will fill the conneted peers to the maximum amount.
+Will fill the connected peers to the maximum amount.
 
 **Kind**: instance method of <code>[Pool](#Pool)</code>  
 <a name="Pool+_removeConnectedPeer"></a>
@@ -101,7 +101,7 @@ intializes the associated event handlers.
 
 <a name="Pool+_addPeerEventHandlers"></a>
 ### pool._addPeerEventHandlers()
-Will add disconnect and ready events for a peer and intialize
+Will add disconnect and ready events for a peer and initialize
 handlers for relay peer message events.
 
 **Kind**: instance method of <code>[Pool](#Pool)</code>  
