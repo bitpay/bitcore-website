@@ -9,14 +9,14 @@
   </p>
 </div>
 
-In this tutorial, we will build a desktop app that will timestamp original files into the blockchain by including their unique hashes as part of the [OP_RETURN](http://bitcoin.stackexchange.com/questions/29554/explanation-of-what-an-op-return-transaction-looks-like) data of bitcoin transactions. The timestamp will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of original content. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
+In this tutorial, we will build a desktop app that timestamps original files into the blockchain by including their unique hashes as part of the [OP_RETURN](http://bitcoin.stackexchange.com/questions/29554/explanation-of-what-an-op-return-transaction-looks-like) data of bitcoin transactions. The timestamps will serve as immutable proof that the files existed at a certain point in time, which can be used to demonstrate ownership of original content. You can [view the completed project files on GitHub](https://github.com/bitpay/i-made-this).
 
 
 
 
 #### How it works
 1. The user uploads a file via the desktop app.
-2. The app hashes the file and asks Bitcore node whether the file hash already been timestamped in the blockchain.
+2. The app hashes the file and asks Bitcore node whether the file has already been timestamped in the blockchain.
 3. If the file has not yet been timestamped, the app generates a new BTC address and displays that address to the user in the form of a qrcode, prompting the user to send a small amount of BTC to that address.
 4. Once the user's BTC arrives at the address, your Bitcore node utilizes the received bitcoin to broadcast a new transaction with the file hash included, serving as a permanent timestamp in the blockchain.
 
