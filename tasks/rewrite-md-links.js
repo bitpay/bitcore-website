@@ -45,6 +45,5 @@ gulp.task('rewrite-md-links', function() {
     // guides
     .pipe($.replace('"guide/fullnode.md"', '/api/guides/full-node'))
 
-
     .pipe(gulp.dest('dist/api'));
 });
