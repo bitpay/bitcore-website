@@ -13,7 +13,7 @@ block page
           .m-b-md
             h1.color-white.header__bottom-border-left Getting Started
             h4.color-white.opacity-70.m-y Spin up a node on the bitcoin network.
-          p.color-white Bitcore is kind of like express but for bitcoin servers. Each bitcoin node will be full capable of monitoring the network, making transactions, and storing the blockchain..
+          p.color-white Bitcore has #[a(href="https://github.com/bitcoin/bitcoin" target="_new") bitcoind] built right in, so joining the peer-to-peer network is simple.
         .col-lg-6
           img.width-100(src="/images/icosahedron-spheres.png")
   
@@ -23,7 +23,7 @@ block page
         .col-lg-6
           .tutorial-number 1
           h4 Install Bitcore
-          p First install bitcore and then do some stuff
+          p You'll need to have Node.js v0.12 installed. For more info, check out our #[a(href="/guides/full-node") expanded guide].
         .col-lg-6
           pre
             code.language-bash npm install -g bitcore
@@ -31,72 +31,66 @@ block page
       .row.steps
         .col-lg-6
           .tutorial-number 2
-          h4 Create a node
-          p We are going to create a bitcore node here and call it mynode
+          h4 Start your node
+          p Once you install Bitcore, the #[code bitcored] command will be available in your terminal. Run it to start your node. 
         .col-lg-6
           pre
-            code.language-bash bitcore create mynode
-              | cd mynode
+            code.language-bash bitcored
           
       .row.steps
         .col-lg-6
           .tutorial-number 3
-          h4 Add a service
-          p Install both the insight UI and the insight API full featured block exploreres.
+          h4 Open Insight
+          p Your Bitcore node is now connecting to the peer-to-peer network and downloading the blockchain.
+          p You can watch the download progress by opening #[a(href='https://insight.is/') Insight], the bundled blockchain explorer, in a web browser.
         .col-lg-6
           pre
-            code.language-bash bitcore add insight-api insight-ui
+            code.language-bash open http://localhost:3000/insight/
 
-      .row.steps
-        .col-lg-6
-          .tutorial-number 4
-          h4 Start your node
-          p First install bitcore and the do some stuff.
-        .col-lg-6
-          pre
-            code.language-bash bitcore start
   
   .section.bg-white.border-top-grey
     .container
       h4.text-center.header__bottom-border What's Next
       .row
         .col-lg-8.col-lg-offset-2.m-b-lg
-          p.text-center We’ve provided a few example projects for you depending on the direction your heading in. 
+          p.text-center Connect Copay to your own wallet service or start building with Bitcore. 
       .row
         .col-lg-5
           img.card-img-top.width-100.m-b-md(src='/images/card-placeholder.png', alt='Card image cap')
           a(href="guides/wallet-service").orange-uppercase-link Run your own wallet service
-          p.m-t With our copay app you can run your own server and have complete control over your bitcoin. In this tutorial we take you throigh setting up your own personal bitcoin node and hooking up your copay app to it.
+          p.m-t Add Bitcore Wallet Service to your Bitcore node, and connect your Copay wallet.
+          p Copay let's you control your own funds, Bitcore Wallet Service let's you control your information, too.
         .col-lg-1
         .col-lg-6.col-offset-1.border-left-grey
+          h5.m-l.m-b Development Tutorials
           .row.vertical-align.m-b-lg.m-t-0
             .col-lg-3.text-center 
               img(src="/images/hex-placeholder.svg")
             .col-lg-9
               a(href="/guides/satoshi-fire-alarm").orange-uppercase-link Satoshi Fire Alarm
-              p.opacity-70 Hook up to a hardware unit and watch for for satoshi's coins
+              p.opacity-70 Set up a Bitcore service to watch some famous coins.
           .row.vertical-align.m-y-lg
             .col-lg-3.text-center 
               img(src="/images/hex-placeholder.svg")
             .col-lg-9
               a(href="#/guides/lemonade-stand").orange-uppercase-link Lemonade Stand
-              p.opacity-70 Learn how to create a website that accepts bitcoin payments directly            
+              p.opacity-70 Learn how to accept bitcoin payments directly on your website.           
           .row.vertical-align.m-y-lg
             .col-lg-3.text-center 
               img(src="/images/hex-placeholder.svg")
             .col-lg-9
               a(href="/guides/i-made-this").orange-uppercase-link I made this
-              p.opacity-70 Learn how to stamp a piece of information into the blockchain.        
+              p.opacity-70 Build a desktop app to timestamp information right in the blockchain.        
   
   
   .bg-gray.p-y-lg.border-vertical-grey 
     .container
         .col-sm-6.p-r-lg.border-right-grey
-          a(href="/start").cta-link.bold.m-b.arrow-dark Guides
-          p.m-t Learn the basics of bitcoin, bitcore node, common use cases, and learn how to package your app for distribution
+          a(href="/guides").cta-link.bold.m-b.arrow-dark Guides
+          p.m-t Learn more about Bitcore with one of our guides or Bitcore development tutorials.
         .col-sm-6.p-l-lg
-          a(href="/guides").cta-link.bold.m-b.arrow-dark API Reference
-          p.m-t Go deep with the full API documentation. You should have this pulled up.
+          a(href="/api").cta-link.bold.m-b.arrow-dark API Reference
+          p.m-t Dive into the full API documentation. Bitcore provides an extensive blockchain API right out of the box, and can be extended with dozens of modules and services.
 
     
   
