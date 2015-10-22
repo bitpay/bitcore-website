@@ -9,7 +9,6 @@
     "gulp-imagemin": "^2.3.0",
     "gulp-jsdoc-to-markdown": "^1.1.1",
     "gulp-prefix": "0.0.14",
-    "gulp-replace": "^0.5.4",
     "gulp-untar": "0.0.4"
   },
   "scripts": {
@@ -39,6 +38,7 @@
     "gulp-load-plugins": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-rev-all": "^0.8.21",
     "gulp-sass": "^2.0.4",
     "gulp-sass-lint": "^1.0.1",
