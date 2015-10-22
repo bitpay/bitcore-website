@@ -52,7 +52,7 @@ Next we'll need to be able to generate the invoice server-side and display a pag
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var fs = require('fs');
-var bitcore = require('bitcore');
+var bitcore = require('bitcore-lib');
 var bodyParser = require('body-parser');
 
 function LemonadeStand(options) {
@@ -135,7 +135,7 @@ Here is what `payments/invoice.html` looks like:
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-  <script src="/payments/bitcore.js"></script>
+  <script src="/payments/bitcore-lib.js"></script>
 </head>
 
 <body>
@@ -151,7 +151,7 @@ Here is what `payments/invoice.html` looks like:
   </script>
 
   <script language="javascript">
-    var bitcore = require('bitcore');
+    var bitcore = require('bitcore-lib');
     var socket = io('http://localhost:3001');
     socket.on('address/balance', function(addressObj, balance) {
       // The address object includes hash, type, and network. Use bitcore to derive the address.
@@ -167,7 +167,7 @@ Here is what `payments/invoice.html` looks like:
 
 This will generate a QR code with the bitcoin address and amount. It subscribes to the `address/balance` event from the `address` service for the given address. Every time the balance changes, we receive an event over socket.io and we update the total received accordingly.
 
-It uses bitcore on the client side to derive the address from the address object. You will want to download `bitcore.js` and put it in your `payments/static` directory.
+It uses bitcore on the client side to derive the address from the address object. You will want to download `bitcore-lib.js` and put it in your `payments/static` directory.
 
 ## Conclusion
 
