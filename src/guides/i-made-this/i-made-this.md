@@ -212,7 +212,7 @@ StampingService.prototype.blockHandler = function(block, add, callback) {
 
 The lookupHash method shown below will be called by the client-side code whenever a user uploads a file to
 check whether that file has already been timestamped. This method will query the data that has
-been stored by the blockHanlder method above.
+been stored by the blockHandler method above.
 
 ```javascript
 StampingService.prototype.lookupHash = function(req, res, next) {

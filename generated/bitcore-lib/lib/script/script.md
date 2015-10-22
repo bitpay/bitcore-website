@@ -119,7 +119,7 @@ Adds a script element at the start of the script.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| obj | <code>\*</code> | a string, number, Opcode, Bufer, or object to add |
+| obj | <code>\*</code> | a string, number, Opcode, Buffer, or object to add |
 
 <a name="Script+equals"></a>
 ### script.equals()
@@ -135,7 +135,7 @@ Adds a script element to the end of the script.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| obj | <code>\*</code> | a string, number, Opcode, Bufer, or object to add |
+| obj | <code>\*</code> | a string, number, Opcode, Buffer, or object to add |
 
 <a name="Script+toScriptHashOut"></a>
 ### script.toScriptHashOut() ⇒ <code>[Script](#Script)</code>
@@ -157,7 +157,7 @@ Will return the associated address information object
 
 <a name="Script+findAndDelete"></a>
 ### script.findAndDelete()
-Analagous to bitcoind's FindAndDelete. Find and delete equivalent chunks,
+Analogous to bitcoind's FindAndDelete. Find and delete equivalent chunks,
 typically used with push data chunks.  Note that this will find and delete
 not just the same data, but the same data with the same push data op as
 produced by default. i.e., if a pushdata in a tx does not use the minimal
@@ -173,7 +173,7 @@ Comes from bitcoind's script interpreter CheckMinimalPush function
 **Returns**: <code>boolean</code> - if the chunk {i} is the smallest way to push that particular data.  
 <a name="Script+_decodeOP_N"></a>
 ### script._decodeOP_N(opcode) ⇒ <code>number</code>
-Comes from bitcoind's script DecodOP_N function
+Comes from bitcoind's script DecodeOP_N function
 
 **Kind**: instance method of <code>[Script](#Script)</code>  
 **Returns**: <code>number</code> - numeric value in range of 0 to 16  
@@ -262,7 +262,7 @@ Builds a scriptSig (a script for an input) that signs a public key output script
 
 | Param | Type | Description |
 | --- | --- | --- |
-| signature | <code>Signature</code> &#124; <code>Buffer</code> | a Signature object, or the signature in DER cannonical encoding |
+| signature | <code>Signature</code> &#124; <code>Buffer</code> | a Signature object, or the signature in DER canonical encoding |
 | [sigtype] | <code>number</code> | the type of the signature (defaults to SIGHASH_ALL) |
 
 <a name="Script.buildPublicKeyHashIn"></a>
@@ -275,7 +275,7 @@ output script.
 | Param | Type | Description |
 | --- | --- | --- |
 | publicKey | <code>Buffer</code> &#124; <code>string</code> &#124; <code>PublicKey</code> |  |
-| signature | <code>Signature</code> &#124; <code>Buffer</code> | a Signature object, or the signature in DER cannonical encoding |
+| signature | <code>Signature</code> &#124; <code>Buffer</code> | a Signature object, or the signature in DER canonical encoding |
 | [sigtype] | <code>number</code> | the type of the signature (defaults to SIGHASH_ALL) |
 
 <a name="Script.empty"></a>
