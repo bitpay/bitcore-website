@@ -50,7 +50,7 @@ Start your new Bitcore node from within the newly created `mynode` directory (th
 
 ```
 cd mynode
-bitcore start
+bitcored
 ```
 
 You should now see your Bitcore node begin to download the testnet blockchain (this can take up to 1 hour):
@@ -447,8 +447,8 @@ a new bitcoin address to which the user can send a small amount of Bitcoin, whic
 transaction. An address can be generated with the following code:
 
 ```javascript
-privateKey1 = new bitcore.PrivateKey();
-var publicKey = new bitcore.PublicKey(privateKey1);
+privateKey = new bitcore.PrivateKey();
+var publicKey = new bitcore.PublicKey(privateKey);
 $scope.address = new bitcore.Address(publicKey, bitcore.Networks.testnet).toString();
 ```
 
@@ -478,26 +478,19 @@ Once the user's BTC arrives at the generated address, we can now create a new tr
 to which we will attach the hash of the uploaded file.
 
 ```javascript
-function timeStampFile(unspentOutput, privateKey1){
+function timeStampFile(unspentOutput, privateKey){
   // Uses the BTC received from the user to create a new transaction object
   // that includes the hash of the uploaded file
   var UnspentOutput = bitcore.Transaction.UnspentOutput;
   var Transaction = bitcore.Transaction;
-  var Address = bitcore.Address;
-
-  var privateKey2 = new bitcore.PrivateKey();
-  var publicKey2 = new bitcore.PublicKey(privateKey2);
-  var change = new bitcore.Address(publicKey2, bitcore.Networks.testnet);
-
-  changeAddress = change.toString();
-
   var unspent2 = UnspentOutput(unspentOutput);
 
+  // Let's create a transaction that sends all recieved BTC to a miner
+  // (no coins will go to a change address)
   var transaction2 = Transaction();
   transaction2
     .from(unspent2)
-    .fee(50000)
-    .change(change);
+    .fee(50000);
 
   // Append the hash of the file to the transaction
   transaction2.addOutput(new Transaction.Output({
@@ -507,7 +500,7 @@ function timeStampFile(unspentOutput, privateKey1){
 
   // Sign transaction with the original private key that generated
   // the address to which the user sent BTC
-  transaction2.sign(privateKey1);
+  transaction2.sign(privateKey);
   $scope.transactionId = transaction2.id;
   var serializedTransaction = transaction2.checkedSerialize();
 
@@ -517,26 +510,11 @@ function timeStampFile(unspentOutput, privateKey1){
 function sendTransaction(serializedTransaction){
   // Asks bitcore-node to broadcast the timestamped transaction
   $http.get(bitcoreServiceBasePath + '/send/' + serializedTransaction)
-    .success(sentTransaction)
+    .success(sentTransaction);
 
   function sentTransaction(){
-    montiorAddress(changeAddress, function(unspentOutput){
-      $scope.stampSuccess = true;
-      pendingFileHashes[fileHash] = {date: new Date()};
-    });
-  }
-}
-
-function sendTransaction(serializedTransaction){
-  // Asks bitcore-node to broadcast the timestamped transaction
-  $http.get(bitcoreServiceBasePath + '/send/' + serializedTransaction)
-    .success(sentTransaction)
-
-  function sentTransaction(){
-    montiorAddress(changeAddress, function(unspentOutput){
-      $scope.stampSuccess = true;
-      pendingFileHashes[fileHash] = {date: new Date()};
-    });
+    $scope.stampSuccess = true;
+    pendingFileHashes[fileHash] = {date: new Date()};
   }
 }
 ```
