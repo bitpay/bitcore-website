@@ -92,4 +92,4 @@ bitcore-node start
 
 ## Wait for Satoshi to Spend
 
-Just kidding, this example can be used to inform you about ANY bitcoin address. Try it by inserting your own address and transfer bitcoin to or from this address.
+Just kidding, this example can be used to inform you about ANY bitcoin address. Try it by inserting your own address and transferring bitcoin in or out.
