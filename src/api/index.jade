@@ -4,12 +4,8 @@ append vars
   -var section = 'node';
   -var title = 'Get Started';
   -var description = 'Full API Documentation for the Bitcore platform, an open source bitcoin stack.';
-
-block docs
-  .section.p-t-lg
-    h1 Bitcore API Documentation
-    include:marked ../../generated/bitcore-node/docs/index.md
   
-block lib
-  .section.p-t-lg
-    include:marked ../../generated/bitcore-node/lib/index.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/index.md')
+    h1 Bitcore API Documentation
+    include:marked ../../generated/bitcore-node/docs/index.md 

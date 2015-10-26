@@ -99,9 +99,10 @@
   .navbar-nav {
     .nav-link {
       color: $white;
-      &.active {
-        border-bottom: 5px solid $bc-orange;
-      }
+    }
+
+    .active {
+      border-bottom: 5px solid $bc-orange;
     }
   }
 }

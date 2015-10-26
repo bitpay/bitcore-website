@@ -5,10 +5,10 @@ append vars
   -var title = 'Networks';
   -var description = 'A simple interface to handle livenet and testnet bitcoin networks.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/networks.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/networks.md')
+    include:marked ../../../generated/bitcore-lib/docs/networks.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/networks.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/networks.js')
+    include:marked ../../../generated/bitcore-lib/lib/networks.md

@@ -76,3 +76,8 @@
     }
   }
 }
+
+.bring-to-front {
+  position: relative;
+  z-index: 1;
+}

@@ -5,10 +5,10 @@ append vars
   -var title = 'Bitcoin Units';
   -var description = 'Utility to easily convert between bitcoin units.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/unit.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/unit.md')
+    include:marked ../../../generated/bitcore-lib/docs/unit.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/unit.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/unit.js')
+    include:marked ../../../generated/bitcore-lib/lib/unit.md

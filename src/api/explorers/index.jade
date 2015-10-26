@@ -6,16 +6,16 @@ append vars
   -var pageSlug = 'explorers';
   -var description = 'Provides an interface to fetch information about the state of the blockchain from a trusted blockchain explorer, such as Insight.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-explorers/edit/master/docs/index.md')
     include:marked ../../../generated/bitcore-explorers/docs/index.md
 
-block lib
-  .section.p-t-lg
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-explorers/blob/master/lib/index.js')
     include:marked ../../../generated/bitcore-explorers/lib/index.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-explorers/blob/master/lib/insight.js')
     include:marked ../../../generated/bitcore-explorers/lib/insight.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-explorers/blob/master/lib/models/index.js')
     include:marked ../../../generated/bitcore-explorers/lib/models/index.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-explorers/blob/master/lib/models/addressinfo.js')
     include:marked ../../../generated/bitcore-explorers/lib/models/addressinfo.md

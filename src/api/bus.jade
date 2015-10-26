@@ -5,10 +5,10 @@ append vars
   -var title = 'Event Bus';
   -var description = 'An event emitter for Bitcore node events.';
 
-block docs
-  .section.p-t-md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/bus.md')
     include:marked ../../generated/bitcore-node/docs/bus.md
-  
-block lib
-  .section.p-t-md
+
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-node/blob/master/lib/bus.js')
     include:marked ../../generated/bitcore-node/lib/bus.md

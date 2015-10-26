@@ -5,6 +5,6 @@ append vars
   -var title = 'Build & Install';
   -var description = 'Instructions for building and installing Bitcore from source.';
 
-block docs
-  .section.p-t-md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/build.md')
     include:marked ../../generated/bitcore-node/docs/build.md

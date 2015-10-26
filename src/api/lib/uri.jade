@@ -5,10 +5,10 @@ append vars
   -var title = 'Bitcoin URIs';
   -var description = 'Utility to parse and create standard bitcoin URIs.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/uri.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/uri.md')
+    include:marked ../../../generated/bitcore-lib/docs/uri.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/uri.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/uri.js')
+    include:marked ../../../generated/bitcore-lib/lib/uri.md

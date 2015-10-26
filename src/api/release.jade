@@ -5,6 +5,6 @@ append vars
   -var title = 'Release Process';
   -var description = 'Explanation of Bitcore release and signature verification process.';
 
-block docs
-  .section.p-t-md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/release.md')
     include:marked ../../generated/bitcore-node/docs/release.md

@@ -5,18 +5,18 @@ append vars
   -var title = 'Encoding';
   -var description = 'Utilities for encoding information in bitcoin standard formats.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/encoding.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/encoding.md')
+    include:marked ../../../generated/bitcore-lib/docs/encoding.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/encoding/base58.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/encoding/base58check.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/encoding/bufferreader.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/encoding/bufferwriter.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/encoding/varint.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/encoding/base58.js')
+    include:marked ../../../generated/bitcore-lib/lib/encoding/base58.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/encoding/base58check.js')
+    include:marked ../../../generated/bitcore-lib/lib/encoding/base58check.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/encoding/bufferreader.js')
+    include:marked ../../../generated/bitcore-lib/lib/encoding/bufferreader.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/encoding/bufferwriter.js')
+    include:marked ../../../generated/bitcore-lib/lib/encoding/bufferwriter.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/encoding/varint.js')
+    include:marked ../../../generated/bitcore-lib/lib/encoding/varint.md

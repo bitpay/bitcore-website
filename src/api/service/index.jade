@@ -6,6 +6,6 @@ append vars
   -var pageSlug = 'service';
   -var description = 'Overview of Bitcore\'s services architecture.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/services.md')
     include:marked ../../../generated/bitcore-node/docs/services.md

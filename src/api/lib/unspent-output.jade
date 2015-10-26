@@ -5,10 +5,10 @@ append vars
   -var title = 'Unspent Outputs';
   -var description = 'A stateless model to represent an unspent output and associated information.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/unspentoutput.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/unspentoutput.md')
+    include:marked ../../../generated/bitcore-lib/docs/unspentoutput.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/unspentoutput.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/unspentoutput.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/unspentoutput.md

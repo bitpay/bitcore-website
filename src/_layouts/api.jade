@@ -86,7 +86,7 @@ block menu
     a(href="/api/p2p")
       h3.menu-header.m-t-md Peer-to-Peer
   - }
-
+      
 block content
   .api-content
     .docs.bg-white
@@ -94,4 +94,18 @@ block content
         block docs
     .lib.bg-dark
       .container
-          block lib
+        block lib
+          
+mixin docMarkdown(editUrl)
+  .section.p-t-lg
+    .text-right.bring-to-front
+      a(href="#{editUrl}") Edit
+    if block
+      block
+    
+mixin libMarkdown(viewUrl)
+  .section.p-t-lg
+    .text-right.bring-to-front
+      a(href="#{viewUrl}") View Source
+    if block
+      block

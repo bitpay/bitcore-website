@@ -6,14 +6,14 @@ append vars
   -var pageSlug = 'mnemonic';
   -var description = 'A simple interface to generate mnemonic codes and deterministic keys.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-mnemonic/edit/master/docs/index.md')
     include:marked ../../../generated/bitcore-mnemonic/docs/index.md
 
-block lib
-  .section.p-t-lg
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-mnemonic/blob/master/lib/mnemonic.js')
     include:marked ../../../generated/bitcore-mnemonic/lib/mnemonic.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-mnemonic/blob/master/lib/pbkdf2.js')
     include:marked ../../../generated/bitcore-mnemonic/lib/pbkdf2.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-mnemonic/blob/master/lib/errors.js')
     include:marked ../../../generated/bitcore-mnemonic/lib/errors.md

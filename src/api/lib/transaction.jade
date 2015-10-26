@@ -5,28 +5,29 @@ append vars
   -var title = 'Transaction';
   -var description = 'A robust interface to create, parse and validate bitcoin transactions.';
 
-block docs
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/docs/transaction.md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-lib/edit/master/docs/transaction.md')
+    include:marked ../../../generated/bitcore-lib/docs/transaction.md
 
-block lib
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/input/index.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/input/input.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/input/multisigscripthash.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/input/publickey.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/input/publickeyhash.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/index.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/output.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/sighash.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/signature.md
-    .section.p-t-md
-      include:marked ../../../generated/bitcore-lib/lib/transaction/transaction.md
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/input/index.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/input/index.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/input/input.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/input/input.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/input/multisigscripthash.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/input/multisigscripthash.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/input/publickey.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/input/publickey.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/input/publickeyhash.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/input/publickeyhash.md
+    
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/index.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/index.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/output.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/output.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/sighash.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/sighash.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/signature.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/signature.md
+  +libMarkdown('https://github.com/bitpay/bitcore-lib/blob/master/lib/transaction/transaction.js')
+    include:marked ../../../generated/bitcore-lib/lib/transaction/transaction.md

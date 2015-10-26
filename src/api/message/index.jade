@@ -6,10 +6,10 @@ append vars
   -var pageSlug = 'message';
   -var description = 'Bitcoin Message Verification and Signing.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-message/edit/master/docs/index.md')
     include:marked ../../../generated/bitcore-message/docs/index.md
 
-block lib
-  .section.p-t-lg
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-message/blob/master/lib/message.js')
     include:marked ../../../generated/bitcore-message/lib/message.md

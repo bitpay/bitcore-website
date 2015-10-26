@@ -6,18 +6,18 @@ append vars
   -var pageSlug = 'paypro';
   -var description = 'A powerful interface for serialize, deserialize, sign and verify payment protocol messsages.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-payment-protocol/edit/master/docs/index.md')
     include:marked ../../../generated/bitcore-payment-protocol/docs/index.md
 
-block lib
-  .section.p-t-lg
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/index.js')
     include:marked ../../../generated/bitcore-payment-protocol/lib/index.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/browser.js')
     include:marked ../../../generated/bitcore-payment-protocol/lib/browser.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/common.js')
     include:marked ../../../generated/bitcore-payment-protocol/lib/common.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/rootcerts.js')
     include:marked ../../../generated/bitcore-payment-protocol/lib/rootcerts.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/errors.js')
     include:marked ../../../generated/bitcore-payment-protocol/lib/errors.md

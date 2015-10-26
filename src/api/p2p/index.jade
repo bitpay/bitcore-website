@@ -6,16 +6,16 @@ append vars
   -var pageSlug = 'p2p';
   -var description = 'Peer-to-Peer Networking Capabilities for Bitcore.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-p2p/edit/master/docs/index.md')
     include:marked ../../../generated/bitcore-p2p/docs/index.md
 
-block lib
-  .section.p-t-lg
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-p2p/blob/master/lib/index.js')
     include:marked ../../../generated/bitcore-p2p/lib/index.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-p2p/blob/master/lib/buffers.js')
     include:marked ../../../generated/bitcore-p2p/lib/buffers.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-p2p/blob/master/lib/bloomfilter.js')
     include:marked ../../../generated/bitcore-p2p/lib/bloomfilter.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-p2p/blob/master/lib/errors.js')
     include:marked ../../../generated/bitcore-p2p/lib/errors.md

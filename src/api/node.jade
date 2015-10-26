@@ -5,10 +5,10 @@ append vars
   -var title = 'Node Constructor';
   -var description = 'A collection of services that are loaded together.';
 
-block docs
-  .section.p-t-md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/node.md')
     include:marked ../../generated/bitcore-node/docs/node.md
-  
-block lib
-  .section.p-t-md
+
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-node/blob/master/lib/node.js')
     include:marked ../../generated/bitcore-node/lib/node.md

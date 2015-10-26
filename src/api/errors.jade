@@ -5,10 +5,10 @@ append vars
   -var title = 'Error Handling';
   -var description = 'Error handling in Bitcore.';
 
-block docs
-  .section.p-t-md
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/errors.md')
     include:marked ../../generated/bitcore-node/docs/errors.md
-  
-block lib
-  .section.p-t-md
+
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-node/blob/master/lib/errors.js')
     include:marked ../../generated/bitcore-node/lib/errors.md

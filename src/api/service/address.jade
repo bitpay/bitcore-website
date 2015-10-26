@@ -5,12 +5,12 @@ append vars
   -var title = 'Address Service';
   -var description = 'Overview of the Address Service for Bitcore.';
 
-block docs
-  .section.p-t-lg
+append docs
+  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/services/address.md')
     include:marked ../../../generated/bitcore-node/docs/services/address.md
-  
-block lib
-  .section.p-t-lg
+
+append lib
+  +libMarkdown('https://github.com/bitpay/bitcore-node/blob/master/lib/services/address/index.js')
     include:marked ../../../generated/bitcore-node/lib/services/address/index.md
-  .section.p-t-lg
+  +libMarkdown('https://github.com/bitpay/bitcore-node/blob/master/lib/services/address/history.js')
     include:marked ../../../generated/bitcore-node/lib/services/address/history.md
