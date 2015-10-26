@@ -18,11 +18,12 @@ block body
               a.nav-link(href="/playground") Playground
             li.nav-item.fade-in-delayed
               a.nav-link(href="http://forum.bitcore.io/") Forum
-          img(src="/images/home-logo.png" width="150px").m-t-lg.m-b.fade-in-down
+          img(src="/images/home-logo.png").m-t-lg.m-b.fade-in-down.home-logo
           h6.m-b-md.fade-in-up v1.0.0
-          h4.m-b-lg.fade-in-delayed A powerful, modular node for bitcoin and blockchain-based apps.
-          a(href="/start").btn.btn-primary.btn-margin.fade-in-delayed Get Started
-          a(href="/api").btn.btn-secondary.btn-margin.fade-in-delayed Documentation
+          h4.m-b-md.fade-in-delayed A powerful, modular node for bitcoin and blockchain-based apps.
+          .m-b-lg-lt-md
+            a(href="/start").btn.btn-primary.fade-in-delayed.btn-margin Get Started
+            a(href="/api").btn.btn-secondary.fade-in-delayed.btn-margin Documentation
 
 
   .bg-darker.p-y-md.subscribe-bar
@@ -78,10 +79,10 @@ block body
     
   .bg-gray.p-y-lg.border-vertical-grey 
     .container
-        .col-sm-6.p-r-lg.border-right-grey
+        .col-md-6.p-r-lg.border-right-grey
           a(href="/start").cta-link.bold.m-b.arrow-dark Get Started
           p.m-t Learn more about Bitcore with one of our guides or Bitcore development tutorials.
-        .col-sm-6.p-l-lg
+        .col-md-6.p-l-lg.p-l-lt-md
           a(href="/api").cta-link.bold.m-b.arrow-dark Guides
           p.m-t Dive into the full API documentation. Bitcore provides an extensive blockchain API right out of the box, and can be extended with dozens of modules and services.
   
