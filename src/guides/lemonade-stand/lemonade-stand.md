@@ -117,13 +117,13 @@ LemonadeStand.prototype.filterInvoiceHTML = function() {
 module.exports = LemonadeStand;
 ```
 
-Let's walk through this. In our constructor we are loading the html data into memory. We'll use this later to replace variables. In a normal application, you would probably use a templating engine like Handlebars or Mustache.
+Let's walk through this. In our constructor we are loading the HTML data into memory. We'll use this later to replace variables. In a normal application, you would probably use a templating engine like Handlebars or Mustache.
 
 We generate a random HDPrivateKey from which all of our invoice addresses will be generated. Normally what you would do is generate this on a separate computer and put the corresponding HDPublicKey on the server. That way if your server is hacked, your bitcoin is still safe!
 
 Each new invoice bumps the addressIndex by 1. This will create a unique bitcoin address for every invoice that is generated.
 
-In `setupRoutes()` we add an express middleware for parsing form data. Then we add a handler for `/invoice`. When the user submits the form from the first page we created, `amount` is passed to this `/invoice` route. We then parse the amount, and respond back with the html, replacing our placeholder values with real values.
+In `setupRoutes()` we add an express middleware for parsing form data. Then we add a handler for `/invoice`. When the user submits the form from the first page we created, `amount` is passed to this `/invoice` route. We then parse the amount and respond back with the html, replacing our placeholder values with real values.
 
 Here is what `payments/invoice.html` looks like:
 
@@ -167,8 +167,8 @@ Here is what `payments/invoice.html` looks like:
 
 This will generate a QR code with the bitcoin address and amount. It subscribes to the `address/balance` event from the `address` service for the given address. Every time the balance changes, we receive an event over socket.io and we update the total received accordingly.
 
-It uses bitcore on the client side to derive the address from the address object. You will want to download `bitcore-lib.js` and put it in your `payments/static` directory.
+The file uses bitcore on the client side to derive the address from the address object. You will want to download `bitcore-lib.js` and put it in your `payments/static` directory.
 
 ## Conclusion
 
-So there we've built our very own bitcoin accepting lemonade stand using Bitcore Node!
+So there we've built our very own bitcoin-accepting lemonade stand using Bitcore Node!

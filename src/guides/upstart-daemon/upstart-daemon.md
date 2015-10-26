@@ -15,7 +15,7 @@ sudo su - bitcore
 
 It's recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions.  We will specifically need to install and run v0.12.
 
-Please follow the directions on [Github](https://github.com/creationix/nvm#install-script) and then run:
+Please follow the directions on [GitHub](https://github.com/creationix/nvm#install-script) and then run:
 
 ```bash
 nvm install v0.12.7
@@ -32,7 +32,7 @@ npm install -g bitcore
 
 ## Configure Bitcore
 
-Before starting the node and beginning the blockchain sync, you may want to configure the services available or bitcoin network settings.  These options are documented in the [Full Node](/guides/full-node) guide.
+Before starting the node and beginning the blockchain sync, you may want to configure the services available or bitcoin network settings. These options are documented in the [Full Node](/guides/full-node) guide.
 
 ## Edit and Copy the Upstart Config
 
