@@ -46,13 +46,10 @@ a {
 }
 
 .orange-uppercase-link {
-  &:hover {
-    @extend.arrow-dark;
-  }
   color: $bc-orange-dark;
   font-family: $font-family-headers;
   font-size: 1.25em;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
@@ -87,8 +84,17 @@ a {
   font-size: 1.25em;
   height: 50px;
   justify-content: center;
-  margin-bottom: 6em;
+  margin-bottom: 9em;
   margin-right: 1.25em;
   text-align: center;
   width: 50px;
+}
+
+
+.menu-text {
+  font-size: .8em;
+  letter-spacing: 2px;
+  line-height: 2.25em;
+  padding-left: 1em;
+  text-transform: uppercase;
 }

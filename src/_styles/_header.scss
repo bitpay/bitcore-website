@@ -27,6 +27,9 @@
     letter-spacing: .77px;
     line-height: 14px;
     text-transform: uppercase;
+    &:hover {
+      color: $bc-darker;
+    }
   }
 }
 
@@ -79,8 +82,16 @@
 
 .mobile-menu {
   .nav-link {
+    color: $white;
+    font-weight: 100;
+    margin-bottom: .25em;
+    opacity: .7;
+    padding-left: .5em;
+
     &.active {
-      border-left: 5px solid $bc-dark;
+      border-left: 5px solid $bc-orange-dark;
+      color: $bc-orange-dark;
+      opacity: 1;
       padding-left: 15px;
     }
   }

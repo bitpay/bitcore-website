@@ -32,6 +32,13 @@
   }
 }
 
+.home-logo {
+  @include media-breakpoint-up(lg) {
+    width: 150px;
+  }
+  width: 100px;
+}
+
 
 
 

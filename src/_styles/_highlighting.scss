@@ -1,6 +1,6 @@
 $highlighting-white: #f8f8f2;
 $highlighting-gray: #708090;
-$highlighting-black: #272822;
+$highlighting-black: $bc-darker;
 $highlighting-red: #f92672;
 $highlighting-purple: #ae81ff;
 $highlighting-yellow: #a6e22e;
@@ -42,7 +42,7 @@ pre {
 // Inline code
 :not(pre) > code {
   border-radius: .3em;
-  padding: .1em;
+  padding: .2em .5em;
 }
 
 .token {

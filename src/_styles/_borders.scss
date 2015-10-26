@@ -1,9 +1,15 @@
 .border-right-grey {
-  border-right: 1px solid $border;
+  @include media-breakpoint-up(lg) {
+    border-right: 1px solid $border;
+  }
+  border-width: 0;
 }
 
 .border-left-grey {
-  border-left: 1px solid $border;
+  @include media-breakpoint-up(lg) {
+    border-left: 1px solid $border;
+  }
+  border-width: 0;
 }
 
 .border-grey {
