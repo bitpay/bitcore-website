@@ -36,3 +36,38 @@
 .no-bullets {
   list-style: none;
 }
+
+
+// breakpointify margin and padding utility classes
+
+@include media-breakpoint-up(xs) {
+  @include padding-and-margin('gt-xs');
+}
+@include media-breakpoint-up(sm) {
+  @include padding-and-margin('gt-sm');
+}
+@include media-breakpoint-up(md) {
+  @include padding-and-margin('gt-md');
+}
+@include media-breakpoint-up(lg) {
+  @include padding-and-margin('gt-lg');
+}
+@include media-breakpoint-up(xl) {
+  @include padding-and-margin('gt-xl');
+}
+
+@include media-breakpoint-down(xs) {
+  @include padding-and-margin('lt-xs');
+}
+@include media-breakpoint-down(sm) {
+  @include padding-and-margin('lt-sm');
+}
+@include media-breakpoint-down(md) {
+  @include padding-and-margin('lt-md');
+}
+@include media-breakpoint-down(lg) {
+  @include padding-and-margin('lt-lg');
+}
+@include media-breakpoint-down(xl) {
+  @include padding-and-margin('lt-xl');
+}

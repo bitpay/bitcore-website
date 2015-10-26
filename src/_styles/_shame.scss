@@ -38,6 +38,81 @@
   }
 }
 
+// mixin used to breakpointify bootstrap's margin and padding utility classes
+// adding to shame to preserve bootstrap's formatting
+
+@mixin padding-and-margin($suffix){
+
+  // Margin
+
+  .m-a-0-#{$suffix} { margin:        0 !important; }
+  .m-t-0-#{$suffix} { margin-top:    0 !important; }
+  .m-r-0-#{$suffix} { margin-right:  0 !important; }
+  .m-b-0-#{$suffix} { margin-bottom: 0 !important; }
+  .m-l-0-#{$suffix} { margin-left:   0 !important; }
+  .m-x-0-#{$suffix} { margin-right:  0 !important; margin-left:   0 !important; }
+  .m-y-0-#{$suffix} { margin-top:    0 !important; margin-bottom: 0 !important; }
+
+  .m-a-#{$suffix} { margin:        $spacer !important; }
+  .m-t-#{$suffix} { margin-top:    $spacer-y !important; }
+  .m-r-#{$suffix} { margin-right:  $spacer-x !important; }
+  .m-b-#{$suffix} { margin-bottom: $spacer-y !important; }
+  .m-l-#{$suffix} { margin-left:   $spacer-x !important; }
+  .m-x-#{$suffix} { margin-right:  $spacer-x !important; margin-left: $spacer-x !important; }
+  .m-y-#{$suffix} { margin-top:    $spacer-y !important; margin-bottom: $spacer-y !important; }
+  .m-x-auto-#{$suffix} { margin-right: auto !important; margin-left: auto !important; }
+
+  .m-a-md-#{$suffix} { margin:        ($spacer * 1.5) !important; }
+  .m-t-md-#{$suffix} { margin-top:    ($spacer-y * 1.5) !important; }
+  .m-r-md-#{$suffix} { margin-right:  ($spacer-y * 1.5) !important; }
+  .m-b-md-#{$suffix} { margin-bottom: ($spacer-y * 1.5) !important; }
+  .m-l-md-#{$suffix} { margin-left:   ($spacer-y * 1.5) !important; }
+  .m-x-md-#{$suffix} { margin-right:  ($spacer-x * 1.5) !important; margin-left:   ($spacer-x * 1.5) !important; }
+  .m-y-md-#{$suffix} { margin-top:    ($spacer-y * 1.5) !important; margin-bottom: ($spacer-y * 1.5) !important; }
+
+  .m-a-lg-#{$suffix} { margin:        ($spacer * 3) !important; }
+  .m-t-lg-#{$suffix} { margin-top:    ($spacer-y * 3) !important; }
+  .m-r-lg-#{$suffix} { margin-right:  ($spacer-y * 3) !important; }
+  .m-b-lg-#{$suffix} { margin-bottom: ($spacer-y * 3) !important; }
+  .m-l-lg-#{$suffix} { margin-left:   ($spacer-y * 3) !important; }
+  .m-x-lg-#{$suffix} { margin-right:  ($spacer-x * 3) !important; margin-left:   ($spacer-x * 3) !important; }
+  .m-y-lg-#{$suffix} { margin-top:    ($spacer-y * 3) !important; margin-bottom: ($spacer-y * 3) !important; }
+
+  // Padding
+
+  .p-a-0-#{$suffix} { padding:        0 !important; }
+  .p-t-0-#{$suffix} { padding-top:    0 !important; }
+  .p-r-0-#{$suffix} { padding-right:  0 !important; }
+  .p-b-0-#{$suffix} { padding-bottom: 0 !important; }
+  .p-l-0-#{$suffix} { padding-left:   0 !important; }
+  .p-x-0-#{$suffix} { padding-right:  0 !important; padding-left:   0 !important; }
+  .p-y-0-#{$suffix} { padding-top:    0 !important; padding-bottom: 0 !important; }
+
+  .p-a-#{$suffix} { padding:        $spacer !important; }
+  .p-t-#{$suffix} { padding-top:    $spacer-y !important; }
+  .p-r-#{$suffix} { padding-right:  $spacer-x !important; }
+  .p-b-#{$suffix} { padding-bottom: $spacer-y !important; }
+  .p-l-#{$suffix} { padding-left:   $spacer-x !important; }
+  .p-x-#{$suffix} { padding-right:  $spacer-x !important; padding-left:   $spacer-x !important; }
+  .p-y-#{$suffix} { padding-top:    $spacer-y !important; padding-bottom: $spacer-y !important; }
+
+  .p-a-md-#{$suffix} { padding:        ($spacer * 1.5) !important; }
+  .p-t-md-#{$suffix} { padding-top:    ($spacer-y * 1.5) !important; }
+  .p-r-md-#{$suffix} { padding-right:  ($spacer-y * 1.5) !important; }
+  .p-b-md-#{$suffix} { padding-bottom: ($spacer-y * 1.5) !important; }
+  .p-l-md-#{$suffix} { padding-left:   ($spacer-y * 1.5) !important; }
+  .p-x-md-#{$suffix} { padding-right:  ($spacer-x * 1.5) !important; padding-left:   ($spacer-x * 1.5) !important; }
+  .p-y-md-#{$suffix} { padding-top:    ($spacer-y * 1.5) !important; padding-bottom: ($spacer-y * 1.5) !important; }
+
+  .p-a-lg-#{$suffix} { padding:        ($spacer * 3) !important; }
+  .p-t-lg-#{$suffix} { padding-top:    ($spacer-y * 3) !important; }
+  .p-r-lg-#{$suffix} { padding-right:  ($spacer-y * 3) !important; }
+  .p-b-lg-#{$suffix} { padding-bottom: ($spacer-y * 3) !important; }
+  .p-l-lg-#{$suffix} { padding-left:   ($spacer-y * 3) !important; }
+  .p-x-lg-#{$suffix} { padding-right:  ($spacer-x * 3) !important; padding-left:   ($spacer-x * 3) !important; }
+  .p-y-lg-#{$suffix} { padding-top:    ($spacer-y * 3) !important; padding-bottom: ($spacer-y * 3) !important; }
+}
+
 //animatewithsass uses camelCase so we import it here to rename the mixins
 @mixin fade-in($count: $countDefault, $duration: $durationDefault, $delay: $delayDefault, $function: $functionDefault, $fill: $fillDefault, $visibility: $visibilityDefault) {
 	@include animation-name(fadeIn);

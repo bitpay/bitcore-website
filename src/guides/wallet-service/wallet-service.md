@@ -32,7 +32,7 @@ mongod
 
 ### Installing Kerberos on Linux (Debian-based)
 
-You may need to install the following package to get the Wallet Service running (if errors about missing headers):
+You may need to install the following package to get the Wallet Service running (if you receive errors about missing headers):
 
 ```bash
 apt-get install libkrb5-dev
@@ -50,7 +50,7 @@ bitcore install bitcore-wallet-service
 bitcore install insight-api
 ```
 
-Now we should be ready to launch Bitcore and test the Wallet Service
+Now we should be ready to launch Bitcore and test the Wallet Service:
 
 ```bash
 bitcored
@@ -70,12 +70,12 @@ Once the wallet service is running on your computer, configure your Copay wallet
 
 
 * Open the settings in your Copay wallet. Scroll to "Bitcore Wallet Service" and change this value to: http://your-bitcore-node-ip:3232/bws/api
-* Please ensure that Copay is on the same network or that you have opened ports in order to let Copay access your new Wallet Service
-* TLS/SSL support can be enabled by [adding a few things to the bitcore-node.json config](#adding-ssltls-support)
+* Please ensure that Copay is on the same network or that you have opened ports in order to let Copay access your new Wallet Service.
+* TLS/SSL support can be enabled by [adding a few things to the bitcore-node.json config](#adding-ssltls-support).
 
 ## Test the Wallet Service using the Bitcore Wallet Client
 
-Install the wallet client
+Install the wallet client:
 
 ```bash
 npm install -g bitcore-wallet
@@ -128,7 +128,7 @@ mywallet balance
 
 ### Create a self-signed certificate
 
-These directions assume that you have openssl installed, please run:
+These directions assume that you have openssl installed. If so, please run:
 
 ```bash
 openssl
@@ -136,13 +136,13 @@ openssl
 
 You should see an "OpenSSL>" prompt, then press Ctrl+D to exit. If you don't have OpenSSL, then install it [here](http://www.openssl.org)
 
-Next, you can run the following commands to generated a self-signed certificate:
+Next, you can run the following commands to generate a self-signed certificate:
 
 ```bash
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem
 ```
 
-For ease of use, just type in a password that you can remember to encrypt the key (you have the option to remove it later), then feel free to fill out the form or just hit "enter" for every question. If you would like to remove the password from the key.pem that you just created, then follow the next step, otherwise skip it. If you leave the password encryption on your key, then you will need to type it in each time the Wallet Service starts up:
+For ease of use, just type in a password that you can remember to encrypt the key (you have the option to remove it later), then fill out the form or just hit "enter" for every question. If you would like to remove the password from the key.pem that you just created, then follow the next step – otherwise skip it. If you leave the password encryption on your key, then you will need to type it in each time the Wallet Service starts up:
 
 ```bash
 openssl rsa -in key.pem -out key.nopass.pem
@@ -188,4 +188,4 @@ Notice that you can also specify which port your Wallet Service will run on (def
 
 ## Conclusion
 
-You should now be able to run your own Wallet Service for your users. Doing so will give you ultimate control over your wallets without trusting random SPV nodes on the Internet.
+You should now be able to run your own Wallet Service for your users. Now you can have ultimate control over your wallets without trusting random SPV nodes on the Internet.

@@ -17,7 +17,7 @@ In this tutorial, we will build a desktop app that timestamps original files int
 #### How it works
 1. The user uploads a file via the desktop app.
 2. The app hashes the file and asks Bitcore node whether the file has already been timestamped in the blockchain.
-3. If the file has not yet been timestamped, the app generates a new BTC address and displays that address to the user in the form of a qrcode, prompting the user to send a small amount of BTC to that address.
+3. If the file has not yet been timestamped, the app generates a new BTC address and displays that address to the user in the form of a QR code, prompting the user to send a small amount of BTC to that address.
 4. Once the user's BTC arrives at the address, your Bitcore node utilizes the received bitcoin to broadcast a new transaction with the file hash included, serving as a permanent timestamp in the blockchain.
 
 #### What we will use
@@ -83,7 +83,7 @@ Install async as a dependency to your `stampingservice` with:
 npm install async --save
 ```
 
-Place the following boilerplate code into `index.js`
+Place the following boilerplate code into `index.js`:
 
 ```javascript
 var util = require('util');
@@ -345,7 +345,7 @@ StampingService.prototype.sendTransaction = function(req, res, next){
 #### Registering api endpoints
 
 In order for the client to query our custom Bitcore methods, we need to register those methods with Bitcore
-by adding the following code to `index.js`
+by adding the following code to `index.js`:
 
 ```javascript
 StampingService.prototype.setupRoutes = function(app) {
@@ -355,14 +355,14 @@ StampingService.prototype.setupRoutes = function(app) {
 }
 ```
 
-Symlink your `stampingservice` into the node_modules directory of `mynode`
+Symlink your `stampingservice` into the node_modules directory of `mynode`:
 
 ```
 cd ~/i-made-this/mynode/node_modules
 ln -s ~/i-made-this/stampingservice
 ```
 
-Add `StampingService` as a dependency in `mynode/bitcore-node.json`
+Add `StampingService` as a dependency in `mynode/bitcore-node.json`:
 
 ```json
 {
