@@ -26,6 +26,7 @@
   "/guide/module/channel/index.html": "/api/channel",
   "/guide/module/explorers/index.html": "/api/explorers",
   "/guide/module/explorers/": "/api/explorers",
+  "/guide/paymentprotocol.html": "/api/paypro",
   "/api/index.html": "/api/",
   "/api/address.html": "/api/lib/address",
   "/api/hdprivatekey.html": "/api/lib/hd-keys",
