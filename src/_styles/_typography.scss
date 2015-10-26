@@ -46,9 +46,6 @@ a {
 }
 
 .orange-uppercase-link {
-  &:hover {
-    @extend.arrow-dark;
-  }
   color: $bc-orange-dark;
   font-family: $font-family-headers;
   font-size: 1.25em;
