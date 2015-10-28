@@ -47,7 +47,8 @@ $navbar-height:       62px;
   }
 
   h2 {
-    @extend.m-t-lg
+    @extend.m-t-lg;
+    margin-bottom: 1em;
   }
 
   pre {
@@ -57,6 +58,7 @@ $navbar-height:       62px;
   img {
     // margin: 2em 0;
     max-width: 100%;
+    padding: 1.5em;
   }
 
   :not(pre)>code {
