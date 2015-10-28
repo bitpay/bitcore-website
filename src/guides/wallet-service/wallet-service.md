@@ -42,7 +42,7 @@ Alternatively, you can download MongoDB from the [MongoDB website](https://www.m
 
 ## Add the Wallet Service to Our Node
 
-We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](fullnode.md)
+We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](fullnode)
 
 ```bash
 cd <your node>
