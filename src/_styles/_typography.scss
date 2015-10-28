@@ -48,9 +48,11 @@ a {
 .orange-uppercase-link {
   color: $bc-orange-dark;
   font-family: $font-family-headers;
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: 600;
   letter-spacing: 1px;
+  margin-bottom: .5em;
+  text-transform: uppercase;
 }
 
 .menu-header {
