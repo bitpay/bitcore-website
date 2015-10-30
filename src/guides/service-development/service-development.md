@@ -16,7 +16,7 @@ Create a node using [these directions](full-node). If your service will not requ
 $ cd #home dir
 $ mkdir -p myservice
 $ cd !$
-$ touch package.json #hopefully this will become an npm module!
+$ echo {"dependencies": {}} > package.json #hopefully this will become an npm module!
 $ nano index.js
 ```
 
