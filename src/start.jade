@@ -3,18 +3,18 @@ extends _layouts/primary
 append vars
   -var title = 'Getting Started';
   -var section = 'start';
-  -var description = 'Run a bitcoin node with Bitcore.';
+  -var description = 'Run a bitcoin node with Bitcore.'; 
 
 block page
-  .section.bg-darker.p-b-0
+  .bg-darker.p-t-lg.p-b-0
     .container
       .row
-        .col-lg-6
+        .col-sm-12.col-md-12.col-lg-7
           .m-b-md
             h1.color-white.header__bottom-border-left Getting Started
             h4.color-white.opacity-70.m-y Spin up a node on the bitcoin network.
           p.color-white Bitcore has #[a(href="https://github.com/bitcoin/bitcoin" target="_new") bitcoind] built right in, so joining the peer-to-peer network is simple.
-        .col-lg-6
+        .col-sm-12.col-md-12.col-lg-5
           img.width-100(src="/images/icosahedron-spheres.png")
   
   .section.bg-white
@@ -55,7 +55,7 @@ block page
           p.text-center Connect Copay to your own wallet service or follow one of our tutorials to start building with Bitcore. 
       .row
         .col-lg-5
-          img.card-img-top.width-100.m-b-md(src='/images/illustrations/bws.svg', alt='Card image cap')
+          img.card-img-top.width-100.m-b-md(src='/images/illustrations/bws-landscape.svg', alt='Card image cap')
           a(href="guides/wallet-service").orange-uppercase-link Run your own wallet service
           p.m-t Add Bitcore Wallet Service to your Bitcore node, and connect your Copay wallet.
           p Copay let's you control your own funds, Bitcore Wallet Service let's you control your information, too.
