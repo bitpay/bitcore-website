@@ -44,7 +44,7 @@ cd i-made-this
 ```
 
 ### Setting up your Bitcore node
-To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development. Also, ensure you are running Node v0.12.
+To set up your Bitcore node, [follow the instructions in this guide](/guides/full-node). Be sure to configure your Bitcore node to run on [testnet](https://en.bitcoin.it/wiki/Testnet) to avoid spending real bitcoins during development. Also, ensure you are running Node v0.12 or v4.2 LTS.
 
 Start your new Bitcore node from within the newly created `mynode` directory (the start command must always be executed from within the `mynode` directory):
 
