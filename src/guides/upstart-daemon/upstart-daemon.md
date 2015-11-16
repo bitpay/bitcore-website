@@ -11,15 +11,15 @@ useradd -r -m bitcore
 sudo su - bitcore
 ```
 
-## Install Node.js v0.12
+## Install Node.js v4.2 LTS
 
-It's recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions.  We will specifically need to install and run v0.12.
+It's recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions.  We will specifically need to install and run v0.12 or v4.2 LTS.
 
-Please follow the directions on [GitHub](https://github.com/creationix/nvm#install-script) and then run:
+Please follow the directions at [https://github.com/creationix/nvm#install-script](https://github.com/creationix/nvm#install-script) and then run:
 
 ```bash
-nvm install v0.12.7
-nvm use v0.12.7
+nvm install v4.2
+nvm use v4.2
 ```
 
 ## Install Bitcore
