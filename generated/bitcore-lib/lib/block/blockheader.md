@@ -84,7 +84,7 @@ Returns the target difficulty for this block
 <a name="BlockHeader+inspect"></a>
 ### blockHeader.inspect() ⇒ <code>string</code>
 **Kind**: instance method of <code>[BlockHeader](#BlockHeader)</code>  
-**Returns**: <code>string</code> - - A string formatted for the console  
+**Returns**: <code>string</code> - - A string formated for the console  
 <a name="BlockHeader.fromObject"></a>
 ### BlockHeader.fromObject(obj) ⇒ <code>[BlockHeader](#BlockHeader)</code>
 **Kind**: static method of <code>[BlockHeader](#BlockHeader)</code>  

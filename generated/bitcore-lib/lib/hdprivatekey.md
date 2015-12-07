@@ -52,7 +52,7 @@ Fields include:<ul>
 **Kind**: instance property of <code>[HDPrivateKey](#HDPrivateKey)</code>  
 <a name="HDPrivateKey+derive"></a>
 ### hdPrivateKey.derive(arg, hardened)
-Get a derived child based on a string or number.
+Get a derivated child based on a string or number.
 
 If the first argument is a string, it's parsed as the full path of
 derivation. Valid values for this argument include "m" (which returns the

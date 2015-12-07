@@ -409,7 +409,7 @@ CheckTransaction in bitcoin core.
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 <a name="Transaction+isCoinbase"></a>
 ### transaction.isCoinbase()
-Analogous to bitcoind's IsCoinBase function in transaction.h
+Analagous to bitcoind's IsCoinBase function in transaction.h
 
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 <a name="Transaction.shallowCopy"></a>

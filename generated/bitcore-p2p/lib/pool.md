@@ -90,7 +90,7 @@ Will connect a peer and add to the list of connected peers.
 <a name="Pool+_addConnectedPeer"></a>
 ### pool._addConnectedPeer(socket, addr)
 Adds a peer with a connected socket to the _connectedPeers object, and
-intializes the associated event handlers.
+initializes the associated event handlers.
 
 **Kind**: instance method of <code>[Pool](#Pool)</code>  
 
@@ -101,7 +101,7 @@ intializes the associated event handlers.
 
 <a name="Pool+_addPeerEventHandlers"></a>
 ### pool._addPeerEventHandlers()
-Will add disconnect and ready events for a peer and initialize
+Will add disconnect and ready events for a peer and intialize
 handlers for relay peer message events.
 
 **Kind**: instance method of <code>[Pool](#Pool)</code>  

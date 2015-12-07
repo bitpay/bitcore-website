@@ -32,7 +32,7 @@ transaction id and output index.
 
 <a name="UnspentOutput+toObject"></a>
 ### unspentOutput.toObject ⇒ <code>object</code>
-Returns a plain object (no prototype or methods) with the associated info for this output
+Returns a plain object (no prototype or methods) with the associated infor for this output
 
 **Kind**: instance property of <code>[UnspentOutput](#UnspentOutput)</code>  
 <a name="UnspentOutput+inspect"></a>
