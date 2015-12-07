@@ -8,6 +8,7 @@
   "/guide/privatekey.html": "/api/lib/private-key",
   "/guide/hierarchical.html": "/api/lib/hd-keys",
   "/guide/networks.html": "/api/lib/networks",
+  "/guide/peer.html": "/api/p2p/peer",
   "/guide/publickey.html": "/api/lib/public-key",
   "/guide/unit.html": "/api/lib/unit",
   "/guide/uri.html": "/api/lib/uri",
