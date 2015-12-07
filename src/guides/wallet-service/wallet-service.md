@@ -37,7 +37,7 @@ apt-get install libkrb5-dev
 Alternatively, you can download MongoDB from the [MongoDB website](https://www.mongodb.org/downloads).
 
 ## Add the Wallet Service to Our Node
-We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](full-node)
+We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](/guides/full-node)
 
 ```bash
 cd <your node>
