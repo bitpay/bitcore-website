@@ -35,7 +35,7 @@ gulp.task('sass', function() {
 gulp.task('styles', function() {
   return gulp.src(['dist/styles/*.css'])
     .pipe($.csso())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('rebuild-styles', function(cb) {
