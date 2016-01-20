@@ -66,7 +66,7 @@ Retrieve a hexa string that can be used with bitcoind's CLI interface
 
 | Param | Type | Description |
 | --- | --- | --- |
-| unsafe | <code>Object</code> &#124; <code>boolean</code> | if true, skip all tests. if it's an object,   it's expected to contain a set of flags to skip certain tests: * `disableAll`: disable all checks * `disableSmallFees`: disable checking for fees that are too small * `disableLargeFees`: disable checking for fees that are too large * `disableNotFullySigned`: disable checking if all inputs are fully signed * `disableDustOutputs`: disable checking if there are no outputs that are dust amounts * `disableMoreOutputThanInput`: disable checking if the transaction spends more bitcoins than the sum of the input amounts |
+| unsafe | <code>Object</code> &#124; <code>boolean</code> | if true, skip all tests. if it's an object,   it's expected to contain a set of flags to skip certain tests: * `disableAll`: disable all checks * `disableSmallFees`: disable checking for fees that are too small * `disableLargeFees`: disable checking for fees that are too large * `disableIsFullySigned`: disable checking if all inputs are fully signed * `disableDustOutputs`: disable checking if there are no outputs that are dust amounts * `disableMoreOutputThanInput`: disable checking if the transaction spends more bitcoins than the sum of the input amounts |
 
 <a name="Transaction+checkedSerialize"></a>
 ### transaction.checkedSerialize(opts) ⇒ <code>string</code>
@@ -409,7 +409,7 @@ CheckTransaction in bitcoin core.
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 <a name="Transaction+isCoinbase"></a>
 ### transaction.isCoinbase()
-Analagous to bitcoind's IsCoinBase function in transaction.h
+Analogous to bitcoind's IsCoinBase function in transaction.h
 
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 <a name="Transaction.shallowCopy"></a>
