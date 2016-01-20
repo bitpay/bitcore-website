@@ -5,20 +5,20 @@
 * [Unit](#Unit)
   * [new Unit(amount, code)](#new_Unit_new)
   * _instance_
+    * [.toMillis](#Unit+toMillis) ⇒ <code>Number</code>
     * [.toMicros](#Unit+toMicros) ⇒ <code>Number</code>
     * [.toObject](#Unit+toObject) ⇒ <code>Object</code>
     * [.to(code)](#Unit+to) ⇒ <code>Number</code>
     * [.toBTC()](#Unit+toBTC) ⇒ <code>Number</code>
-    * [.toMilis()](#Unit+toMilis) ⇒ <code>Number</code>
     * [.toSatoshis()](#Unit+toSatoshis) ⇒ <code>Number</code>
     * [.atRate(rate)](#Unit+atRate) ⇒ <code>Number</code>
     * [.toString()](#Unit+toString) ⇒ <code>string</code>
     * [.inspect()](#Unit+inspect) ⇒ <code>string</code>
   * _static_
+    * [.fromMillis](#Unit.fromMillis) ⇒ <code>[Unit](#Unit)</code>
     * [.fromMicros](#Unit.fromMicros) ⇒ <code>[Unit](#Unit)</code>
     * [.fromObject(json)](#Unit.fromObject) ⇒ <code>[Unit](#Unit)</code>
     * [.fromBTC(amount)](#Unit.fromBTC) ⇒ <code>[Unit](#Unit)</code>
-    * [.fromMilis(amount)](#Unit.fromMilis) ⇒ <code>[Unit](#Unit)</code>
     * [.fromSatoshis(amount)](#Unit.fromSatoshis) ⇒ <code>[Unit](#Unit)</code>
     * [.fromFiat(amount, rate)](#Unit.fromFiat) ⇒ <code>[Unit](#Unit)</code>
 
@@ -48,6 +48,12 @@ var mili = Unit.fromBits(1.3).to(Unit.mBTC);
 var bits = Unit.fromFiat(1.3, 350).bits;
 var btc = new Unit(1.3, Unit.bits).BTC;
 ```
+<a name="Unit+toMillis"></a>
+### unit.toMillis ⇒ <code>Number</code>
+Returns the value represented in mBTC
+
+**Kind**: instance property of <code>[Unit](#Unit)</code>  
+**Returns**: <code>Number</code> - The value converted to mBTC  
 <a name="Unit+toMicros"></a>
 ### unit.toMicros ⇒ <code>Number</code>
 Returns the value represented in bits
@@ -77,12 +83,6 @@ Returns the value represented in BTC
 
 **Kind**: instance method of <code>[Unit](#Unit)</code>  
 **Returns**: <code>Number</code> - The value converted to BTC  
-<a name="Unit+toMilis"></a>
-### unit.toMilis() ⇒ <code>Number</code>
-Returns the value represented in mBTC
-
-**Kind**: instance method of <code>[Unit](#Unit)</code>  
-**Returns**: <code>Number</code> - The value converted to mBTC  
 <a name="Unit+toSatoshis"></a>
 ### unit.toSatoshis() ⇒ <code>Number</code>
 Returns the value represented in satoshis
@@ -112,6 +112,17 @@ Returns a string formatted for the console
 
 **Kind**: instance method of <code>[Unit](#Unit)</code>  
 **Returns**: <code>string</code> - the value in satoshis  
+<a name="Unit.fromMillis"></a>
+### Unit.fromMillis ⇒ <code>[Unit](#Unit)</code>
+Returns a Unit instance created from an amount in mBTC
+
+**Kind**: static property of <code>[Unit](#Unit)</code>  
+**Returns**: <code>[Unit](#Unit)</code> - A Unit instance  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| amount | <code>Number</code> | The amount in mBTC |
+
 <a name="Unit.fromMicros"></a>
 ### Unit.fromMicros ⇒ <code>[Unit](#Unit)</code>
 Returns a Unit instance created from an amount in bits
@@ -144,17 +155,6 @@ Returns a Unit instance created from an amount in BTC
 | Param | Type | Description |
 | --- | --- | --- |
 | amount | <code>Number</code> | The amount in BTC |
-
-<a name="Unit.fromMilis"></a>
-### Unit.fromMilis(amount) ⇒ <code>[Unit](#Unit)</code>
-Returns a Unit instance created from an amount in mBTC
-
-**Kind**: static method of <code>[Unit](#Unit)</code>  
-**Returns**: <code>[Unit](#Unit)</code> - A Unit instance  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| amount | <code>Number</code> | The amount in mBTC |
 
 <a name="Unit.fromSatoshis"></a>
 ### Unit.fromSatoshis(amount) ⇒ <code>[Unit](#Unit)</code>
