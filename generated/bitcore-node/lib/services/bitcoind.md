@@ -54,7 +54,7 @@ Helper to determine the progress of the database.
 **Returns**: <code>Number</code> - An estimated percentage of the syncronization status  
 <a name="Bitcoin+getBlock"></a>
 ### bitcoin.getBlock(block)
-Will retreive a block as a Node.js Buffer from disk.
+Will retrieve a block as a Node.js Buffer from disk.
 
 **Kind**: instance method of <code>[Bitcoin](#Bitcoin)</code>  
 
@@ -136,7 +136,7 @@ Will get a transaction as a Node.js Buffer from disk and the mempool.
 
 <a name="Bitcoin+getTransactionWithBlockInfo"></a>
 ### bitcoin.getTransactionWithBlockInfo(txid, queryMempool, callback)
-Will get a transation with additional information about the block, in the format:
+Will get a transaction with additional information about the block, in the format:
 {
   blockHash: '2725743288feae6bdaa976590af7cb12d7b535b5a242787de6d2789c73682ed1',
   height: 48,

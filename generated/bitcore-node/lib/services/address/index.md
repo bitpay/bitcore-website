@@ -3,7 +3,7 @@
 The Address Service builds upon the Database Service and the Bitcoin Service to add additional
 functionality for getting information by base58check encoded addresses. This includes getting the
 balance for an address, the history for a collection of addresses, and unspent outputs for
-contstructing transactions. This is typically the core functionality for building a wallet.
+constructing transactions. This is typically the core functionality for building a wallet.
 
 **Kind**: global function  
 
@@ -18,17 +18,18 @@ contstructing transactions. This is typically the core functionality for buildin
   * [.getAPIMethods()](#AddressService+getAPIMethods)
   * [.getPublishEvents()](#AddressService+getPublishEvents)
   * [.transactionOutputHandler(messages, tx, outputIndex, rejected)](#AddressService+transactionOutputHandler)
-  * [.transactionHandler(txInfo)](#AddressService+transactionHandler)
-  * [.updateMempoolIndex(tx)](#AddressService+updateMempoolIndex)
-  * [.resetMempoolIndex()](#AddressService+resetMempoolIndex)
+  * [.transactionLeaveHandler(txInfo)](#AddressService+transactionLeaveHandler)
+  * [.transactionHandler(txInfo, [callback])](#AddressService+transactionHandler)
+  * [.updateMempoolIndex(tx, add)](#AddressService+updateMempoolIndex)
   * [.blockHandler(block, addOutput, callback)](#AddressService+blockHandler)
   * [.transactionEventHandler(obj)](#AddressService+transactionEventHandler)
   * [.balanceEventHandler(block, obj)](#AddressService+balanceEventHandler)
   * [.subscribe(name, emitter, addresses)](#AddressService+subscribe)
   * [.unsubscribe(name, emitter, addresses)](#AddressService+unsubscribe)
-  * [.unsubscribeAll(name, emiter)](#AddressService+unsubscribeAll)
+  * [.unsubscribeAll(name, emitter)](#AddressService+unsubscribeAll)
   * [.getBalance(address, queryMempool, callback)](#AddressService+getBalance)
   * [.getInputForOutput(txid, outputIndex, options, callback)](#AddressService+getInputForOutput)
+  * [.createInputsStream(addressStr, options, callback)](#AddressService+createInputsStream)
   * [.getInputs(addressStr, options, callback)](#AddressService+getInputs)
   * [.getOutputs(addressStr, options, callback)](#AddressService+getOutputs)
   * [.getUnspentOutputs(addresses, queryMempool, callback)](#AddressService+getUnspentOutputs)
@@ -63,8 +64,20 @@ an object with the data for the message to be relayed to any subscribers for an 
 | outputIndex | <code>Number</code> | The index of the output in the transaction |
 | rejected | <code>Boolean</code> | If the transaction was rejected by the mempool |
 
+<a name="AddressService+transactionLeaveHandler"></a>
+### addressService.transactionLeaveHandler(txInfo)
+This will handle data from the daemon "txleave" that a transaction has left the mempool.
+
+**Kind**: instance method of <code>[AddressService](#AddressService)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| txInfo | <code>Object</code> | The data from the daemon.on('txleave') event |
+| txInfo.buffer | <code>Buffer</code> | The transaction buffer |
+| txInfo.hash | <code>String</code> | The hash of the transaction |
+
 <a name="AddressService+transactionHandler"></a>
-### addressService.transactionHandler(txInfo)
+### addressService.transactionHandler(txInfo, [callback])
 This will handle data from the daemon "tx" event, go through each of the outputs
 and send messages by calling `transactionEventHandler` to any subscribers for a
 particular address.
@@ -77,40 +90,20 @@ particular address.
 | txInfo.buffer | <code>Buffer</code> | The transaction buffer |
 | txInfo.mempool | <code>Boolean</code> | If the transaction was accepted in the mempool |
 | txInfo.hash | <code>String</code> | The hash of the transaction |
+| [callback] | <code>function</code> | Optional callback |
 
 <a name="AddressService+updateMempoolIndex"></a>
-### addressService.updateMempoolIndex(tx)
+### addressService.updateMempoolIndex(tx, add)
 This function will update the mempool address index with the necessary
-information for further lookups. There are three indexes:
-
-mempoolOutputIndex, an object keyed by base58check encoded addresses with values:
-  txid - A hex string of the transaction hash
-  outputIndex - A number of the corresponding output
-  satoshis - Total number of satoshis
-  script - The script as a hex string
-
-mempoolInputIndex, an object keyed by base58check encoded addreses with values:
-  txid - A hex string of the transaction hash
-  inputIndex - A number of the corresponding input
-
-mempoolSpentIndex, an object keyed by <prevTxId>-<outputIndex> with (buffer) values:
-  inputTxId - A 32 byte buffer of the input txid
-  inputIndex - 4 bytes stored as UInt32BE
+information for further lookups.
 
 **Kind**: instance method of <code>[AddressService](#AddressService)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | tx | <code>Transaction</code> | An instance of a Bitcore Transaction |
+| add | <code>Boolean</code> | Add/remove from the index |
 
-<a name="AddressService+resetMempoolIndex"></a>
-### addressService.resetMempoolIndex()
-This function is called by the Database Service when the database itself
-has finished synchronization. It will retrieve a copy of all transactions
-from the mempool and create an address index for fast look-ups. The previous
-index will be reset.
-
-**Kind**: instance method of <code>[AddressService](#AddressService)</code>  
 <a name="AddressService+blockHandler"></a>
 ### addressService.blockHandler(block, addOutput, callback)
 The Database Service will run this function when blocks are connected and
@@ -188,7 +181,7 @@ events for this service.
 | addresses | <code>Array</code> | An array of addresses to subscribe |
 
 <a name="AddressService+unsubscribeAll"></a>
-### addressService.unsubscribeAll(name, emiter)
+### addressService.unsubscribeAll(name, emitter)
 A helper function for the `unsubscribe` method to unsubscribe from all addresses.
 
 **Kind**: instance method of <code>[AddressService](#AddressService)</code>  
@@ -196,7 +189,7 @@ A helper function for the `unsubscribe` method to unsubscribe from all addresses
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>String</code> | The name of the event |
-| emiter | <code>EventEmitter</code> | An instance of an event emitter |
+| emitter | <code>EventEmitter</code> | An instance of an event emitter |
 
 <a name="AddressService+getBalance"></a>
 ### addressService.getBalance(address, queryMempool, callback)
@@ -227,10 +220,26 @@ Will give the input that spends an output if it exists with:
 | options.queryMempool | <code>Object</code> | Include mempool in results |
 | callback | <code>function</code> |  |
 
+<a name="AddressService+createInputsStream"></a>
+### addressService.createInputsStream(addressStr, options, callback)
+A streaming equivalent to `getInputs`, and returns a transform stream with data
+emitted in the same format as `getInputs`.
+
+**Kind**: instance method of <code>[AddressService](#AddressService)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| addressStr | <code>String</code> | The relevant address |
+| options | <code>Object</code> | Additional options for query the outputs |
+| [options.start] | <code>Number</code> | The relevant start block height |
+| [options.end] | <code>Number</code> | The relevant end block height |
+| callback | <code>function</code> |  |
+
 <a name="AddressService+getInputs"></a>
 ### addressService.getInputs(addressStr, options, callback)
 Will give inputs that spend previous outputs for an address as an object with:
   address - The base58check encoded address
+  hashtype - The type of the address, e.g. 'pubkeyhash' or 'scripthash'
   txid - A string of the transaction hash
   outputIndex - A number of corresponding transaction input
   height - The height of the block the transaction was included, will be -1 for mempool transactions
@@ -251,6 +260,7 @@ Will give inputs that spend previous outputs for an address as an object with:
 ### addressService.getOutputs(addressStr, options, callback)
 Will give outputs for an address as an object with:
   address - The base58check encoded address
+  hashtype - The type of the address, e.g. 'pubkeyhash' or 'scripthash'
   txid - A string of the transaction hash
   outputIndex - A number of corresponding transaction output
   height - The height of the block the transaction was included, will be -1 for mempool transactions

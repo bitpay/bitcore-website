@@ -30,7 +30,6 @@ the data that is indexed by implementing a `blockHandler` method.
   * [.getPrevHash(blockHash, callback)](#DB+getPrevHash)
   * [.connectBlock(block, callback)](#DB+connectBlock)
   * [.disconnectBlock(block, callback)](#DB+disconnectBlock)
-  * [.runAllMempoolIndexes()](#DB+runAllMempoolIndexes)
   * [.runAllBlockHandlers(block, add, callback)](#DB+runAllBlockHandlers)
   * [.findCommonAncestor(block, done)](#DB+findCommonAncestor)
   * [.syncRewind(block, done)](#DB+syncRewind)
@@ -201,12 +200,6 @@ Disconnects a block from the database and removes indexes
 | block | <code>Block</code> | The bitcore block |
 | callback | <code>function</code> |  |
 
-<a name="DB+runAllMempoolIndexes"></a>
-### dB.runAllMempoolIndexes()
-Will run all `resetMempoolIndex` methods implemented on sibling
-services to update the mempool indexes.
-
-**Kind**: instance method of <code>[DB](#DB)</code>  
 <a name="DB+runAllBlockHandlers"></a>
 ### dB.runAllBlockHandlers(block, add, callback)
 Will collect all database operations for a block from other services that implement

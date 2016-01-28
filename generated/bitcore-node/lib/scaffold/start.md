@@ -1,6 +1,6 @@
 ## Functions
 <dl>
-<dt><a href="#setupServices">setupServices(req, cwd, config)</a> ⇒ <code>Array</code></dt>
+<dt><a href="#setupServices">setupServices(req, servicesPath, config)</a> ⇒ <code>Array</code></dt>
 <dd><p>This function will loop over the configuration for services and require the
 specified modules, and assemble an array in this format:
 [
@@ -36,7 +36,7 @@ located in the datadir.</p>
 </dd>
 </dl>
 <a name="setupServices"></a>
-## setupServices(req, cwd, config) ⇒ <code>Array</code>
+## setupServices(req, servicesPath, config) ⇒ <code>Array</code>
 This function will loop over the configuration for services and require the
 specified modules, and assemble an array in this format:
 [
@@ -52,7 +52,7 @@ specified modules, and assemble an array in this format:
 | Param | Type | Description |
 | --- | --- | --- |
 | req | <code>function</code> | The require function to use |
-| cwd | <code>Array</code> | The local path (for requiring services) |
+| servicesPath | <code>Array</code> | The local path (for requiring services) |
 | config | <code>Object</code> |  |
 | config.services | <code>Array</code> | An array of strings of service names. |
 
@@ -114,6 +114,7 @@ modules, and registering event handlers.
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>Object</code> |  |
+| options.servicesPath | <code>Object</code> | The path to the location of service modules |
 | options.path | <code>String</code> | The absolute path of the configuration file |
 | options.config | <code>Object</code> | The parsed bitcore-node.json configuration file |
 | options.config.services | <code>Array</code> | An array of services names. |
