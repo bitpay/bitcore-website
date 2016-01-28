@@ -1,6 +1,6 @@
 <a name="WebService"></a>
 ## WebService(options)
-This service respresents a hub for combining several services over a single HTTP port. Services
+This service represents a hub for combining several services over a single HTTP port. Services
 can extend routes by implementing the methods `getRoutePrefix` and `setupRoutes`. Additionally
 events that are exposed via the `getPublishEvents` and API methods exposed via `getAPIMethods`
 will be available over a socket.io connection.
@@ -56,7 +56,7 @@ all of the exposed HTTP routes.
 **Kind**: instance method of <code>[WebService](#WebService)</code>  
 <a name="WebService+createMethodsMap"></a>
 ### webService.createMethodsMap()
-This function will contruct an API methods map of all of the
+This function will construct an API methods map of all of the
 available methods that can be called from enable services.
 
 **Kind**: instance method of <code>[WebService](#WebService)</code>  

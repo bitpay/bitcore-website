@@ -1,6 +1,15 @@
 # Database Service
 This service synchronizes a leveldb database with the [Bitcoin Service](bitcoind.md) block chain by connecting and disconnecting blocks to build new indexes that can be queried. Other services can extend the data that is indexed by implementing a `blockHandler` method, similar to the built-in [Address Service](address.md).
 
+## How to Reindex
+
+If you need to be able to recreate the database from historical transactions in blocks:
+- Shutdown your node
+- Remove the `bitcore-node.db` directory in the data directory (e.g. `~/.bitcore/bitcore-node.db`)
+- Start your node again
+
+The database will then ask bitcoind for all the blocks again and recreate the database. This is sometimes required during upgrading as the format of the keys and values has changed. For "livenet" this can take half a day or more, for "testnet" this can take around an hour.
+
 ## Adding Indexes
 For a service to include additional block data, it can implement a `blockHandler` method that will be run to when there are new blocks added or removed.
 
@@ -18,16 +27,6 @@ CustomService.prototype.blockHandler = function(block, add, callback) {
 ```
 
 Take a look at the Address Service implementation for more details about how to encode the key, value for the best efficiency and ways to format the keys for streaming reads.
-
-Additionally the mempool can have an index, the mempool index will be updated once bitcoind and the db have both fully synced. A service can implement a `resetMempoolIndex` method that will be run during this time, and the "synced" event will wait until this task has been finished:
-
-```js
-CustomService.prototype.resetMempoolIndex = function(callback) {
-  var transactionBuffers = this.node.services.bitcoind.getMempoolTransactions();
-  // interact over the transactions asynchronously here
-  callback();
-};
-```
 
 ## API Documentation
 These methods are exposed over the JSON-RPC interface and can be called directly from a node via:
