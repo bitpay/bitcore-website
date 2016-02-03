@@ -1,0 +1,41 @@
+extends _layouts/primary
+
+append vars
+  -var title = 'Getting Started';
+  -var section = 'start';
+  -var description = 'Run a bitcoin node with Bitcore.'; 
+
+block page
+  .bg-orange.p-t-lg.p-b-0
+    .container
+      .row
+        .col-sm-12.col-md-12.col-lg-7
+          .m-b-md
+            h1.color-white Bitcoin Core
+            h4.color-white.m-y Download the Bitcore build of the Bitcoin software availible for Linux, Max OS X, and Windows.
+          p.color-white  #[a(href="#" target="_new") View latest Commit on github]
+        .col-sm-12.col-md-12.col-lg-5
+  
+  .section.bg-white
+    .container
+      .col-lg-6.border-right-grey 
+        p HOW TO:
+        h4 Download & Check Signatures
+        p When you download the bitcoin software, you will want to learn to verify that the hashes are the same with a trusted source.
+        .steps
+          .step-number 1
+          p.step-line-height #[a(href="#" class="bold color-orange-dark") Download]. the bitcoin software for your platform.
+      .col-lg-6
+        p HOW TO:
+        h4 Verify & Sign Build
+        p When you download the bitcoin software, you will want to learn to verify that the hashes are the same with a trusted source.
+
+  
+  .bg-gray.p-y-lg.border-vertical-grey 
+    .container
+        .col-md-6.p-r-lg.border-right-grey
+          a(href="/guides").cta-link.bold.m-b.arrow-dark Guides
+          p.m-t Learn more about Bitcore with one of our guides or Bitcore development tutorials.
+        .col-md-6.p-l-lg.p-l-lt-lg
+          a(href="/api").cta-link.bold.m-b.arrow-dark Documentation
+          p.m-t Dive into the full API documentation. Bitcore provides an extensive blockchain API right out of the box, and can be extended with dozens of modules and services.
