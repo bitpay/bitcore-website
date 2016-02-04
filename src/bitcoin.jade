@@ -6,26 +6,54 @@ append vars
   -var description = 'Run a bitcoin node with Bitcore.'; 
 
 block page
-  .bg-orange.p-t-lg.p-b-0
+  .bg-orange.p-t-lg.p-b-md
     .container
       .row
-        .col-sm-12.col-md-12.col-lg-7
+        .col-sm-12.col-lg-8
           .m-b-md
             h1.color-white Bitcoin Core
             h4.color-white.m-y Download the Bitcore build of the Bitcoin software availible for Linux, Max OS X, and Windows.
-          p.color-white  #[a(href="#" target="_new") View latest Commit on github]
-        .col-sm-12.col-md-12.col-lg-5
+            .m-t-sm#[a(href="#" target="_new" style="color: #ffffff") View latest Commit on github]
+        .col-sm-12.col-md-6.col-lg-4
+          .card.binary-card
+            .card-header.text-center
+              p.m-b-0 Binaries
+            .card-block.p-md
+              .row.m-b-md
+                .col-md-2.col-xs-2
+                  img(src='/images/logos/linux.svg', alt='linux').width-100
+                .col-md-10.col-xs-10
+                  h6.m-b-0 Linux
+                  a(href="#") Download (tgz)
+              .row.m-b-md
+                .col-md-2.col-xs-2
+                  img(src='/images/logos/apple.svg', alt='apple').width-100
+                .col-md-10.col-xs-10
+                  h6.m-b-0 Apple
+                  a(href="#") Download (dmg)
+              .row.m-b-md
+                .col-md-2.col-xs-2
+                  img(src='/images/logos/microsoft.svg', alt='microsoft').width-100
+                .col-md-10.col-xs-10
+                  h6.m-b-0 Windows (64-bit)
+                  a(href="#") Download (zip)
+              .row
+                .col-md-2.col-xs-2
+                  img(src='/images/logos/microsoft.svg', alt='microsoft').width-100
+                .col-md-10.col-xs-10
+                  h6.m-b-0 Windows (32-bit)
+                  a(href="#") Download (zip)
   
-  .section.bg-white
+  .bg-white.p-y-0
     .container
-      .col-lg-6.border-right-grey 
+      .col-lg-6.border-right-grey.p-t-lg
         p HOW TO:
         h4 Download & Check Signatures
         p When you download the bitcoin software, you will want to learn to verify that the hashes are the same with a trusted source.
         .steps
           .step-number 1
           p.step-line-height #[a(href="#" class="bold color-orange-dark") Download]. the bitcoin software for your platform.
-      .col-lg-6
+      .col-lg-6.p-t-lg
         p HOW TO:
         h4 Verify & Sign Build
         p When you download the bitcoin software, you will want to learn to verify that the hashes are the same with a trusted source.

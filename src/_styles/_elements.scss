@@ -88,3 +88,16 @@
   position: relative;
   z-index: 1;
 }
+
+
+
+// Bitcoin page
+.binary-card {
+  border: none;
+  .card-header{
+    background-color: $bc-darker;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
