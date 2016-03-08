@@ -52,3 +52,15 @@
     left: 0;
   }
 }
+
+.header__bottom-border-left--white {
+  margin-bottom: 3rem;
+  position: relative;&:after {
+    background: $white;
+    bottom: -1rem;
+    content: '';
+    height: 3px;
+    position: absolute;
+    width: 4rem;
+  }
+}
