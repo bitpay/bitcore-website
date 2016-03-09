@@ -1,5 +1,9 @@
 (function() {
   'use strict';
+  var currentYear = document.getElementById('currentYear');
+  if (currentYear) {
+    currentYear.innerHTML = new Date().getFullYear();
+  }
   InstantClick.on('change', function() {
     pageInitialize(window);
   });
