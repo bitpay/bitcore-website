@@ -88,3 +88,13 @@
   position: relative;
   z-index: 1;
 }
+
+
+.bloq-logo {
+  float: right;
+  @include media-breakpoint-down(sm) {
+    float: none;
+    max-width: 8em;
+    padding: 1em 0;
+  }
+}
