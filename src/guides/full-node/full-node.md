@@ -15,7 +15,7 @@ Bitcore comes with a command line utility for creating and managing your full no
 npm install -g bitcore
 ```
 
-Note: It should not be necessary to run this command with `sudo`, as it should install in your home directory.
+**Note**: Do not run this command with `sudo` or with *root privileges* as this will lead to [permission issues](https://docs.npmjs.com/misc/scripts#user).
 
 At this point, if you just want to sync the blockchain and run the Insight Block Explorer, then you are done! Just run:
 

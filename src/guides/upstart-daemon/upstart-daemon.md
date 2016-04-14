@@ -30,6 +30,8 @@ Use npm to install bitcore globally for the `bitcore` user.
 npm install -g bitcore
 ```
 
+**Note**: Do not run this command with `sudo` or with *root privileges* as this will lead to [permission issues](https://docs.npmjs.com/misc/scripts#user).
+
 ## Configure Bitcore
 
 Before starting the node and beginning the blockchain sync, you may want to configure the services available or bitcoin network settings. These options are documented in the [Full Node](/guides/full-node) guide.
