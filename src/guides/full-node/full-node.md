@@ -1,11 +1,11 @@
 # Running a Full Node
 This tutorial will go over the basics of spinning up a full Bitcoin node and adding the Insight block explorer. Before you begin, you'll need to have about 100GB of disk space available to store the Bitcoin blockchain plus additional database information. Both 64bit Mac OS X and GNU/Linux are currently supported. The process of downloading the blocks and indexing can take upwards of 4 hours, depending on Internet connection and other factors, so it's suggested to plan accordingly and let the node synchronize while you're away. It's also possible to use an existing Bitcoin data directory, which will speed up the process.
 
-## Install Node.js v4.2 LTS
-It's recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions. We will specifically need to install and run v0.12 or v4.2 LTS. Please follow the directions at [https://github.com/creationix/nvm#install-script](https://github.com/creationix/nvm#install-script) and then run:
+## Install Node.js v4 LTS
+It's recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions. We will specifically need to install and run v0.12 or v4 LTS. Please follow the directions at [https://github.com/creationix/nvm#install-script](https://github.com/creationix/nvm#install-script) and then run:
 
 ```bash
-nvm install v4.2
+nvm install v4
 ```
 
 ## Install Bitcore
@@ -15,7 +15,7 @@ Bitcore comes with a command line utility for creating and managing your full no
 npm install -g bitcore
 ```
 
-Note: It should not be necessary to run this command with `sudo`, as it should install in your home directory.
+**Note**: Do not run this command with `sudo` or with *root privileges* as this will lead to [permission issues](https://docs.npmjs.com/misc/scripts#user).
 
 At this point, if you just want to sync the blockchain and run the Insight Block Explorer, then you are done! Just run:
 
