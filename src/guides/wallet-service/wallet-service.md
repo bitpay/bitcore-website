@@ -1,11 +1,13 @@
 # Running a Wallet Service
-The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Multisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full.
+The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Multisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full. It's recommended to be familiar with running a Bitcore node running before starting this tutorial, please see the [Run a Full Node](http://localhost:3000/guides/full-node) guide for details.
 
-## Installing Dependencies
-MongoDB is the main dependency that you will need to install outside of node modules.
+## Installing MongoDB
 
-### Installing MongoDB on Mac OS X
-The easiest way to install MongoDB on a Mac is to use brew. Please refer to these [complete instructions](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/):
+[MongoDB](https://www.mongodb.com/) is the database for the [Bitcore Wallet Service](https://github.com/bitpay/bitcore-wallet-service) and is the main dependency outside of the Node.js modules. Follow the [installation instructions](https://docs.mongodb.com/manual/installation/) detailed at the MongoDB website, and/or follow details below.
+
+### Mac OS X
+
+The easiest way to install MongoDB is to use brew:
 
 ```bash
 brew install update
@@ -14,30 +16,26 @@ mkdir -p /data/db
 sudo chown -R `whoami` /data/db #this assumes that the next step will be run by the current user
 mongod
 ```
+Please refer to these [complete instructions](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) at the MongoDB website.
 
-### Installing MongoDB on Linux (Debian-based)
+### Ubuntu/Debian
+
+MongoDB is included in stardard repositories and can be installed via the package manager:
 
 ```bash
 sudo apt-get install mongodb
 ```
+This should automatically start the `mongod` process.
 
-This usually starts mongod for you after installation, but if it doesn't:
-
-```bash
-mongod
-```
-
-### Installing Kerberos on Linux (Debian-based)
-You may need to install the following package to get the Wallet Service running (if you receive errors about missing headers):
+Kerberos packages will also need be available for the Node.js MongoDB driver depends:
 
 ```bash
 apt-get install libkrb5-dev
 ```
 
-Alternatively, you can download MongoDB from the [MongoDB website](https://www.mongodb.org/downloads).
-
 ## Add the Wallet Service to Our Node
-We begin this process already having a node set up and synced with the Bitcoin Blockchain. To perform the initial setup of your node, please see: [How to run a full node](/guides/full-node)
+
+**Note**: If you do not already have a Bitcore node setup, please see the [Run a Full Node](/guides/full-node) guide.
 
 ```bash
 cd <your node>
@@ -149,7 +147,6 @@ Added https options. Example:
 
 ```json
 {
-  "datadir": "/home/user/.bitcore/data",
   "network": "livenet",
   "port": 3001,
   "https": true,
@@ -160,13 +157,15 @@ Added https options. Example:
   "servicesConfig": {
     "bitcore-wallet-service": {
       "bwsPort": 3232
+    },
+    "bitcoind": {
+      "datadir": "/home/user/.bitcore/data",
+      "exec": "/home/user/bitcoin/src/bitcoind"
     }
   },
   "services": [
-    "address",
     "bitcoind",
     "bitcore-wallet-service",
-    "db",
     "insight-api",
     "web"
   ]
