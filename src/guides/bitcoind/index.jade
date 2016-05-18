@@ -1,0 +1,9 @@
+extends ../../_layouts/guides
+
+append vars
+  -var title = 'Run bitcoind for Bitcore';
+  -var pageSlug = 'bitcoind';
+  -var description = 'Set up and run a bitcoind for Bitcore standalone.';
+
+block content
+  include:marked bitcoind.md
