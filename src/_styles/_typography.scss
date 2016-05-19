@@ -92,6 +92,22 @@ a {
   width: 50px;
 }
 
+.step-number {
+  align-items: center;
+  border: 2px $bc-dark solid;
+  border-radius: 2em;
+  display: flex;
+  float: left;
+  font-size: 1.25em;
+  height: 40px;
+  justify-content: center;
+  margin-bottom: 9em;
+  margin-right: 0.75em;
+  text-align: center;
+  width: 40px;
+}
+
+
 .menu-text {
   font-size: .8em;
   letter-spacing: 2px;
