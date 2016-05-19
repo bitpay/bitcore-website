@@ -160,7 +160,7 @@ Here is what `invoice.html` looks like:
 
   <script language="javascript">
     var bitcore = require('bitcore-lib');
-    var socket = io('http://localhost:4001');
+    var socket = io('http://localhost:3001');
     socket.on('bitcoind/addresstxid', function(data) {
       var address = bitcore.Address(data.address);
       if (address.toString() == '{{address}}') {
