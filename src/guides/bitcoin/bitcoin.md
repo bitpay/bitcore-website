@@ -1,4 +1,4 @@
-# Run Bitcoind Standalone
+# Run Bitcoin Standalone
 
 This tutorial describes running `bitcoind` standalone without the Node.js components and service architecture. It assumes prior experience and familiarity with running `bitcoind` and associated tools from [Bitcoin Core](https://bitcoincore.org/). We will go over installation and usage of the additional features and indexes introduced in the [Bitcore branch](https://github.com/bitpay/bitcoin/tree/0.12-bitcore), as well verifying the download and deterministic build.
 
