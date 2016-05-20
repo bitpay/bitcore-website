@@ -708,7 +708,6 @@ Add `stampingservice` as a dependency in `mynode/bitcore-node.json`:
 
 ```json
 {
-  "datadir": "./data",
   "network": "testnet",
   "port": 3001,
   "services": [
