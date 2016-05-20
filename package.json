@@ -6,7 +6,7 @@
     "gulp-debug": "^2.1.2",
     "gulp-gh-pages": "^0.5.4",
     "gulp-gunzip": "0.0.3",
-    "gulp-imagemin": "^2.4.0",
+    "gulp-imagemin": "^3.0.1",
     "gulp-jsdoc-to-markdown": "^1.1.2",
     "gulp-prefix": "0.0.15",
     "gulp-untar": "0.0.4"
