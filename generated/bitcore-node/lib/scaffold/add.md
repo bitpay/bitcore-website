@@ -1,4 +1,5 @@
 ## Functions
+
 <dl>
 <dt><a href="#addConfig">addConfig(configFilePath, service, done)</a></dt>
 <dd></dd>
@@ -7,7 +8,9 @@
 <dt><a href="#add">add(done)</a></dt>
 <dd></dd>
 </dl>
+
 <a name="addConfig"></a>
+
 ## addConfig(configFilePath, service, done)
 **Kind**: global function  
 
@@ -18,6 +21,7 @@
 | done | <code>function</code> |  |
 
 <a name="addService"></a>
+
 ## addService(configDir, service, done)
 **Kind**: global function  
 
@@ -28,6 +32,7 @@
 | done | <code>function</code> |  |
 
 <a name="add"></a>
+
 ## add(done)
 **Kind**: global function  
 

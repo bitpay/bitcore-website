@@ -1,11 +1,10 @@
 extends ../_layouts/api
 
 append vars
-  -var section = 'node';
-  -var title = 'Get Started';
+  -var section = 'intro';
+  -var title = 'Overview';
   -var description = 'Full API Documentation for the Bitcore platform, an open source bitcoin stack.';
   
 append docs
-  +docMarkdown('https://github.com/bitpay/bitcore-node/edit/master/docs/index.md')
-    h1 Bitcore Documentation
-    include:marked ../../generated/bitcore-node/docs/index.md 
+  +docMarkdown('https://github.com/bitpay/bitcore/edit/master/README.md')
+    include:marked ../../generated/bitcore/README.md 

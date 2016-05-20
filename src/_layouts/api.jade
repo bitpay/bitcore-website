@@ -10,20 +10,23 @@ block menu
         a(href="/api/#{slug}" class= title === name ? "active" : undefined).nav-link #{name}
       - }  
 
+  - if (true) {
+    a(href="/api/")
+      h3.menu-header.m-t-md Intro
+      ul.nav.nav-pills.nav-stacked
+        +item('Overview', '')
+  - }
+
   - if (section === 'node') {
     h3.menu-header.m-t-md Node
     ul.nav.nav-pills.nav-stacked
-      +item('Get Started', '')
-      +item('Build & Install', 'build')
-      +item('Node Constructor', 'node')
-      +item('Scaffold', 'scaffold')
+      +item('Get Started', 'node')
+      +item('Node Constructor', 'node-constructor')
       +item('Event Bus', 'bus')
-      +item('Error Handling', 'errors')
-      +item('Bitcoind Patch', 'patch')
-      +item('Release Process', 'release')
-      +item('Development & Testing', 'testing')
+      +item('Development', 'development')
+      +item('Upgrade', 'upgrade')
   - } else {
-    a(href="/api/")
+    a(href="/api/node")
       h3.menu-header.m-t-md Node
   - }
 
@@ -32,8 +35,6 @@ block menu
     ul.nav.nav-pills.nav-stacked
       +item('Overview', 'service')
       +item('Bitcoin Service', 'service/bitcoin')
-      +item('Database Service', 'service/database')
-      +item('Address Service', 'service/address')
       +item('Web Service', 'service/web')
   - } else {
     a(href="/api/service")
@@ -41,7 +42,7 @@ block menu
   - }
 
   - if (section === 'lib') {
-    h3.menu-header.m-t-md Bitcore Library API
+    h3.menu-header.m-t-md Library API
     ul.nav.nav-pills.nav-stacked
       +item('Address', 'lib/address')
       +item('Block', 'lib/block')
@@ -58,21 +59,18 @@ block menu
       +item('Bitcoin URIs', 'lib/uri')
   - } else {
     a(href="/api/lib/address")
-      h3.menu-header.m-t-md Bitcore Library API
+      h3.menu-header.m-t-md Library API
   - }
 
   - if (section === 'modules') {
-    h3.menu-header.m-t-md Modules
+    h3.menu-header.m-t-md Library Modules
     ul.nav.nav-pills.nav-stacked
-      +item('Payment Channels', 'channel')
-      +item('ECIES', 'ecies')
-      +item('Explorers', 'explorers')
-      +item('Message', 'message')
       +item('Mnemonic', 'mnemonic')
       +item('Payment Protocol', 'paypro')
+      +item('Message', 'message')
   - } else {
     a(href="/api/channel")
-      h3.menu-header.m-t-md Modules
+      h3.menu-header.m-t-md Library Modules
   - }
     
   - if (section === 'p2p') {

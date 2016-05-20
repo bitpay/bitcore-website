@@ -1,4 +1,5 @@
 <a name="getDefaultBaseConfig"></a>
+
 ## getDefaultBaseConfig(options)
 Will return the path and default bitcore-node configuration on environment variables
 or default locations.
@@ -9,4 +10,5 @@ or default locations.
 | --- | --- | --- |
 | options | <code>Object</code> |  |
 | options.network | <code>String</code> | "testnet" or "livenet" |
+| options.datadir | <code>String</code> | Absolute path to bitcoin database directory |
 

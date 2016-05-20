@@ -1,4 +1,5 @@
 <a name="callMethod"></a>
+
 ## callMethod(options, method, params, done)
 Calls a remote node with a method and params
 
