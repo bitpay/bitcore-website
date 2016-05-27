@@ -18,11 +18,11 @@ LemonadeStand.prototype.setupRoutes = function(app, express) {
 };
 
 LemonadeStand.prototype.getRoutePrefix = function() {
-  return 'payments';
+  return 'lemonade-stand';
 };
 ```
 
-Create a `payments/static` and put an `index.html` in it:
+Create a `static` and put an `index.html` in it:
 
 ```html
 <!DOCTYPE html>
@@ -31,25 +31,25 @@ Create a `payments/static` and put an `index.html` in it:
   <title>Lemonade Stand</title>
 </head>
 
-  <body>
-    <h1>Lemonade Stand</h1>
-    <h2>Invoice</h2>
+<body>
+  <h1>Lemonade Stand</h1>
+  <h2>Invoice</h2>
 
-    <form method="post" action="/payments/invoice">
-      Amount: <input type="text" name="amount"/> BTC <input type="submit" value="Generate Invoice" />
-    </form>
-  </body>
+  <form method="post" action="invoice">
+    Amount: <input type="text" name="amount"/> BTC <input type="submit" value="Generate Invoice" />
+  </form>
+</body>
+
 </html>
 ```
 
-You can access this page at `http://localhost:3001/payments`.
+You can access this page at `http://localhost:3001/lemonade-stand`.
 
 ## Pay Invoice Page
 
-Next we'll need to be able to generate the invoice server-side and display a page to pay the invoice. Back to `payments/index.js`:
+Next we'll need to be able to generate the invoice server-side and display a page to pay the invoice. Back to `index.js`:
 
 ```js
-var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var fs = require('fs');
 var bitcore = require('bitcore-lib');
@@ -59,17 +59,19 @@ function LemonadeStand(options) {
   EventEmitter.call(this);
 
   this.node = options.node;
+  this.log = this.node.log;
 
   this.invoiceHtml = fs.readFileSync(__dirname + '/invoice.html', 'utf8');
 
   // Use 1 HD Private Key and generate a unique address for every invoice
   this.hdPrivateKey = new bitcore.HDPrivateKey(this.node.network);
+  this.log.info('Using key:', this.hdPrivateKey);
   this.addressIndex = 0;
 }
 
 inherits(LemonadeStand, EventEmitter);
 
-LemonadeStand.dependencies = ['bitcoind', 'db', 'address'];
+LemonadeStand.dependencies = ['bitcoind'];
 
 LemonadeStand.prototype.start = function(callback) {
   setImmediate(callback);
@@ -102,15 +104,19 @@ LemonadeStand.prototype.setupRoutes = function(app, express) {
 };
 
 LemonadeStand.prototype.getRoutePrefix = function() {
-  return 'payments';
+  return 'lemonade-stand';
 };
 
 LemonadeStand.prototype.filterInvoiceHTML = function() {
   var btc = this.amount / 1e8;
   var address = this.hdPrivateKey.derive(this.addressIndex).privateKey.toAddress();
+  this.log.info('New invoice with address:', address);
+  var hash = address.hashBuffer.toString('hex');
   var transformed = this.invoiceHtml
     .replace(/{{amount}}/g, btc)
     .replace(/{{address}}/g, address)
+    .replace(/{{hash}}/g, hash)
+    .replace(/{{baseUrl}}/g, '/' + this.getRoutePrefix() + '/');
   return transformed;
 };
 
@@ -125,17 +131,18 @@ Each new invoice bumps the addressIndex by 1. This will create a unique bitcoin 
 
 In `setupRoutes()` we add an express middleware for parsing form data. Then we add a handler for `/invoice`. When the user submits the form from the first page we created, `amount` is passed to this `/invoice` route. We then parse the amount and respond back with the html, replacing our placeholder values with real values.
 
-Here is what `payments/invoice.html` looks like:
+Here is what `invoice.html` looks like:
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
   <title>Lemonade Stand</title>
+  <base href="{{baseUrl}}" />
   <script src="/socket.io/socket.io.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-  <script src="/payments/bitcore-lib.js"></script>
+  <script src="js/jquery/dist/jquery.js"></script>
+  <script src="js/jquery-qrcode/jquery.qrcode.min.js"></script>
+  <script src="js/bitcore-lib/bitcore-lib.js"></script>
 </head>
 
 <body>
@@ -143,8 +150,9 @@ Here is what `payments/invoice.html` looks like:
   <h2>Invoice</h2>
   <div id="qrcode"></div>
   <p>Please send {{amount}} BTC to {{address}}</p>
-  <h2>Total Received</h2>
-  <p><span id="total-{{address}}">0</span> BTC</p>
+  <h2>Transactions Received</h2>
+  <ul id="txids">
+  </ul>
 
   <script type="text/javascript">
     $('#qrcode').qrcode("bitcoin:{{address}}?amount={{amount}}");
@@ -153,22 +161,25 @@ Here is what `payments/invoice.html` looks like:
   <script language="javascript">
     var bitcore = require('bitcore-lib');
     var socket = io('http://localhost:3001');
-    socket.on('address/balance', function(addressObj, balance) {
-      // The address object includes hash, type, and network. Use bitcore to derive the address.
-      var address = bitcore.Address(addressObj);
-      document.getElementById('total-' + address).innerHTML = (balance / 1e8);
+    socket.on('bitcoind/addresstxid', function(data) {
+      var address = bitcore.Address(data.address);
+      if (address.toString() == '{{address}}') {
+        var txidsElm = document.getElementById('txids');
+        var elm = document.createTextNode('txid: ' + data.txid);
+        txidsElm.appendChild(elm);
+      }
     });
-    socket.emit('subscribe', 'address/balance', ['{{address}}']);
+    socket.emit('subscribe', 'bitcoind/addresstxid', ['{{address}}']);
   </script>
 </body>
 
 </html>
 ```
 
-This will generate a QR code with the bitcoin address and amount. It subscribes to the `address/balance` event from the `address` service for the given address. Every time the balance changes, we receive an event over socket.io and we update the total received accordingly.
+This will generate a QR code with the bitcoin address and amount. It subscribes to the `bitcoind/addresstxid` event from the `bitcoind` service for the given address. Every time the address received a transaction, we receive an event over socket.io and we update the data received accordingly.
 
-The file uses bitcore on the client side to derive the address from the address object. You will want to download `bitcore-lib.js` and put it in your `payments/static` directory.
+The file uses bitcore on the client side to derive the address from the address object. We use bower to install the dependency in `static/js` directory.
 
 ## Conclusion
 
-So there we've built our very own bitcoin-accepting lemonade stand using Bitcore Node!
+So there we've built our very own bitcoin-accepting lemonade stand using Bitcore Node! Please see the [git repository](https://github.com/bitpay/lemonade-stand) for all of the code.

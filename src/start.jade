@@ -13,7 +13,7 @@ block page
           .m-b-md
             h1.color-white.header__bottom-border-left Getting Started
             h4.color-white.opacity-70.m-y Spin up a node on the bitcoin network.
-          p.color-white Bitcore has #[a(href="https://github.com/bitcoin/bitcoin" target="_new") bitcoind] built right in, so joining the peer-to-peer network is simple.
+          p.color-white Bitcore has #[a(href="/bitcoin") Bitcoin] built right in, so joining the peer-to-peer network is simple.
         .col-sm-12.col-md-12.col-lg-5
           img.width-100(src="/images/icosahedron-spheres.png")
   
@@ -22,8 +22,8 @@ block page
       .row.steps
         .col-lg-6
           .tutorial-number 1
-          h4 Install Bitcore
-          p You'll need to have Node.js v0.12 or v4.2 LTS installed. For more info, check out our #[a(href="/guides/full-node" class="bold color-orange-dark") expanded guide].
+          h4 Install Bitcore with NPM
+          p You'll need to have <strong>Node.js</strong> and <strong>ZeroMQ</strong> dependencies installed, and be running as a user <em>without</em> root privileges. For more detailed info, check out our #[a(href="/guides/full-node" class="bold color-orange-dark") expanded guide].
         .col-lg-6
           pre
             code.language-bash npm install -g bitcore

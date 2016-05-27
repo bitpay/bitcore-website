@@ -1,4 +1,5 @@
 ## Functions
+
 <dl>
 <dt><a href="#removeConfig">removeConfig(configFilePath, service, done)</a></dt>
 <dd><p>Will remove a service from bitcore-node.json</p>
@@ -13,7 +14,9 @@
 <dd><p>Will remove the Node.js service and from the bitcore-node configuration.</p>
 </dd>
 </dl>
+
 <a name="removeConfig"></a>
+
 ## removeConfig(configFilePath, service, done)
 Will remove a service from bitcore-node.json
 
@@ -26,6 +29,7 @@ Will remove a service from bitcore-node.json
 | done | <code>function</code> |  |
 
 <a name="uninstallService"></a>
+
 ## uninstallService(configDir, service, done)
 Will uninstall a Node.js service and remove from package.json.
 
@@ -38,6 +42,7 @@ Will uninstall a Node.js service and remove from package.json.
 | done | <code>function</code> |  |
 
 <a name="removeService"></a>
+
 ## removeService(configDir, service, done)
 Will remove a Node.js service if it is installed.
 
@@ -50,6 +55,7 @@ Will remove a Node.js service if it is installed.
 | done | <code>function</code> |  |
 
 <a name="remove"></a>
+
 ## remove(done)
 Will remove the Node.js service and from the bitcore-node configuration.
 

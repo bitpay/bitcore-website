@@ -1,4 +1,5 @@
 <a name="findConfig"></a>
+
 ## findConfig(cwd)
 Will return the path and bitcore-node configuration
 

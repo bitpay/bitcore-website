@@ -8,19 +8,20 @@ Please refer to the [service development document](service-development.html).
 
 ### The Code
 
-Add a new file within the service directory `satoshifirealarm` called `index.js`
+Add a new file within the service directory `satoshi-fire-alarm` called `index.js`
 
 ```js
 var util = require('util');
+var EventEmitter = require('events').EventEmitter;
 var bitcore = require('bitcore-lib');
-var Transaction = bitcore.Transaction;
-var EventEmitter = require('event').EventEmitter;
 var spawn = require('child_process').spawn;
 
 function SatoshiFireAlarm(options) {
   EventEmitter.call(this, options);
+  this.node = options.node;
+
   this.alarmActivated = false;
-  this.child;
+  this.child = false;
   this.interestingAddresses = [
     '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', //this is the address that the genesis paid its coinbase to. Can't be spent due to a bug in the code.
     '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX', //Block 1
@@ -28,60 +29,94 @@ function SatoshiFireAlarm(options) {
   ];
   this.node.services.bitcoind.on('tx', this.transactionHandler.bind(this));
 }
+
+/*
+ * We are going to need bitcoind because we will be setting event listeners (subscribers)
+ * on Blocks and such
+ */
+SatoshiFireAlarm.dependencies = ['bitcoind'];
+
+/*
+ * inherits the serivce base class so we get some stuff for free
+ */
 util.inherits(SatoshiFireAlarm, EventEmitter);
 
-SatoshiFireAlarm.dependencies = ['bitcoind', 'db', 'address'];
+/*
+ * start: REQUIRED!! Ours just calls the callback
+ */
+SatoshiFireAlarm.prototype.start = function(callback) {
+  callback();
+};
 
-SatoshiFireAlarm.prototype.transactionHandler = function(txinfo) {
-  var tx = Transaction().fromBuffer(txInfo.buffer);
-  var messages = {};
-  var inputsLength = tx.inputs.length;
-  for (var i = 0; i < inputsLength; i++) {
-    this.transactionInputHandler(tx, i);
+/*
+ * stop: REQUIRED!! Ours just calls the callback
+ */
+SatoshiFireAlarm.prototype.stop = function(callback) {
+  callback();
+};
+
+SatoshiFireAlarm.prototype.getAPIMethods = function() {
+  return [];
+};
+
+SatoshiFireAlarm.prototype.getPublishEvents = function() {
+  return [];
+};
+
+/*
+ * transactionHandler: this is the delegate when a transaction is received by your node
+ */
+SatoshiFireAlarm.prototype.transactionHandler = function(txBuffer) {
+  var self = this;
+
+  var tx = bitcore.Transaction().fromBuffer(txBuffer);
+
+  for (var i = 0; i < tx.inputs.length; i++) {
+    self.transactionInputHandler(tx.inputs[i]);
   }
-}
 
-SatoshiFireAlarm.prototype.transactionInputHandler = function(tx, i) {
-  var address = tx.inputs[i].script.toAddress();
-  if (typeof address !== 'undefined' &&
-      this.interestingAddresses.indexOf(address) != -1) {
+};
+
+/*
+ * transactionInputHandler: helper for transactionHandler
+ */
+SatoshiFireAlarm.prototype.transactionInputHandler = function(input) {
+  if (!input.script) {
+    return;
+  }
+  var address = input.script.toAddress(this.node.network);
+  if (address && this.interestingAddresses.indexOf(address.toString()) != -1) {
     this.soundAlarm();
   }
-}
+};
 
 /*
  * soundAlarm: will launch a separate alarm program (not provided)
  */
 SatoshiFireAlarm.prototype.soundAlarm = function() {
-  if (this.alarmActivated) return;
+  if (this.alarmActivated) {
+    return;
+  }
 
   this.alarmActivated = true;
-  var child = spawn('alarm', []);
-}
+  this.child = spawn('alarm', []);
+};
 
 SatoshiFireAlarm.prototype.resetAlarm = function() {
-  child.kill();
+  if (this.child) {
+    this.child.kill();
+  }
   this.alarmActivated = false;
-}
-
-SatoshiFireAlarm.prototype.start = function(callback) {
-  setImmediate(callback);
-}
-
-SatoshiFireAlarm.prototype.stop = function(callback) {
-  setImmediate(callback);
-}
+};
 
 module.exports = SatoshiFireAlarm;
 ```
 
-Create a `package.json` for our service in `satoshifirealarm`:
+Create a `package.json` for our service in `satoshi-fire-alarm`:
 
 ```json
-{
-  "dependencies": {
-  }
-}
+npm init
+npm install bitcore-lib --save
 ```
 
 ## Start the Node
