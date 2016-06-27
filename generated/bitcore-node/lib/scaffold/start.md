@@ -1,6 +1,10 @@
 ## Functions
 
 <dl>
+<dt><a href="#checkConfigVersion2">checkConfigVersion2()</a></dt>
+<dd><p>Checks for configuration options from version 2. This includes an &quot;address&quot; and
+&quot;db&quot; service, or having &quot;datadir&quot; at the root of the config.</p>
+</dd>
 <dt><a href="#start">start(options)</a></dt>
 <dd><p>This function will instantiate and start a Node, requiring the necessary service
 modules, and registering event handlers.</p>
@@ -35,6 +39,13 @@ specified modules, and assemble an array in this format:
 </dd>
 </dl>
 
+<a name="checkConfigVersion2"></a>
+
+## checkConfigVersion2()
+Checks for configuration options from version 2. This includes an "address" and
+"db" service, or having "datadir" at the root of the config.
+
+**Kind**: global function  
 <a name="start"></a>
 
 ## start(options)
@@ -51,7 +62,6 @@ modules, and registering event handlers.
 | options.config | <code>Object</code> | The parsed bitcore-node.json configuration file |
 | options.config.services | <code>Array</code> | An array of services names. |
 | options.config.servicesConfig | <code>Object</code> | Parameters to pass to each service |
-| options.config.datadir | <code>String</code> | A relative (to options.path) or absolute path to the datadir |
 | options.config.network | <code>String</code> | 'livenet', 'testnet' or 'regtest |
 | options.config.port | <code>Number</code> | The port to use for the web service |
 

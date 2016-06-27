@@ -1,10 +1,10 @@
 # Run Bitcoin Standalone
 
-This tutorial describes running `bitcoind` standalone without the Node.js components and service architecture. It assumes prior experience and familiarity with running `bitcoind` and associated tools from [Bitcoin Core](https://bitcoincore.org/). We will go over installation and usage of the additional features and indexes introduced in the [Bitcore branch](https://github.com/bitpay/bitcoin/tree/0.12-bitcore), as well verifying the download and deterministic build.
+This tutorial describes running `bitcoind` standalone without the Node.js components and service architecture. It assumes prior experience and familiarity with running `bitcoind` and associated tools from [Bitcoin Core](https://bitcoincore.org/). We will go over installation and usage of the additional features and indexes introduced in the [Bitcore branch](https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore), as well verifying the download and deterministic build.
 
 ## Download & Verify
 
-The `bitcoind` binary is deterministically built with [Gitian](https://github.com/devrandom/gitian-builder). For more information about this please see the [Gitian building](https://github.com/bitpay/bitcoin/blob/0.12-bitcore/doc/gitian-building.md) documentation, and the corresponding [gitian.sigs](https://github.com/bitpay/gitian.sigs) repository with signatures and hashes for these builds.
+The `bitcoind` binary is deterministically built with [Gitian](https://github.com/devrandom/gitian-builder). For more information about this please see the [Gitian building](https://github.com/bitpay/bitcoin/blob/0.12.1-bitcore/doc/gitian-building.md) documentation, and the corresponding [gitian.sigs](https://github.com/bitpay/gitian.sigs) repository with signatures and hashes for these builds.
 
 Add the signing keys to your key ring and verify fingerprints:
 
@@ -19,21 +19,21 @@ Fingerprints should match:
 Go to [https://github.com/bitpay/bitcoin/releases](https://github.com/bitpay/bitcoin/releases) to get the URLs to the latest release for your system.
 
 ```
-wget https://github.com/bitpay/bitcoin/releases/download/v0.12-bitcore/bitcoin-0.12.0-linux64.tar.gz
-wget https://github.com/bitpay/bitcoin/releases/download/v0.12-bitcore-rc3/SHA256SUMS.asc
+wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/bitcoin-0.12.1-linux64.tar.gz
+wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/SHA256SUMS.asc
 ```
 
 Verify the download by checking that the checksums match:
 ```
 gpg --verify SHA256SUMS.asc
-cat "SHA256SUMS.asc" | grep "bitcoin-0.12.0-linux64.tar.gz"
-sha256sum bitcoin-0.12.0-linux64.tar.gz
+cat "SHA256SUMS.asc" | grep "bitcoin-0.12.1-linux64.tar.gz"
+sha256sum bitcoin-0.12.1-linux64.tar.gz
 ```
 
 And then extract the archive in your desired location and run bitcoind:
 ```
-tar -xvzf bitcoin-0.12.0-linux64.tar.gz
-cd bitcoin-0.12.0
+tar -xvzf bitcoin-0.12.1-linux64.tar.gz
+cd bitcoin-0.12.1
 ./bitcoind
 ```
 
