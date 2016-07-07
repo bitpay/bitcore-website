@@ -26,14 +26,14 @@ wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/SHA256S
 Verify the download by checking that the checksums match:
 ```
 gpg --verify SHA256SUMS.asc
-cat "SHA256SUMS.asc" | grep "bitcoin-0.12.1-linux64.tar.gz"
+cat SHA256SUMS.asc | grep "bitcoin-0.12.1-linux64.tar.gz"
 sha256sum bitcoin-0.12.1-linux64.tar.gz
 ```
 
 And then extract the archive in your desired location and run bitcoind:
 ```
 tar -xvzf bitcoin-0.12.1-linux64.tar.gz
-cd bitcoin-0.12.1
+cd bitcoin-0.12.1/bin
 ./bitcoind
 ```
 
