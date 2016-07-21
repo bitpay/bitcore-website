@@ -26,6 +26,16 @@ wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/SHA256S
 Verify the download by checking that the checksums match:
 ```
 gpg --verify SHA256SUMS.asc
+sha256sum -c SHA256SUMS.asc 2>&1 | grep OK
+```
+
+The sha256sum line should output:
+```
+bitcoin-0.12.1-linux64.tar.gz: OK
+```
+
+To view checksums manually:
+```
 cat SHA256SUMS.asc | grep "bitcoin-0.12.1-linux64.tar.gz"
 sha256sum bitcoin-0.12.1-linux64.tar.gz
 ```
