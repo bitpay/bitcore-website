@@ -19,8 +19,8 @@ Fingerprints should match:
 Go to [https://github.com/bitpay/bitcoin/releases](https://github.com/bitpay/bitcoin/releases) to get the URLs to the latest release for your system.
 
 ```
-wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/bitcoin-0.12.1-linux64.tar.gz
-wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore/SHA256SUMS.asc
+wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore-2/bitcoin-0.12.1-linux64.tar.gz
+wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore-2/SHA256SUMS.asc
 ```
 
 Verify the download by checking that the checksums match:
