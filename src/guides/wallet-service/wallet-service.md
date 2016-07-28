@@ -1,5 +1,5 @@
 # Running a Wallet Service
-The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Multisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full. It's recommended to be familiar with running a Bitcore node running before starting this tutorial, please see the [Run a Full Node](http://localhost:3000/guides/full-node) guide for details.
+The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay's [Copay Multisignature Wallet](https://copay.io). The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full. It's recommended to be familiar with running a Bitcore node running before starting this tutorial, please see the [Run a Full Node](https://bitcore.io/guides/full-node/) guide for details.
 
 ## Installing MongoDB
 
