@@ -2,7 +2,7 @@
   "name": "bitcore-website",
   "version": "1.0.0",
   "devDependencies": {
-    "browser-sync": "^2.10.0",
+    "browser-sync": "^2.12.10",
     "gulp-debug": "^2.1.2",
     "gulp-gh-pages": "^0.5.4",
     "gulp-gunzip": "0.0.3",
