@@ -35,7 +35,7 @@
     "gulp-csso": "^2.0.0",
     "gulp-if": "^2.0.0",
     "gulp-jade": "^1.1.0",
-    "gulp-jscs": "^3.0.2",
+    "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-plumber": "^1.0.1",
