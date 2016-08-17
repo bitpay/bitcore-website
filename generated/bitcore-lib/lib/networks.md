@@ -27,6 +27,8 @@ numbers for each bitcoin network. Currently only supporting "livenet"
   * [.remove](#Networks+remove)
   * [.livenet](#Networks+livenet)
   * [.testnet](#Networks+testnet)
+  * [.enableRegtest](#Networks+enableRegtest)
+  * [.disableRegtest](#Networks+disableRegtest)
 
 <a name="Networks+get"></a>
 ### networks.get ⇒
@@ -70,4 +72,10 @@ numbers for each bitcoin network. Currently only supporting "livenet"
 **Kind**: instance property of <code>[Networks](#Networks)</code>  
 <a name="Networks+testnet"></a>
 ### networks.testnet
+**Kind**: instance property of <code>[Networks](#Networks)</code>  
+<a name="Networks+enableRegtest"></a>
+### networks.enableRegtest
+**Kind**: instance property of <code>[Networks](#Networks)</code>  
+<a name="Networks+disableRegtest"></a>
+### networks.disableRegtest
 **Kind**: instance property of <code>[Networks](#Networks)</code>  

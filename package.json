@@ -14,7 +14,9 @@
   "scripts": {
     "test": "gulp",
     "start": "node index.js",
-    "install": "gulp"
+    "install": "gulp",
+    "watch": "gulp serve",
+    "update-generated": "gulp update-generated-markdown"
   },
   "engines": {
     "node": "^0.12.11"

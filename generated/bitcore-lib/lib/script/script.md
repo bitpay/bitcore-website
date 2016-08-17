@@ -17,6 +17,8 @@
     * [.getData()](#Script+getData) ⇒ <code>Buffer</code>
     * [.isPushOnly()](#Script+isPushOnly) ⇒ <code>boolean</code>
     * [.classify()](#Script+classify) ⇒ <code>object</code>
+    * [.classifyOutput()](#Script+classifyOutput) ⇒ <code>object</code>
+    * [.classifyInput()](#Script+classifyInput) ⇒ <code>object</code>
     * [.isStandard()](#Script+isStandard) ⇒ <code>boolean</code>
     * [.prepend(obj)](#Script+prepend) ⇒ <code>[Script](#Script)</code>
     * [.equals()](#Script+equals)
@@ -104,6 +106,16 @@ In the case of a standard OP_RETURN, return the data
 opcodes or small int opcodes (OP_0, OP_1, ..., OP_16)  
 <a name="Script+classify"></a>
 ### script.classify() ⇒ <code>object</code>
+**Kind**: instance method of <code>[Script](#Script)</code>  
+**Returns**: <code>object</code> - The Script type if it is a known form,
+or Script.UNKNOWN if it isn't  
+<a name="Script+classifyOutput"></a>
+### script.classifyOutput() ⇒ <code>object</code>
+**Kind**: instance method of <code>[Script](#Script)</code>  
+**Returns**: <code>object</code> - The Script type if it is a known form,
+or Script.UNKNOWN if it isn't  
+<a name="Script+classifyInput"></a>
+### script.classifyInput() ⇒ <code>object</code>
 **Kind**: instance method of <code>[Script](#Script)</code>  
 **Returns**: <code>object</code> - The Script type if it is a known form,
 or Script.UNKNOWN if it isn't  

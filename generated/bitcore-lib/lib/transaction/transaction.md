@@ -37,6 +37,8 @@
     * [.verifySignature()](#Transaction+verifySignature) ⇒ <code>bool</code>
     * [.verify()](#Transaction+verify)
     * [.isCoinbase()](#Transaction+isCoinbase)
+    * [.isRBF()](#Transaction+isRBF)
+    * [.enableRBF()](#Transaction+enableRBF)
   * _static_
     * [.shallowCopy(transaction)](#Transaction.shallowCopy) ⇒ <code>[Transaction](#Transaction)</code>
   * _inner_
@@ -410,6 +412,20 @@ CheckTransaction in bitcoin core.
 <a name="Transaction+isCoinbase"></a>
 ### transaction.isCoinbase()
 Analogous to bitcoind's IsCoinBase function in transaction.h
+
+**Kind**: instance method of <code>[Transaction](#Transaction)</code>  
+<a name="Transaction+isRBF"></a>
+### transaction.isRBF()
+Determines if this transaction can be replaced in the mempool with another
+transaction that provides a sufficiently higher fee (RBF).
+
+**Kind**: instance method of <code>[Transaction](#Transaction)</code>  
+<a name="Transaction+enableRBF"></a>
+### transaction.enableRBF()
+Enable this transaction to be replaced in the mempool (RBF) if a transaction
+includes a sufficiently higher fee. It will set the sequenceNumber to
+DEFAULT_RBF_SEQNUMBER for all inputs if the sequence number does not
+already enable RBF.
 
 **Kind**: instance method of <code>[Transaction](#Transaction)</code>  
 <a name="Transaction.shallowCopy"></a>

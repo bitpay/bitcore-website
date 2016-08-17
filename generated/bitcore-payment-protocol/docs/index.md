@@ -7,12 +7,14 @@ Payment protocol is implemented as a separate module and you must add it to your
 For node projects:
 
 ```
+npm install bitcore-lib --save
 npm install bitcore-payment-protocol --save
 ```
 
 For client-side projects:
 
 ```
+bower install bitcore-lib --save
 bower install bitcore-payment-protocol --save
 ```
 
@@ -45,7 +47,7 @@ var certificates = new PaymentProtocol().makeX509Certificates();
 certificates.set('certificate', [file_with_x509_der_cert]);
 
 // form the request
-var request = new PaymentRequest().makePaymentRequest();
+var request = new PaymentProtocol().makePaymentRequest();
 request.set('payment_details_version', 1);
 request.set('pki_type', 'x509+sha256');
 request.set('pki_data', certificates.serialize());
