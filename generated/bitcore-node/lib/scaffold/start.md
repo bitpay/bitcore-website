@@ -1,4 +1,5 @@
 ## Functions
+
 <dl>
 <dt><a href="#checkConfigVersion2">checkConfigVersion2()</a></dt>
 <dd><p>Checks for configuration options from version 2. This includes an &quot;address&quot; and
@@ -37,13 +38,16 @@ specified modules, and assemble an array in this format:
 <code>uncaughtException</code> and <code>SIGINT</code>.</p>
 </dd>
 </dl>
+
 <a name="checkConfigVersion2"></a>
+
 ## checkConfigVersion2()
 Checks for configuration options from version 2. This includes an "address" and
 "db" service, or having "datadir" at the root of the config.
 
 **Kind**: global function  
 <a name="start"></a>
+
 ## start(options)
 This function will instantiate and start a Node, requiring the necessary service
 modules, and registering event handlers.
@@ -62,6 +66,7 @@ modules, and registering event handlers.
 | options.config.port | <code>Number</code> | The port to use for the web service |
 
 <a name="checkService"></a>
+
 ## checkService(service)
 Checks a service for the expected methods
 
@@ -72,6 +77,7 @@ Checks a service for the expected methods
 | service | <code>Object</code> | 
 
 <a name="loadModule"></a>
+
 ## loadModule(req, service)
 Will require a module from local services directory first
 and then from available node_modules
@@ -84,6 +90,7 @@ and then from available node_modules
 | service | <code>Object</code> | 
 
 <a name="setupServices"></a>
+
 ## setupServices(req, servicesPath, config) ⇒ <code>Array</code>
 This function will loop over the configuration for services and require the
 specified modules, and assemble an array in this format:
@@ -105,6 +112,7 @@ specified modules, and assemble an array in this format:
 | config.services | <code>Array</code> | An array of strings of service names. |
 
 <a name="cleanShutdown"></a>
+
 ## cleanShutdown(_process, node)
 Will shutdown a node and then the process
 
@@ -116,6 +124,7 @@ Will shutdown a node and then the process
 | node | <code>Node</code> | The Bitcore Node instance |
 
 <a name="exitHandler"></a>
+
 ## exitHandler(options, _process, node, error)
 Will handle all the shutdown tasks that need to take place to ensure a safe exit
 
@@ -131,6 +140,7 @@ Will handle all the shutdown tasks that need to take place to ensure a safe exit
 | error | <code>Error</code> |  |
 
 <a name="registerExitHandlers"></a>
+
 ## registerExitHandlers(_process, node)
 Will register event handlers to stop the node for `process` events
 `uncaughtException` and `SIGINT`.

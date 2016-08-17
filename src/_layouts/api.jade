@@ -44,6 +44,7 @@ block menu
   - if (section === 'lib') {
     h3.menu-header.m-t-md Library API
     ul.nav.nav-pills.nav-stacked
+      +item('Overview', 'lib')
       +item('Address', 'lib/address')
       +item('Block', 'lib/block')
       +item('Crypto', 'lib/crypto')
@@ -58,7 +59,7 @@ block menu
       +item('Unspent Outputs', 'lib/unspent-output')
       +item('Bitcoin URIs', 'lib/uri')
   - } else {
-    a(href="/api/lib/address")
+    a(href="/api/lib")
       h3.menu-header.m-t-md Library API
   - }
 

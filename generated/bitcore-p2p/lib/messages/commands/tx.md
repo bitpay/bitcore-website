@@ -1,8 +1,10 @@
 <a name="TransactionMessage"></a>
+
 ## TransactionMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 <a name="new_TransactionMessage_new"></a>
+
 ### new TransactionMessage([arg], options)
 
 | Param | Type | Description |

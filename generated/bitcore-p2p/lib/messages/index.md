@@ -1,12 +1,14 @@
 <a name="Messages"></a>
+
 ## Messages
 **Kind**: global class  
 
 * [Messages](#Messages)
-  * [new Messages([options])](#new_Messages_new)
-  * [.parseBuffer(dataBuffer)](#Messages+parseBuffer)
+    * [new Messages([options])](#new_Messages_new)
+    * [.parseBuffer(dataBuffer)](#Messages+parseBuffer)
 
 <a name="new_Messages_new"></a>
+
 ### new Messages([options])
 A factory to build Bitcoin protocol messages.
 
@@ -21,6 +23,7 @@ A factory to build Bitcoin protocol messages.
 | [options.Transaction] | <code>function</code> | A transaction constructor |
 
 <a name="Messages+parseBuffer"></a>
+
 ### messages.parseBuffer(dataBuffer)
 **Kind**: instance method of <code>[Messages](#Messages)</code>  
 

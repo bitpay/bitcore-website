@@ -1,21 +1,23 @@
 <a name="URI"></a>
+
 ## URI
 **Kind**: global class  
 
 * [URI](#URI)
-  * [new URI(data, [knownParams])](#new_URI_new)
-  * _instance_
-    * [._fromObject(obj)](#URI+_fromObject)
-    * [._parseAmount(amount)](#URI+_parseAmount) ⇒ <code>Object</code>
-    * [.toString()](#URI+toString) ⇒ <code>string</code>
-    * [.inspect()](#URI+inspect) ⇒ <code>string</code>
-  * _static_
-    * [.fromString(str)](#URI.fromString) ⇒ <code>[URI](#URI)</code>
-    * [.fromObject(data)](#URI.fromObject) ⇒ <code>[URI](#URI)</code>
-    * [.isValid(data, [knownParams])](#URI.isValid) ⇒ <code>boolean</code>
-    * [.parse(uri)](#URI.parse) ⇒ <code>Object</code>
+    * [new URI(data, [knownParams])](#new_URI_new)
+    * _instance_
+        * [._fromObject(obj)](#URI+_fromObject)
+        * [._parseAmount(amount)](#URI+_parseAmount) ⇒ <code>Object</code>
+        * [.toString()](#URI+toString) ⇒ <code>string</code>
+        * [.inspect()](#URI+inspect) ⇒ <code>string</code>
+    * _static_
+        * [.fromString(str)](#URI.fromString) ⇒ <code>[URI](#URI)</code>
+        * [.fromObject(data)](#URI.fromObject) ⇒ <code>[URI](#URI)</code>
+        * [.isValid(data, [knownParams])](#URI.isValid) ⇒ <code>boolean</code>
+        * [.parse(uri)](#URI.parse) ⇒ <code>Object</code>
 
 <a name="new_URI_new"></a>
+
 ### new URI(data, [knownParams])
 Bitcore URI
 
@@ -47,6 +49,7 @@ var uri = new URI('bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu?amount=1.2');
 console.log(uri.address, uri.amount);
 ```
 <a name="URI+_fromObject"></a>
+
 ### urI._fromObject(obj)
 Internal function to load the URI instance with an object.
 
@@ -63,6 +66,7 @@ Internal function to load the URI instance with an object.
 | obj | <code>Object</code> | Object with the information |
 
 <a name="URI+_parseAmount"></a>
+
 ### urI._parseAmount(amount) ⇒ <code>Object</code>
 Internal function to transform a BTC string amount into satoshis
 
@@ -78,18 +82,21 @@ Internal function to transform a BTC string amount into satoshis
 | amount | <code>string</code> | Amount BTC string |
 
 <a name="URI+toString"></a>
+
 ### urI.toString() ⇒ <code>string</code>
 Will return a the string representation of the URI
 
 **Kind**: instance method of <code>[URI](#URI)</code>  
 **Returns**: <code>string</code> - Bitcoin URI string  
 <a name="URI+inspect"></a>
+
 ### urI.inspect() ⇒ <code>string</code>
 Will return a string formatted for the console
 
 **Kind**: instance method of <code>[URI](#URI)</code>  
 **Returns**: <code>string</code> - Bitcoin URI  
 <a name="URI.fromString"></a>
+
 ### URI.fromString(str) ⇒ <code>[URI](#URI)</code>
 Instantiate a URI from a String
 
@@ -101,6 +108,7 @@ Instantiate a URI from a String
 | str | <code>string</code> | JSON string or object of the URI |
 
 <a name="URI.fromObject"></a>
+
 ### URI.fromObject(data) ⇒ <code>[URI](#URI)</code>
 Instantiate a URI from an Object
 
@@ -112,6 +120,7 @@ Instantiate a URI from an Object
 | data | <code>Object</code> | object of the URI |
 
 <a name="URI.isValid"></a>
+
 ### URI.isValid(data, [knownParams]) ⇒ <code>boolean</code>
 Check if an bitcoin URI string is valid
 
@@ -130,6 +139,7 @@ var valid = URI.isValid('bitcoin:12A1MyfXbW6RhdRAZEqofac5jCQQjwEPBu');
 // true
 ```
 <a name="URI.parse"></a>
+
 ### URI.parse(uri) ⇒ <code>Object</code>
 Convert a bitcoin URI string into a simple object.
 

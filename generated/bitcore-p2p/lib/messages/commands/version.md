@@ -1,9 +1,11 @@
 <a name="VersionMessage"></a>
+
 ## VersionMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 **See**: https://en.bitcoin.it/wiki/Protocol_documentation#version  
 <a name="new_VersionMessage_new"></a>
+
 ### new VersionMessage([arg], options)
 The version message is used on connection creation to advertise
 the type of node. The remote node will respond with its version, and no

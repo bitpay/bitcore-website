@@ -1,4 +1,5 @@
 <a name="Bitcoin"></a>
+
 ## Bitcoin(options)
 Provides a friendly event driven API to bitcoind in Node.js. Manages starting and
 stopping bitcoind as a child process for application support, as well as connecting
@@ -14,44 +15,47 @@ LRU cache for improved performance and methods added for common queries.
 
 
 * [Bitcoin(options)](#Bitcoin)
-  * [.getAPIMethods()](#Bitcoin+getAPIMethods)
-  * [.getPublishEvents()](#Bitcoin+getPublishEvents)
-  * [.unsubscribeAddressAll(name, emitter)](#Bitcoin+unsubscribeAddressAll)
-  * [.start(callback)](#Bitcoin+start)
-  * [.isSynced(callback)](#Bitcoin+isSynced)
-  * [.syncPercentage(callback)](#Bitcoin+syncPercentage)
-  * [.getAddressBalance(addressArg, options, callback)](#Bitcoin+getAddressBalance)
-  * [.getAddressUnspentOutputs(addressArg, options, callback)](#Bitcoin+getAddressUnspentOutputs)
-  * [.getAddressTxids(addressArg, options, callback)](#Bitcoin+getAddressTxids)
-  * [._getAddressDetailedTransaction(txid, callback)](#Bitcoin+_getAddressDetailedTransaction)
-  * [.getAddressHistory(addressArg, options, callback)](#Bitcoin+getAddressHistory)
-  * [.getAddressSummary(addressArg, options, callback)](#Bitcoin+getAddressSummary)
-  * [.getRawBlock(block, callback)](#Bitcoin+getRawBlock)
-  * [.getBlockOverview(block, callback)](#Bitcoin+getBlockOverview)
-  * [.getBlock(block, callback)](#Bitcoin+getBlock)
-  * [.getBlockHashesByTimestamp(high, low, callback)](#Bitcoin+getBlockHashesByTimestamp)
-  * [.getBlockHeader(block, callback)](#Bitcoin+getBlockHeader)
-  * [.estimateFee(blocks, callback)](#Bitcoin+estimateFee)
-  * [.sendTransaction(transaction, [options], callback)](#Bitcoin+sendTransaction)
-  * [.getRawTransaction(txid, callback)](#Bitcoin+getRawTransaction)
-  * [.getTransaction(txid, queryMempool, callback)](#Bitcoin+getTransaction)
-  * [.getDetailedTransaction(txid, callback)](#Bitcoin+getDetailedTransaction)
-  * [.getBestBlockHash(callback)](#Bitcoin+getBestBlockHash)
-  * [.getSpentInfo(callback)](#Bitcoin+getSpentInfo)
-  * [.getInfo(callback)](#Bitcoin+getInfo)
-  * [.stop(callback)](#Bitcoin+stop)
+    * [.getAPIMethods()](#Bitcoin+getAPIMethods)
+    * [.getPublishEvents()](#Bitcoin+getPublishEvents)
+    * [.unsubscribeAddressAll(name, emitter)](#Bitcoin+unsubscribeAddressAll)
+    * [.start(callback)](#Bitcoin+start)
+    * [.isSynced(callback)](#Bitcoin+isSynced)
+    * [.syncPercentage(callback)](#Bitcoin+syncPercentage)
+    * [.getAddressBalance(addressArg, options, callback)](#Bitcoin+getAddressBalance)
+    * [.getAddressUnspentOutputs(addressArg, options, callback)](#Bitcoin+getAddressUnspentOutputs)
+    * [.getAddressTxids(addressArg, options, callback)](#Bitcoin+getAddressTxids)
+    * [._getAddressDetailedTransaction(txid, callback)](#Bitcoin+_getAddressDetailedTransaction)
+    * [.getAddressHistory(addressArg, options, callback)](#Bitcoin+getAddressHistory)
+    * [.getAddressSummary(addressArg, options, callback)](#Bitcoin+getAddressSummary)
+    * [.getRawBlock(block, callback)](#Bitcoin+getRawBlock)
+    * [.getBlockOverview(block, callback)](#Bitcoin+getBlockOverview)
+    * [.getBlock(block, callback)](#Bitcoin+getBlock)
+    * [.getBlockHashesByTimestamp(high, low, callback)](#Bitcoin+getBlockHashesByTimestamp)
+    * [.getBlockHeader(block, callback)](#Bitcoin+getBlockHeader)
+    * [.estimateFee(blocks, callback)](#Bitcoin+estimateFee)
+    * [.sendTransaction(transaction, [options], callback)](#Bitcoin+sendTransaction)
+    * [.getRawTransaction(txid, callback)](#Bitcoin+getRawTransaction)
+    * [.getTransaction(txid, queryMempool, callback)](#Bitcoin+getTransaction)
+    * [.getDetailedTransaction(txid, callback)](#Bitcoin+getDetailedTransaction)
+    * [.getBestBlockHash(callback)](#Bitcoin+getBestBlockHash)
+    * [.getSpentInfo(callback)](#Bitcoin+getSpentInfo)
+    * [.getInfo(callback)](#Bitcoin+getInfo)
+    * [.stop(callback)](#Bitcoin+stop)
 
 <a name="Bitcoin+getAPIMethods"></a>
+
 ### bitcoin.getAPIMethods()
 Called by Node to determine the available API methods.
 
 **Kind**: instance method of <code>[Bitcoin](#Bitcoin)</code>  
 <a name="Bitcoin+getPublishEvents"></a>
+
 ### bitcoin.getPublishEvents()
 Called by the Bus to determine the available events.
 
 **Kind**: instance method of <code>[Bitcoin](#Bitcoin)</code>  
 <a name="Bitcoin+unsubscribeAddressAll"></a>
+
 ### bitcoin.unsubscribeAddressAll(name, emitter)
 A helper function for the `unsubscribe` method to unsubscribe from all addresses.
 
@@ -63,6 +67,7 @@ A helper function for the `unsubscribe` method to unsubscribe from all addresses
 | emitter | <code>EventEmitter</code> | An instance of an event emitter |
 
 <a name="Bitcoin+start"></a>
+
 ### bitcoin.start(callback)
 Called by Node to start the service
 
@@ -73,6 +78,7 @@ Called by Node to start the service
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+isSynced"></a>
+
 ### bitcoin.isSynced(callback)
 Helper to determine the state of the database.
 
@@ -83,6 +89,7 @@ Helper to determine the state of the database.
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+syncPercentage"></a>
+
 ### bitcoin.syncPercentage(callback)
 Helper to determine the progress of the database.
 
@@ -93,6 +100,7 @@ Helper to determine the progress of the database.
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+getAddressBalance"></a>
+
 ### bitcoin.getAddressBalance(addressArg, options, callback)
 Will get the balance for an address or multiple addresses
 
@@ -105,6 +113,7 @@ Will get the balance for an address or multiple addresses
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getAddressUnspentOutputs"></a>
+
 ### bitcoin.getAddressUnspentOutputs(addressArg, options, callback)
 Will get the unspent outputs for an address or multiple addresses
 
@@ -117,6 +126,7 @@ Will get the unspent outputs for an address or multiple addresses
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getAddressTxids"></a>
+
 ### bitcoin.getAddressTxids(addressArg, options, callback)
 Will get the txids for an address or multiple addresses
 
@@ -129,6 +139,7 @@ Will get the txids for an address or multiple addresses
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+_getAddressDetailedTransaction"></a>
+
 ### bitcoin._getAddressDetailedTransaction(txid, callback)
 Will expand into a detailed transaction from a txid
 
@@ -140,6 +151,7 @@ Will expand into a detailed transaction from a txid
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getAddressHistory"></a>
+
 ### bitcoin.getAddressHistory(addressArg, options, callback)
 Will detailed transaction history for an address or multiple addresses
 
@@ -152,6 +164,7 @@ Will detailed transaction history for an address or multiple addresses
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getAddressSummary"></a>
+
 ### bitcoin.getAddressSummary(addressArg, options, callback)
 Will get the summary including txids and balance for an address or multiple addresses
 
@@ -164,6 +177,7 @@ Will get the summary including txids and balance for an address or multiple addr
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getRawBlock"></a>
+
 ### bitcoin.getRawBlock(block, callback)
 Will retrieve a block as a Node.js Buffer
 
@@ -175,6 +189,7 @@ Will retrieve a block as a Node.js Buffer
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getBlockOverview"></a>
+
 ### bitcoin.getBlockOverview(block, callback)
 Similar to getBlockHeader but will include a list of txids
 
@@ -186,6 +201,7 @@ Similar to getBlockHeader but will include a list of txids
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getBlock"></a>
+
 ### bitcoin.getBlock(block, callback)
 Will retrieve a block as a Bitcore object
 
@@ -197,6 +213,7 @@ Will retrieve a block as a Bitcore object
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getBlockHashesByTimestamp"></a>
+
 ### bitcoin.getBlockHashesByTimestamp(high, low, callback)
 Will retrieve an array of block hashes within a range of timestamps
 
@@ -209,6 +226,7 @@ Will retrieve an array of block hashes within a range of timestamps
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getBlockHeader"></a>
+
 ### bitcoin.getBlockHeader(block, callback)
 Will return the block index information, the output will have the format:
 {
@@ -235,6 +253,7 @@ Will return the block index information, the output will have the format:
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+estimateFee"></a>
+
 ### bitcoin.estimateFee(blocks, callback)
 Will estimate the fee per kilobyte.
 
@@ -246,6 +265,7 @@ Will estimate the fee per kilobyte.
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+sendTransaction"></a>
+
 ### bitcoin.sendTransaction(transaction, [options], callback)
 Will add a transaction to the mempool and relay to connected peers
 
@@ -259,6 +279,7 @@ Will add a transaction to the mempool and relay to connected peers
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getRawTransaction"></a>
+
 ### bitcoin.getRawTransaction(txid, callback)
 Will get a transaction as a Node.js Buffer. Results include the mempool.
 
@@ -270,6 +291,7 @@ Will get a transaction as a Node.js Buffer. Results include the mempool.
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getTransaction"></a>
+
 ### bitcoin.getTransaction(txid, queryMempool, callback)
 Will get a transaction as a Bitcore Transaction. Results include the mempool.
 
@@ -282,6 +304,7 @@ Will get a transaction as a Bitcore Transaction. Results include the mempool.
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getDetailedTransaction"></a>
+
 ### bitcoin.getDetailedTransaction(txid, callback)
 Will get a detailed view of a transaction including addresses, amounts and fees.
 
@@ -329,6 +352,7 @@ Example result:
 | callback | <code>function</code> |  |
 
 <a name="Bitcoin+getBestBlockHash"></a>
+
 ### bitcoin.getBestBlockHash(callback)
 Will get the best block hash for the chain.
 
@@ -339,6 +363,7 @@ Will get the best block hash for the chain.
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+getSpentInfo"></a>
+
 ### bitcoin.getSpentInfo(callback)
 Will give the txid and inputIndex that spent an output
 
@@ -349,6 +374,7 @@ Will give the txid and inputIndex that spent an output
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+getInfo"></a>
+
 ### bitcoin.getInfo(callback)
 This will return information about the database in the format:
 {
@@ -371,6 +397,7 @@ This will return information about the database in the format:
 | callback | <code>function</code> | 
 
 <a name="Bitcoin+stop"></a>
+
 ### bitcoin.stop(callback)
 Called by Node to stop the service.
 

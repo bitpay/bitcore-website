@@ -1,8 +1,10 @@
 <a name="AlertMessage"></a>
+
 ## AlertMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 <a name="new_AlertMessage_new"></a>
+
 ### new AlertMessage([arg], options)
 
 | Param | Type |

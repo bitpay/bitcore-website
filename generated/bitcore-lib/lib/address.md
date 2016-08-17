@@ -1,34 +1,36 @@
 <a name="Address"></a>
+
 ## Address
 **Kind**: global class  
 
 * [Address](#Address)
-  * [new Address(data, network, [type])](#new_Address_new)
-  * _instance_
-    * [.toObject](#Address+toObject) ⇒ <code>Object</code>
-    * [._classifyArguments(data, network, [type])](#Address+_classifyArguments) ⇒ <code>Object</code>
-    * [.isPayToPublicKeyHash()](#Address+isPayToPublicKeyHash) ⇒
-    * [.isPayToScriptHash()](#Address+isPayToScriptHash) ⇒
-    * [.toBuffer()](#Address+toBuffer) ⇒ <code>Buffer</code>
-    * [.toString()](#Address+toString) ⇒ <code>string</code>
-    * [.inspect()](#Address+inspect) ⇒ <code>string</code>
-  * _static_
-    * [.PayToPublicKeyHash](#Address.PayToPublicKeyHash)
-    * [.PayToScriptHash](#Address.PayToScriptHash)
-    * [._transformObject(data)](#Address._transformObject) ⇒ <code>[Address](#Address)</code>
-    * [.createMultisig(publicKeys, threshold, network)](#Address.createMultisig) ⇒ <code>[Address](#Address)</code>
-    * [.fromPublicKey(data, network)](#Address.fromPublicKey) ⇒ <code>[Address](#Address)</code>
-    * [.fromPublicKeyHash(hash, network)](#Address.fromPublicKeyHash) ⇒ <code>[Address](#Address)</code>
-    * [.fromScriptHash(hash, network)](#Address.fromScriptHash) ⇒ <code>[Address](#Address)</code>
-    * [.payingTo(script, network)](#Address.payingTo) ⇒ <code>[Address](#Address)</code>
-    * [.fromScript(script, network)](#Address.fromScript) ⇒ <code>[Address](#Address)</code>
-    * [.fromBuffer(buffer, network, [type])](#Address.fromBuffer) ⇒ <code>[Address](#Address)</code>
-    * [.fromString(str, network, [type])](#Address.fromString) ⇒ <code>[Address](#Address)</code>
-    * [.fromObject(json)](#Address.fromObject) ⇒ <code>[Address](#Address)</code>
-    * [.getValidationError(data, network, type)](#Address.getValidationError) ⇒ <code>null</code> &#124; <code>Error</code>
-    * [.isValid(data, network, type)](#Address.isValid) ⇒ <code>boolean</code>
+    * [new Address(data, network, [type])](#new_Address_new)
+    * _instance_
+        * [.toObject](#Address+toObject) ⇒ <code>Object</code>
+        * [._classifyArguments(data, network, [type])](#Address+_classifyArguments) ⇒ <code>Object</code>
+        * [.isPayToPublicKeyHash()](#Address+isPayToPublicKeyHash) ⇒
+        * [.isPayToScriptHash()](#Address+isPayToScriptHash) ⇒
+        * [.toBuffer()](#Address+toBuffer) ⇒ <code>Buffer</code>
+        * [.toString()](#Address+toString) ⇒ <code>string</code>
+        * [.inspect()](#Address+inspect) ⇒ <code>string</code>
+    * _static_
+        * [.PayToPublicKeyHash](#Address.PayToPublicKeyHash)
+        * [.PayToScriptHash](#Address.PayToScriptHash)
+        * [._transformObject(data)](#Address._transformObject) ⇒ <code>[Address](#Address)</code>
+        * [.createMultisig(publicKeys, threshold, network)](#Address.createMultisig) ⇒ <code>[Address](#Address)</code>
+        * [.fromPublicKey(data, network)](#Address.fromPublicKey) ⇒ <code>[Address](#Address)</code>
+        * [.fromPublicKeyHash(hash, network)](#Address.fromPublicKeyHash) ⇒ <code>[Address](#Address)</code>
+        * [.fromScriptHash(hash, network)](#Address.fromScriptHash) ⇒ <code>[Address](#Address)</code>
+        * [.payingTo(script, network)](#Address.payingTo) ⇒ <code>[Address](#Address)</code>
+        * [.fromScript(script, network)](#Address.fromScript) ⇒ <code>[Address](#Address)</code>
+        * [.fromBuffer(buffer, network, [type])](#Address.fromBuffer) ⇒ <code>[Address](#Address)</code>
+        * [.fromString(str, network, [type])](#Address.fromString) ⇒ <code>[Address](#Address)</code>
+        * [.fromObject(json)](#Address.fromObject) ⇒ <code>[Address](#Address)</code>
+        * [.getValidationError(data, network, type)](#Address.getValidationError) ⇒ <code>null</code> &#124; <code>Error</code>
+        * [.isValid(data, network, type)](#Address.isValid) ⇒ <code>boolean</code>
 
 <a name="new_Address_new"></a>
+
 ### new Address(data, network, [type])
 Instantiate an address from an address String or Buffer, a public key or script hash Buffer,
 or an instance of [PublicKey](PublicKey) or [Script](Script).
@@ -65,10 +67,12 @@ if (!error) {
 var address = Address(publicKey, 'testnet').toString();
 ```
 <a name="Address+toObject"></a>
+
 ### address.toObject ⇒ <code>Object</code>
 **Kind**: instance property of <code>[Address](#Address)</code>  
 **Returns**: <code>Object</code> - A plain object with the address information  
 <a name="Address+_classifyArguments"></a>
+
 ### address._classifyArguments(data, network, [type]) ⇒ <code>Object</code>
 Internal function used to split different kinds of arguments of the constructor
 
@@ -82,42 +86,50 @@ Internal function used to split different kinds of arguments of the constructor
 | [type] | <code>string</code> | The type of address: 'script' or 'pubkey' |
 
 <a name="Address+isPayToPublicKeyHash"></a>
+
 ### address.isPayToPublicKeyHash() ⇒
 Returns true if an address is of pay to public key hash type
 
 **Kind**: instance method of <code>[Address](#Address)</code>  
 **Returns**: boolean  
 <a name="Address+isPayToScriptHash"></a>
+
 ### address.isPayToScriptHash() ⇒
 Returns true if an address is of pay to script hash type
 
 **Kind**: instance method of <code>[Address](#Address)</code>  
 **Returns**: boolean  
 <a name="Address+toBuffer"></a>
+
 ### address.toBuffer() ⇒ <code>Buffer</code>
 Will return a buffer representation of the address
 
 **Kind**: instance method of <code>[Address](#Address)</code>  
 **Returns**: <code>Buffer</code> - Bitcoin address buffer  
 <a name="Address+toString"></a>
+
 ### address.toString() ⇒ <code>string</code>
 Will return a the string representation of the address
 
 **Kind**: instance method of <code>[Address](#Address)</code>  
 **Returns**: <code>string</code> - Bitcoin address  
 <a name="Address+inspect"></a>
+
 ### address.inspect() ⇒ <code>string</code>
 Will return a string formatted for the console
 
 **Kind**: instance method of <code>[Address](#Address)</code>  
 **Returns**: <code>string</code> - Bitcoin address  
 <a name="Address.PayToPublicKeyHash"></a>
+
 ### Address.PayToPublicKeyHash
 **Kind**: static property of <code>[Address](#Address)</code>  
 <a name="Address.PayToScriptHash"></a>
+
 ### Address.PayToScriptHash
 **Kind**: static property of <code>[Address](#Address)</code>  
 <a name="Address._transformObject"></a>
+
 ### Address._transformObject(data) ⇒ <code>[Address](#Address)</code>
 Deserializes an address serialized through `Address#toObject()`
 
@@ -131,6 +143,7 @@ Deserializes an address serialized through `Address#toObject()`
 | [data.network] | <code>Network</code> | the name of the network associated |
 
 <a name="Address.createMultisig"></a>
+
 ### Address.createMultisig(publicKeys, threshold, network) ⇒ <code>[Address](#Address)</code>
 Creates a P2SH address from a set of public keys and a threshold.
 
@@ -147,6 +160,7 @@ interface.
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.fromPublicKey"></a>
+
 ### Address.fromPublicKey(data, network) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from a PublicKey instance
 
@@ -159,6 +173,7 @@ Instantiate an address from a PublicKey instance
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.fromPublicKeyHash"></a>
+
 ### Address.fromPublicKeyHash(hash, network) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from a ripemd160 public key hash
 
@@ -171,6 +186,7 @@ Instantiate an address from a ripemd160 public key hash
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.fromScriptHash"></a>
+
 ### Address.fromScriptHash(hash, network) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from a ripemd160 script hash
 
@@ -183,6 +199,7 @@ Instantiate an address from a ripemd160 script hash
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.payingTo"></a>
+
 ### Address.payingTo(script, network) ⇒ <code>[Address](#Address)</code>
 Builds a p2sh address paying to script. This will hash the script and
 use that to create the address.
@@ -198,6 +215,7 @@ see {{Address#fromScript}}
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.fromScript"></a>
+
 ### Address.fromScript(script, network) ⇒ <code>[Address](#Address)</code>
 Extract address from a Script. The script must be of one
 of the following types: p2pkh input, p2pkh output, p2sh input
@@ -215,6 +233,7 @@ to that script's hash instead, use {{Address#payingTo}}
 | network | <code>String</code> &#124; <code>Network</code> | either a Network instance, 'livenet', or 'testnet' |
 
 <a name="Address.fromBuffer"></a>
+
 ### Address.fromBuffer(buffer, network, [type]) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from a buffer of the address
 
@@ -228,6 +247,7 @@ Instantiate an address from a buffer of the address
 | [type] | <code>string</code> | The type of address: 'script' or 'pubkey' |
 
 <a name="Address.fromString"></a>
+
 ### Address.fromString(str, network, [type]) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from an address string
 
@@ -241,6 +261,7 @@ Instantiate an address from an address string
 | [type] | <code>string</code> | The type of address: 'script' or 'pubkey' |
 
 <a name="Address.fromObject"></a>
+
 ### Address.fromObject(json) ⇒ <code>[Address](#Address)</code>
 Instantiate an address from an Object
 
@@ -252,6 +273,7 @@ Instantiate an address from an Object
 | json | <code>string</code> | An JSON string or Object with keys: hash, network and type |
 
 <a name="Address.getValidationError"></a>
+
 ### Address.getValidationError(data, network, type) ⇒ <code>null</code> &#124; <code>Error</code>
 Will return a validation error if exists
 
@@ -270,6 +292,7 @@ Will return a validation error if exists
 var error = Address.getValidationError('15vkcKf7gB23wLAnZLmbVuMiiVDc1Nm4a2', 'testnet');
 ```
 <a name="Address.isValid"></a>
+
 ### Address.isValid(data, network, type) ⇒ <code>boolean</code>
 Will return a boolean if an address is valid
 

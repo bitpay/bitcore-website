@@ -1,13 +1,15 @@
 <a name="Signing"></a>
+
 ## Signing : <code>object</code>
 **Kind**: global namespace  
 
 * [Signing](#Signing) : <code>object</code>
-  * [.sighash](#Signing.sighash)
-  * [.sign](#Signing.sign) ⇒ <code>Signature</code>
-  * [.verify](#Signing.verify) ⇒ <code>boolean</code>
+    * [.sighash](#Signing.sighash)
+    * [.sign](#Signing.sign) ⇒ <code>Signature</code>
+    * [.verify](#Signing.verify) ⇒ <code>boolean</code>
 
 <a name="Signing.sighash"></a>
+
 ### Signing.sighash
 Returns a buffer of length 32 bytes with the hash that needs to be signed
 for OP_CHECKSIG.
@@ -22,6 +24,7 @@ for OP_CHECKSIG.
 | subscript | <code>Script</code> | the script that will be signed |
 
 <a name="Signing.sign"></a>
+
 ### Signing.sign ⇒ <code>Signature</code>
 Create a signature
 
@@ -36,6 +39,7 @@ Create a signature
 | subscript | <code>Script</code> | 
 
 <a name="Signing.verify"></a>
+
 ### Signing.verify ⇒ <code>boolean</code>
 Verify a signature
 

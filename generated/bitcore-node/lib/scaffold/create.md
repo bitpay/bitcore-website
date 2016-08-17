@@ -1,4 +1,5 @@
 ## Functions
+
 <dl>
 <dt><a href="#createBitcoinDirectory">createBitcoinDirectory(dataDir, done)</a></dt>
 <dd><p>Will create a directory and bitcoin.conf file for Bitcoin.</p>
@@ -11,7 +12,9 @@
 bitcoin configuration, and will install all necessary dependencies.</p>
 </dd>
 </dl>
+
 <a name="createBitcoinDirectory"></a>
+
 ## createBitcoinDirectory(dataDir, done)
 Will create a directory and bitcoin.conf file for Bitcoin.
 
@@ -23,6 +26,7 @@ Will create a directory and bitcoin.conf file for Bitcoin.
 | done | <code>function</code> | The callback function called when finished |
 
 <a name="createConfigDirectory"></a>
+
 ## createConfigDirectory(options, configDir, isGlobal, done)
 Will create a base Bitcore Node configuration directory and files.
 
@@ -38,6 +42,7 @@ Will create a base Bitcore Node configuration directory and files.
 | done | <code>function</code> | The callback function called when finished |
 
 <a name="create"></a>
+
 ## create(options, done)
 Will setup a directory with a Bitcore Node directory, configuration file,
 bitcoin configuration, and will install all necessary dependencies.

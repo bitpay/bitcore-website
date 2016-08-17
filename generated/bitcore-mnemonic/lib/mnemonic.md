@@ -1,23 +1,25 @@
 <a name="Mnemonic"></a>
+
 ## Mnemonic
 **Kind**: global class  
 
 * [Mnemonic](#Mnemonic)
-  * [new Mnemonic([data], [wordlist])](#new_Mnemonic_new)
-  * _instance_
-    * [.toSeed([passphrase])](#Mnemonic+toSeed) ⇒ <code>Buffer</code>
-    * [.toHDPrivateKey([passphrase], [network])](#Mnemonic+toHDPrivateKey) ⇒ <code>HDPrivateKey</code>
-    * [.toString()](#Mnemonic+toString) ⇒ <code>String</code>
-    * [.inspect()](#Mnemonic+inspect) ⇒ <code>String</code>
-  * _static_
-    * [.isValid(mnemonic, [wordlist])](#Mnemonic.isValid) ⇒ <code>boolean</code>
-    * [._belongsToWordlist(mnemonic, wordlist)](#Mnemonic._belongsToWordlist) ⇒ <code>boolean</code>
-    * [._getDictionary(mnemonic)](#Mnemonic._getDictionary) ⇒ <code>Array</code>
-    * [.fromSeed([seed], [wordlist])](#Mnemonic.fromSeed) ⇒ <code>[Mnemonic](#Mnemonic)</code>
-    * [._mnemonic(ENT, wordlist)](#Mnemonic._mnemonic) ⇒ <code>String</code>
-    * [._entropy2mnemonic(entropy, wordlist)](#Mnemonic._entropy2mnemonic) ⇒ <code>String</code>
+    * [new Mnemonic([data], [wordlist])](#new_Mnemonic_new)
+    * _instance_
+        * [.toSeed([passphrase])](#Mnemonic+toSeed) ⇒ <code>Buffer</code>
+        * [.toHDPrivateKey([passphrase], [network])](#Mnemonic+toHDPrivateKey) ⇒ <code>HDPrivateKey</code>
+        * [.toString()](#Mnemonic+toString) ⇒ <code>String</code>
+        * [.inspect()](#Mnemonic+inspect) ⇒ <code>String</code>
+    * _static_
+        * [.isValid(mnemonic, [wordlist])](#Mnemonic.isValid) ⇒ <code>boolean</code>
+        * [._belongsToWordlist(mnemonic, wordlist)](#Mnemonic._belongsToWordlist) ⇒ <code>boolean</code>
+        * [._getDictionary(mnemonic)](#Mnemonic._getDictionary) ⇒ <code>Array</code>
+        * [.fromSeed([seed], [wordlist])](#Mnemonic.fromSeed) ⇒ <code>[Mnemonic](#Mnemonic)</code>
+        * [._mnemonic(ENT, wordlist)](#Mnemonic._mnemonic) ⇒ <code>String</code>
+        * [._entropy2mnemonic(entropy, wordlist)](#Mnemonic._entropy2mnemonic) ⇒ <code>String</code>
 
 <a name="new_Mnemonic_new"></a>
+
 ### new Mnemonic([data], [wordlist])
 This is an immutable class that represents a BIP39 Mnemonic code.
 See BIP39 specification for more info: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
@@ -43,6 +45,7 @@ var mnemonic = new Mnemonic(Mnemonic.Words.SPANISH);
 var xprivkey = mnemonic.toHDPrivateKey();
 ```
 <a name="Mnemonic+toSeed"></a>
+
 ### mnemonic.toSeed([passphrase]) ⇒ <code>Buffer</code>
 Will generate a seed based on the mnemonic and optional passphrase.
 
@@ -53,6 +56,7 @@ Will generate a seed based on the mnemonic and optional passphrase.
 | [passphrase] | <code>String</code> | 
 
 <a name="Mnemonic+toHDPrivateKey"></a>
+
 ### mnemonic.toHDPrivateKey([passphrase], [network]) ⇒ <code>HDPrivateKey</code>
 Generates a HD Private Key from a Mnemonic.
 Optionally receive a passphrase and bitcoin network.
@@ -65,18 +69,21 @@ Optionally receive a passphrase and bitcoin network.
 | [network] | <code>Network</code> &#124; <code>String</code> &#124; <code>number</code> | The network: 'livenet' or 'testnet' |
 
 <a name="Mnemonic+toString"></a>
+
 ### mnemonic.toString() ⇒ <code>String</code>
 Will return a the string representation of the mnemonic
 
 **Kind**: instance method of <code>[Mnemonic](#Mnemonic)</code>  
 **Returns**: <code>String</code> - Mnemonic  
 <a name="Mnemonic+inspect"></a>
+
 ### mnemonic.inspect() ⇒ <code>String</code>
 Will return a string formatted for the console
 
 **Kind**: instance method of <code>[Mnemonic](#Mnemonic)</code>  
 **Returns**: <code>String</code> - Mnemonic  
 <a name="Mnemonic.isValid"></a>
+
 ### Mnemonic.isValid(mnemonic, [wordlist]) ⇒ <code>boolean</code>
 Will return a boolean if the mnemonic is valid
 
@@ -93,6 +100,7 @@ var valid = Mnemonic.isValid('lab rescue lunch elbow recall phrase perfect donke
 // true
 ```
 <a name="Mnemonic._belongsToWordlist"></a>
+
 ### Mnemonic._belongsToWordlist(mnemonic, wordlist) ⇒ <code>boolean</code>
 Internal function to check if a mnemonic belongs to a wordlist.
 
@@ -104,6 +112,7 @@ Internal function to check if a mnemonic belongs to a wordlist.
 | wordlist | <code>String</code> | The wordlist |
 
 <a name="Mnemonic._getDictionary"></a>
+
 ### Mnemonic._getDictionary(mnemonic) ⇒ <code>Array</code>
 Internal function to detect the wordlist used to generate the mnemonic.
 
@@ -115,6 +124,7 @@ Internal function to detect the wordlist used to generate the mnemonic.
 | mnemonic | <code>String</code> | The mnemonic string |
 
 <a name="Mnemonic.fromSeed"></a>
+
 ### Mnemonic.fromSeed([seed], [wordlist]) ⇒ <code>[Mnemonic](#Mnemonic)</code>
 Will generate a Mnemonic object based on a seed.
 
@@ -126,6 +136,7 @@ Will generate a Mnemonic object based on a seed.
 | [wordlist] | <code>string</code> | 
 
 <a name="Mnemonic._mnemonic"></a>
+
 ### Mnemonic._mnemonic(ENT, wordlist) ⇒ <code>String</code>
 Internal function to generate a random mnemonic
 
@@ -138,6 +149,7 @@ Internal function to generate a random mnemonic
 | wordlist | <code>Array</code> | Array of words to generate the mnemonic |
 
 <a name="Mnemonic._entropy2mnemonic"></a>
+
 ### Mnemonic._entropy2mnemonic(entropy, wordlist) ⇒ <code>String</code>
 Internal function to generate mnemonic based on entropy
 

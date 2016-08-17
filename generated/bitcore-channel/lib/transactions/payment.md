@@ -1,7 +1,9 @@
 <a name="Payment"></a>
+
 ## Payment
 **Kind**: global class  
 <a name="new_Payment_new"></a>
+
 ### new Payment(opts)
 
 | Param | Type |

@@ -1,8 +1,10 @@
 <a name="NotfoundMessage"></a>
+
 ## NotfoundMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 <a name="new_NotfoundMessage_new"></a>
+
 ### new NotfoundMessage(arg, options)
 
 | Param | Type | Description |

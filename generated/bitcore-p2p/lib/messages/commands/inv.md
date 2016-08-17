@@ -1,8 +1,10 @@
 <a name="InvMessage"></a>
+
 ## InvMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 <a name="new_InvMessage_new"></a>
+
 ### new InvMessage([arg], options)
 
 | Param | Type | Description |

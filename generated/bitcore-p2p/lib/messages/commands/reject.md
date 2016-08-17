@@ -1,9 +1,11 @@
 <a name="RejectMessage"></a>
+
 ## RejectMessage ⇐ <code>Message</code>
 **Kind**: global class  
 **Extends:** <code>Message</code>  
 **See**: https://en.bitcoin.it/wiki/Protocol_documentation#reject  
 <a name="new_RejectMessage_new"></a>
+
 ### new RejectMessage([arg], options)
 The reject message is sent when messages are rejected.
 
