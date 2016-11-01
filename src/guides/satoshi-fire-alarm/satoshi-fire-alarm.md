@@ -4,7 +4,7 @@ In the beginning, when Bitcoin was only a few blocks high, Satoshi Nakamoto won 
 
 ## Create a Service
 
-Please refer to the [service development document](service-development).
+Please refer to the [service development document](/guides/service-development).
 
 ### The Code
 

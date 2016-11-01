@@ -4,7 +4,7 @@ This tutorial will go over how to accept bitcoin payments via a web site directl
 
 ## Create a Service
 
-Please refer to the [service development document](service-development).
+Please refer to the [service development document](/guides/service-development).
 
 ## Generate Invoice Page
 
