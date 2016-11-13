@@ -9,7 +9,7 @@
     "gulp-imagemin": "^3.0.1",
     "gulp-jsdoc-to-markdown": "^1.1.2",
     "gulp-prefix": "0.0.15",
-    "gulp-untar": "0.0.4"
+    "gulp-untar": "0.0.5"
   },
   "scripts": {
     "test": "gulp",
