@@ -174,5 +174,70 @@ Added https options. Example:
 
 Notice that you can also specify which port your Wallet Service will run on (default is 3232).
 
+### Using free TLD and free SSL certificate to allow SSL/TLS support from mobile clients
+Self-signed certificates do not work very well, so using a TLD domain along with a root CA signed SSL certificate is the best method to ensure you can connect.
+
+First, get a free TLD from [http://www.dot.tk/](http://www.dot.tk/) and set the DNS to point to your server IP address. (Must be renewed every 12 months.)
+ (Be carful when signing up using an email address, dot.tk stores plaintext passwords, so try to use Facebook/Windows Live login if possible)
+
+Once you get your TLD and it is pointing to your IP, make sure you have Apache installed. (This is merely to make the SSL cert process automated, not required)
+
+```bash
+sudo apt-get update
+sudo apt-get install apache2
+```
+
+Then install and run letsencrypt. Use multiple -d flags to indicate all possible domains and subdomains. (The --apache flag will automate the challenge and response process for validating ownership of the domain)
+
+```bash
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
+./letsencrypt-auto run --apache -d mysite1.tk -d mysite2.tk -d www.mysite2.tk -d bws.mysite2.tk
+```
+
+Once everything is finished, install the necessary proxy services for apache.
+
+```bash
+a2enmod
+######## After running a2enmod it will ask for a list. Paste the below.
+proxy proxy_ajp proxy_http rewrite deflate headers proxy_balancer proxy_connect proxy_html
+```
+
+Now edit the SSL virtualhost document, with the following.
+
+```bash
+sudo nano /etc/apache2/sites-enabled/000-default-le-ssl.conf
+```
+
+You want to add to it so it looks something like this: (The Proxy lines will be added)
+
+```bash
+<VirtualHost *:443>
+          ServerName bws.mysite2.tk
+          ServerAlias mysite2.tk
+          SSLCertificateFile /etc/letsencrypt/live/bws.mysite2.tk/cert.pem
+          SSLCertificateKeyFile /etc/letsencrypt/live/bws.mysite2.tk/privkey.pem
+          SSLCertificateChainFile /etc/letsencrypt/live/bws.mysite2.tk/chain.pem
+          Include /etc/letsencrypt/options-ssl-apache.conf
+
+          ProxyPreserveHost On
+          ProxyRequests Off
+          ProxyPass /bws/api/ http://localhost:3232/bws/api/
+          ProxyPassReverse /bws/api/ http://localhost:3232/bws/api/
+</VirtualHost>
+```
+
+This VirtualHost will be triggered once someone accesses the server from bws.mysite2.tk, then it will check for requests to /bws/api/ and forward them to http://localhost:3232/bws/api/.
+
+This would be how to proxy to the default setting for the BWS server (http on port 3232 with api path as /bws/api/... so change accordingly)
+
+Now just restart apache.
+
+```bash
+sudo service apache2 restart
+```
+
+Now try connecting to BWS on https://bws.mysite2.tk/bws/api/ and it should work on any device.
+
 ## Conclusion
 You should now be able to run your own Wallet Service for your users. Now you can have ultimate control over your wallets without trusting random SPV nodes on the Internet.
