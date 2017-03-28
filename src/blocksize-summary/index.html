@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Bitcoin Blocksizes</title>
+<base href="">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,700italic,500italic,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<style>
+@media print {
+  hr {
+    page-break-after: always;
+  }
+}
+hr {
+  height: 0;
+  border: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+h1,h2,h3 {
+  font-weight: 400;
+}
+h3 {
+  margin-bottom:0.4em;
+  margin-top:1.3em;
+}
+.legend-max {
+  color: #E77E07;
+}
+.page {
+  max-width: 700px;
+  margin: auto;
+}
+ul li {
+  margin-bottom: 1em;
+}
+</style>
+</head>
+<body>
+<div class="page">
+<h1>Adaptive Block Size Limit Comparisons</h1>
+
+<p>The charts are generated based on historical Bitcoin livenet block sizes (<a href="static/blocksizes.csv">CSV</a>). The <span class="legend-max">orange line</span> represents the maximum block size. Each black dot on the graph represents a block, where the y coordinate as the bytes of the block and the x as the block height.</p>
+
+<h2 id="range">Differences in Sample Size</h2>
+
+<p>These graphs show various range of previous blocks used to calculate the median. The maximum block size is the median doubled with an additional 100,000 bytes added, and recalculated once a week.</p>
+
+<h3>Last day (144 blocks)</h3>
+<img src="static/images/median-144-x2.png" width=700/>
+
+<hr/>
+
+<h3>Last week (1,008 blocks)</h3>
+<img src="static/images/median-1008-x2.png" width=700/>
+
+<h3>Two weeks (2,016 blocks)</h3>
+<img src="static/images/median-2016-x2.png" width=700/>
+
+<hr/>
+
+<h3>Last month (4,320 blocks)</h3>
+<img src="static/images/median-4320-x2.png" width=700/>
+
+<h3>3 months (12,960 blocks)</h3>
+<img src="static/images/median-12960-x2.png" width=700/>
+
+<hr/>
+
+<h3>6 months (25,920 blocks)</h3>
+<img src="static/images/median-25920-x2.png" width=700/>
+
+<h3>Last year (52,560 blocks)</h3>
+<img src="static/images/median-52560-x2.png" width=700/>
+
+<hr/>
+
+<h3>2 years (105,120 blocks)</h3>
+<img src="static/images/median-105120-x2.png" width=700/>
+
+<hr/>
+
+<h2 id="multiply">Differences in Multiplier</h2>
+
+<p>The graphs show various multipliers applied to the median. They all use a sample size of 3 months (12,960 blocks), with 100,000 bytes added, and calculated once a week.</p>
+
+<h3>1.25 times</h3>
+<img src="static/images/median-12960-1-and-quarter.png" width=700/>
+
+<hr/>
+
+<h3>1.5 times</h3>
+<img src="static/images/median-12960-1halfx.png" width=700/>
+
+<h3>2 times</h3>
+<img src="static/images/median-12960-2x.png" width=700/>
+
+<hr/>
+
+<h3>3 times</h3>
+<img src="static/images/median-12960-3x.png" width=700/>
+
+<h3>4 times</h3>
+<img src="static/images/median-12960-4x.png" width=700/>
+
+<hr/>
+
+<h3>5 times</h3>
+<img src="static/images/median-12960-5x.png" width=700/>
+
+<h3>10 times</h3>
+<img src="static/images/median-12960-10x.png" width=700/>
+
+<hr/>
+
+<h3>20 times</h3>
+<img src="static/images/median-12960-20x.png" width=700/>
+
+<hr/>
+
+<h2 id="interval">Differences in Interval</h2>
+
+<p>The graphs show variations of the interval that the maximum block size is calculated, in a similar way that the mining difficulty changes once every 2016 blocks. All graphs use a three month median multiplied by 2 with 100,000 bytes added.</p>
+
+<h3>Every block (1 block)</h3>
+<img src="static/images/median-12960-2x-1block.png" width=700/>
+
+<hr/>
+
+<h3>Every day (144 blocks)</h3>
+<img src="static/images/median-12960-2x-1day.png" width=700/>
+
+<h3>Once a week (1,008 blocks)</h3>
+<img src="static/images/median-12960-2x-1week.png" width=700/>
+
+<hr/>
+
+<h3>Once every two weeks (2,016 blocks)</h3>
+<img src="static/images/median-12960-2x-2week.png" width=700/>
+
+<h3>Once every month (4,320 blocks)</h3>
+<img src="static/images/median-12960-2x-1month.png" width=700/>
+
+<hr/>
+
+<h3>Once every 3 months (12,960 blocks)</h3>
+<img src="static/images/median-12960-2x-3month.png" width=700/>
+
+<h3>Once every 6 months (25,920 blocks)</h3>
+<img src="static/images/median-12960-2x-6month.png" width=700/>
+
+<hr/>
+
+<h3>Once every year (52,560 blocks)</h3>
+<img src="static/images/median-12960-2x-1year.png" width=700/>
+
+<h3>Once every 2 years (105,120 blocks)</h3>
+<img src="static/images/median-12960-2x-2year.png" width=700/>
+
+<hr/>
+
+<h2 id="formulas">Differences in Median and Average Formulas</h2>
+
+<p>These graphs show variations of methods for calculating the moving median and average. All graphs use a sample size of three months multiplied by 2, with 100,000 bytes added, and recalculated for every block.</p>
+
+<h3>Moving Median</h3>
+<img src="static/images/vs-mm-1008-2x-1block.png" width=700/>
+
+<pre>
+<code>
+function movingMedian(range) {
+  range.sort(function(a, b) {
+    return a - b;
+  });
+  var even = (range.length % 2 === 0);
+  var m;
+  if (even) {
+    var mid = range.length / 2;
+    var sum = range[mid] + range[mid + 1];
+    m = Math.round(sum / 2);
+  } else {
+    var mid = Math.floor(range.length / 2);
+    m = range[mid];
+  }
+  return m;
+}
+</code>
+</pre>
+
+<hr/>
+
+<h3>Moving Average</h3>
+<img src="static/images/vs-ma-1008-2x-1block.png" width=700/>
+
+<pre>
+<code>
+function movingAverage(range) {
+  var total = range.length;
+  var sum = range.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+  return Math.round(sum / total);
+}
+</code>
+</pre>
+
+<hr/>
+
+<h3>Exponential Moving Average</h3>
+<img src="static/images/vs-ema-1008-2x-1block.png" width=700/>
+
+<pre>
+<code>
+function exponentialMovingAverage(blockSize, numberOfBlocks, lastBlockSizeAverage) {
+  var k = 2 / (numberOfBlocks + 1);
+  return blockSize * k + lastBlockSizeAverage * (1 - k);
+}
+</code>
+</pre>
+
+<hr/>
+
+<h3>Weighted Moving Average</h3>
+<img src="static/images/vs-wma-1008-2x-1block.png" width=700/>
+
+<pre>
+<code>
+function weightedAverage(range) {
+  var triangle = range.reduce(function(a, b, n) {
+    return a + n;
+  }, 0);
+  var result = 0;
+  for (var i = 0; i < range.length; i++) {
+    result = result + (range[i] * (i + 1) / triangle);
+  }
+  return Math.round(result);
+}
+</code>
+</pre>
+
+<hr/>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In overview of the above comparisons:</p>
+<ul>
+  <li>The exponential moving average formula has an advantage that it can be calculated at an interval of every block quickly as it's based only on the previous blocks average and the current block. A block index could keep record of these values for consensus purposes. The sequential nature of validiting blocks in the chain goes will with this method of calculation.</li>
+  <li>The moving median in comparison with moving average lowers the influence of large or small blocks anomalies. However increasing the sample size for both median and average calculations has an similar effect. The average tends to produce a smoother graph.</li>
+  <li>The moving average, exponential moving average and weighted moving average are roughly indistinguishable. In the goal of having a property of being difficult or slow to influence, the properties of an average and exponential moving average are preferred, as the weighted average will give more signifigance to more recent blocks.</li>
+  <li>Recalculating the maximum block size in larger intervals would also make increasing the size require more signifigant amount of time. Such that if the maximum block size was only recalculated once per year, the maximum rate that the blocksize could grow would be to multiplied once per year. So long as the maximum block sizes are hardly ever reached, sudden changes in the size shouldn't be noticable in confirmation times. However the same could be achieved with a smaller multiplier, at more frequent recaculaton rate. And a smoother transaction in the maximum size guarantee that there wouldn't be any sudden changes that could lead to unexpected behavior.</li>
+  <li>Sample sizes that are larger than the mining difficulty adjustments have the benefit of diminishing single miner influence. A miner that suddenly were able to achieve 51% of the total hash power because of a rapid advance in hashing technology would still only represent a small percentage of the calculated maximum block size. This is because the difficulty would be increased in that time period.</li>
+</ul>
+
+<p>I think we should:</p>
+<ul>
+  <li>Prefer recalculations of the maximum block size at a more frequent rate for smooth and expected behavior.</li>
+  <li>Have a sample size that is several times the difficulty adjustment period to produce robust maximum size that requires significant hashing power and transaction volume to influence.</li>
+  <li>Have a multiplication factor that historically would not have hindered the growth of the network in a major way.</li>
+</ul>
+
+<hr/>
+
+<p>For example, here are the maximum block sizes calculated from historical blocks with a 1 year (52,560) exponential moving average recalculated for every block, and 100,000 bytes added to the maximum.</p>
+
+<img src="static/images/conclusion-ema-52560-x2-1block.png" width=700/>
+
+</div>
+</body>
+</html>
