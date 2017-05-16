@@ -53,6 +53,6 @@
     "mkdirp": "^0.5.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.1",
-    "uglify-js": "^2.6.1"
+    "uglify-js": "^3.0.7"
   }
 }
