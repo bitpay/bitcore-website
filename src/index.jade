@@ -1,7 +1,7 @@
 extends _layouts/primary
 
 block body
-  
+
   .background-element.grid-fade-in.text-center(style="background: url('/images/shadow-grid.png') no-repeat center; height:500px; width:100%")
   .hero.bg-white
     .container.hero-container
@@ -12,16 +12,16 @@ block body
               a.nav-link(href="/start") Start
             li.nav-item.fade-in-delayed
               a.nav-link(href="/guides") Guides
-            li.nav-item.fade-in-delayed
-              a.nav-link(href="/bitcoin") Bitcoin
+            //- li.nav-item.fade-in-delayed
+            //-   a.nav-link(href="/bitcoin") Bitcoin
             li.nav-item.fade-in-delayed
               a.nav-link(href="/api") Docs
-            li.nav-item.fade-in-delayed
-              a.nav-link(href="/playground") Playground
+            //- li.nav-item.fade-in-delayed
+            //-   a.nav-link(href="/playground") Playground
             li.nav-item.fade-in-delayed
               a.nav-link(href="http://forum.bitcore.io/") Forum
           img(src="/images/home-logo.png").m-t-lg.m-b.fade-in-down.home-logo
-          h6.m-b-md.fade-in-up v4.1.0
+          h6.m-b-md.fade-in-up v5.0.0
           h4.m-b-md.fade-in-delayed A powerful, modular node for bitcoin and blockchain-based apps.
           .row
             a(href="/start").btn.btn-primary.fade-in-delayed.btn-margin Get Started
@@ -50,36 +50,36 @@ block body
 
   .section.bg-white.p-b-0
     .container
-      h4.text-center.header__bottom-border Blazing fast, built on Bitcoin
+      h4.text-center.header__bottom-border Powerful &amp; Flexible
       .row
         .col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.m-b-lg
           p.text-center Bitcore is a full bitcoin node &mdash; your apps run directly on the peer-to-peer network. For wallet application development, additional indexes have been added into #[a(href="/bitcoin") Bitcoin] for querying address balances, transaction history, and unspent outputs.
-      
+
       .row.p-y-0.vertical-align
-        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center
           img(src="/images/illustrations/top-slice.svg")
         .col-xs-8.col-sm-8.col-md-6.col-lg-5
           h5.uppercase.letter-spacing-2.m-b-md Open Source
-          p.opacity-70 Bitcore is 100% open source, powered by the time-tested and battle-hardened Bitcore Library. 
+          p.opacity-70 Bitcore is 100% open source, #[a(href="https://github.com/bitpay/bitcore") available on GitHub].
           p.opacity-70 Apps built on Bitcore benefit from the extensive testing and review of dozens of bitcoin companies and community contributors.
-          
+
       .row.p-y-0.vertical-align
-        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center
           img(src="/images/illustrations/middle-slice.svg")
         .col-xs-8.col-sm-8.col-md-6.col-lg-5
           h5.uppercase.letter-spacing-2.m-b-md Full-Featured & Extensible
           p.opacity-70 Bitcore provides a powerful blockchain API and the #[a(href="https://github.com/bitpay/insight-api" class="bold color-orange-dark") Insight] blockchain explorer, right out of the box.
           p.opacity-70 A modular, service-based architecture makes Bitcore a perfect platform for enterprise applications.
       .row.p-y-0.vertical-align
-        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center 
+        .col-xs-6.col-sm-4.col-md-offset-1.col-lg-3.col-lg-offset-2.text-center
           img(src="/images/illustrations/bottom-slice.svg")
         .col-xs-8.col-sm-8.col-md-6.col-lg-5
-          h5.uppercase.letter-spacing-2.m-b-md Built on #[code Bitcoind]
-          p.opacity-70 To build reliable bitcoin and blockchain-based applications, compatibility with #[a(href="/bitcoin" class="bold color-orange-dark") Bitcoin] is essential.
-          p.opacity-70 Bitcore uses the #[a(href="https://github.com/bitcoin/bitcoin") source code] of Bitcoin directly, so accidental chain forks are a thing of the past.
+          h5.uppercase.letter-spacing-2.m-b-md Built on #[code Bcoin]
+          p.opacity-70 To build reliable bitcoin and blockchain-based applications, you need the ability to safely switch between different protocol implementations.
+          p.opacity-70 Bitcore runs on #[a(href="https://github.com/bcoin-org/bcoin") Bcoin] by default, but can be configured to run on any Bitcoin implementation, including #[a(href="https://github.com/bitcoin/bitcoin") Bitcoin Core], #[a(href="https://github.com/bitcoin/bitcoin") the btc1 project], #[a(href="https://github.com/Bitcoin-ABC/bitcoin-abc") Bitcoin ABC], and others.
 
-    
-  .bg-gray.p-y-lg.border-vertical-grey 
+
+  .bg-gray.p-y-lg.border-vertical-grey
     .container
         .col-md-6.p-r-lg.border-right-grey
           a(href="/start").cta-link.bold.m-b.arrow-dark Get Started
@@ -87,7 +87,7 @@ block body
         .col-md-6.p-l-lg.p-l-lt-lg
           a(href="/api").cta-link.bold.m-b.arrow-dark Documentation
           p.m-t Dive into the full API documentation. Bitcore provides an extensive blockchain API right out of the box, and can be extended with dozens of modules and services.
-  
+
   .section.bg-white
     .container
       h5.text-center.opacity-70.m-b-lg Built on Bitcore
@@ -99,7 +99,7 @@ block body
         a(href="http://datt.co/")
           img(src='/images/logos/datt.svg', alt='Datt').project-logo
         a(href="https://proofofexistence.com/")
-          img(src='/images/logos/proofofexistence.svg', alt='Datt').project-logo        
+          img(src='/images/logos/proofofexistence.svg', alt='Datt').project-logo
         a(href="http://pheeva.com/")
           img(src='/images/logos/pheeva.svg', alt='Pheeva').project-logo
         a(href="https://streamium.io/")
