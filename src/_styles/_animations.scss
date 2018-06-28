@@ -25,6 +25,6 @@
 .fade-in-delayed {
   @include fade-in(
     $duration: 2s,
-    $delay: 1.75s
+    $delay: 0.75s
   );
 }
