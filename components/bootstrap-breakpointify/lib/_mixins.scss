@@ -1,8 +1,0 @@
-@import
-'margin',
-'padding';
-
-@mixin margin-and-padding($suffix) {
-  @include margin($suffix);
-  @include padding($suffix);
-}
