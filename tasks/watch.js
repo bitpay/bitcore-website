@@ -33,9 +33,9 @@ gulp.task('watch', ['build'], function() {
     'src/_**/*.jade',
     'src/**/*.md'
   ], [
-    'uncached-rebuild-jade',
-    gulp.devDeps.reload
-  ]);
+      'uncached-rebuild-jade',
+      gulp.devDeps.reload
+    ]);
 
   // Page sources
   gulp.watch([
@@ -43,18 +43,18 @@ gulp.task('watch', ['build'], function() {
     '!src/_**/*.jade',
     'src/**/*.html'
   ], [
-    'rebuild-jade',
-    gulp.devDeps.reload
-  ]);
+      'rebuild-jade',
+      gulp.devDeps.reload
+    ]);
 
   // Scss
   gulp.watch([
     'src/{_styles,styles}/**/*.{scss,css}'
   ], [
-    'scss-lint',
-    'rebuild-styles',
-    gulp.devDeps.reload
-  ]);
+      'scss-lint',
+      'rebuild-styles',
+      gulp.devDeps.reload
+    ]);
 
   // Javascript
   gulp.watch([
@@ -62,24 +62,17 @@ gulp.task('watch', ['build'], function() {
     'tasks/*.js',
     'src/**/*.js'
   ], [
-    'jscs-jshint',
-    'jademin-uglify',
-    gulp.devDeps.reload
-  ]);
+      'jscs-jshint',
+      'jademin-uglify',
+      gulp.devDeps.reload
+    ]);
 
   // Images
   gulp.watch([
     'src/images/**/*'
   ], [
-    'images', gulp.devDeps.reload
-  ]);
-
-  // Playground
-  gulp.watch([
-    'components/bitcore-playground/**/*'
-  ], [
-    'playground', gulp.devDeps.reload
-  ]);
+      'images', gulp.devDeps.reload
+    ]);
 });
 
 // Build and serve the output from the dist build
